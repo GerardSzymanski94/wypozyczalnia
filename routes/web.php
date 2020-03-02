@@ -21,6 +21,14 @@ Route::namespace('Admin')->name('admin.')->prefix('administracja')->group(functi
         Route::get('/', 'DashboardController@index')->name('index');
     });
 
+    Route::prefix('product')->name('product.')->group(function () {
+        Route::get('/', 'ProductController@index')->name('index');
+        Route::get('/edit/{product}', 'ProductController@edit')->name('edit');
+        Route::post('/update/{product}', 'ProductController@update')->name('update');
+        Route::get('/create', 'ProductController@create')->name('create');
+        Route::post('/store', 'ProductController@store')->name('store');
+        Route::get('/destroy/{product}', 'ProductController@destroy')->name('destroy');
+    });
 
     Route::get('login', 'LoginController@index')->name('login');
 
