@@ -59,7 +59,7 @@
                             <option value="1">
                                 Produkt podstawowy
                             </option>
-                            <option value="2">
+                            <option value="2" @if($product->status == 2) selected @endif>
                                 Produkt dodatkowy
                             </option>
                         </select>
