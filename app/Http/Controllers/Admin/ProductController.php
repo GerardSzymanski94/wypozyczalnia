@@ -42,7 +42,7 @@ class ProductController extends BaseController
 
         if ($request->hasFile('photo')) {
             $photo = $request->file('photo')->store('images/' . $product->id . '/');
-            Image::created([
+            Image::create([
                 'url' => $photo,
                 'order' => 1,
                 'product_id' => $product->id
@@ -89,7 +89,7 @@ class ProductController extends BaseController
             Image::updateOrCreate([
                 'order' => 1,
                 'product_id' => $product->id
-            ],[
+            ], [
                 'url' => $photo,
             ]);
         }

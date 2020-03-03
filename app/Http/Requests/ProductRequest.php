@@ -27,6 +27,12 @@ class ProductRequest extends FormRequest
             'name' => 'required',
             'description' => 'required',
             'amount' => 'integer|required',
+            'status' => 'integer|required',
+            'price_one_week' => 'nullable',
+            'price_two_week' => 'nullable',
+            'price_three_week' => 'nullable',
+            'price_four_week' => 'nullable',
+            'price_more_month' => 'nullable',
         ];
     }
 

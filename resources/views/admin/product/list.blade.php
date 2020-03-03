@@ -44,7 +44,8 @@
                             {{ $product->id }}
                         </td>
                         <td>
-
+                            <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}" height="100px" width="100px"
+                                 class="float-left">
                         </td>
                         <td class="news-title">
                             {{ $product->name }}
@@ -57,9 +58,11 @@
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                    <a href="{{ route('admin.product.edit', ['product'=>$product->id]) }}" class="btn btn-secondary btn-primary"><i class="fa fa-edit"></i>Edytuj</a>
-                                    <a href="{{ route('admin.product.destroy', ['product'=>$product->id]) }}" class="btn btn-secondary btn-danger"
-                                       onclick="return confirm('Na pewno usunąć?');"><i class="fa fa-remove"></i>Usuń</a>
+                                <a href="{{ route('admin.product.edit', ['product'=>$product->id]) }}"
+                                   class="btn btn-secondary btn-primary"><i class="fa fa-edit"></i>Edytuj</a>
+                                <a href="{{ route('admin.product.destroy', ['product'=>$product->id]) }}"
+                                   class="btn btn-secondary btn-danger"
+                                   onclick="return confirm('Na pewno usunąć?');"><i class="fa fa-remove"></i>Usuń</a>
                             </div>
                         </td>
                     </tr>
@@ -81,7 +84,7 @@
 
                 if (dInput.indexOf(src) != -1) {
                     $(this).parent().show();
-                }else{
+                } else {
                     $(this).parent().hide();
                 }
             });
