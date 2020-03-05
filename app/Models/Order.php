@@ -10,6 +10,7 @@ class Order extends Model
 
     public function orderProducts()
     {
-        return $this->hasMany(OrderProduct::class, 'order_id', 'id');
+        return $this->hasMany(OrderProduct::class, 'order_id', 'id')->get()->groupBy('days');
+
     }
 }

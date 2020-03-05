@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('index');
+Route::get('/koszyk', 'HomeController@cart')->name('cart');
 
 
 Route::namespace('Ajax')->name('ajax.')->prefix('ajax')->group(function () {

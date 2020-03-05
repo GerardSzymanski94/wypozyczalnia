@@ -30,4 +30,13 @@ class HomeController extends Controller
         // dd($orderItems);
         return view('home', compact('products', 'additionals', 'orderItems'));
     }
+
+    public function cart()
+    {
+        $order = auth()->user()->actualOrder;
+
+      //  dd($order);
+
+        return view('cart', compact('order'));
+    }
 }
