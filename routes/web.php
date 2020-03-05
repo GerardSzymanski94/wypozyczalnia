@@ -11,8 +11,14 @@
 |
 */
 
-    Route::get('/', 'HomeController@index')->name('index');
-    Route::get('/home', 'HomeController@index')->name('index');
+Route::get('/', 'HomeController@index')->name('index');
+Route::get('/home', 'HomeController@index')->name('index');
+
+
+Route::namespace('Ajax')->name('ajax.')->prefix('ajax')->group(function () {
+    Route::post('/add_product', 'AjaxController@addProduct')->name('add_product');
+    Route::post('/get_price', 'AjaxController@getPrice')->name('get_price');
+});
 
 Route::namespace('Admin')->name('admin.')->prefix('administracja')->group(function () {
 
