@@ -63,4 +63,23 @@ class Product extends Model
     {
         return floatval($value / 100);
     }
+
+    public function price($days, $amount = 1)
+    {
+
+        $price = 0;
+        if ($days > 28) {
+            $price = $this->price_more_month * $days;
+        } elseif ($days > 21) {
+            $price = $this->price_four_week * $days;
+        } elseif ($days > 14) {
+            $price = $this->price_three_week * $days;
+        } elseif ($days > 7) {
+            $price = $this->price_two_week * $days;
+        } else {
+            $price = $this->price_one_week * $days;
+        }
+
+        return $price * $amount;
+    }
 }

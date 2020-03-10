@@ -24,19 +24,21 @@ class AjaxController extends Controller
             'date_from' => $from,
             'date_to' => $to
         ]);
-        $orderProduct = OrderProduct::updateOrCreate([
+        $product = Product::find($request->product);
+        $orderProduct = OrderProduct::create([
             'order_id' => $order->id,
-            'product_id' => $request->product,
             'days' => $request->days,
-        ], [
-
+            'product_id' => $request->product,
+            'amount' => $request->amount,
+            'price' => $product->price($request->days,  $request->amount)
         ]);
-        $orderProduct = OrderProduct::updateOrCreate([
+        $product = Product::find($request->additional);
+        $orderProduct = OrderProduct::create([
             'order_id' => $order->id,
             'product_id' => $request->additional,
+            'amount' => $request->amount,
             'days' => $request->days,
-        ], [
-
+            'price' => $product->price($request->days, $request->amount)
         ]);
 
         /*        $product = Product::find($request->product);

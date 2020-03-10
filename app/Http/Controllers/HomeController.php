@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OrderProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -26,17 +27,43 @@ class HomeController extends Controller
     {
         $products = Product::whereStatus(1)->get();
         $additionals = Product::whereStatus(2)->get();
-        $order = auth()->user()->actualOrder->orderProducts;
-        // dd($orderItems);
+
         return view('home', compact('products', 'additionals', 'orderItems'));
     }
 
     public function cart()
     {
         $order = auth()->user()->actualOrder;
-
-      //  dd($order);
-
         return view('cart', compact('order'));
+    }
+
+    public function cartDelete(OrderProduct $product)
+    {
+        $product->delete();
+        return redirect()->route('cart');
+    }
+
+    public function userData()
+    {
+        $user = auth()->user();
+        $order = $user->actualOrder;
+        return view('data', compact('order', 'user'));
+    }
+
+    public function saveOrder(Request $request)
+    {
+        $user = auth()->user();
+        $user->street = $request->street;
+        $user->city = $request->city;
+        $user->zip_code = $request->zip_code;
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->save();
+
+        $order = $user->actualOrder;
+        $order->status = 2;
+        $order->save();
+
+        return redirect()->route('index');
     }
 }

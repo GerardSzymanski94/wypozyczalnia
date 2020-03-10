@@ -10,7 +10,17 @@ class Order extends Model
 
     public function orderProducts()
     {
-        return $this->hasMany(OrderProduct::class, 'order_id', 'id')->get()->groupBy('days');
+        return $this->hasMany(OrderProduct::class, 'order_id', 'id');
 
+    }
+
+    public function price()
+    {
+        $price = 0;
+        foreach ($this->orderProducts as $orderProduct) {
+            if (isset($orderProduct->price) && $orderProduct->price != null)
+                $price = $price + $orderProduct->price;
+        }
+        return $price;
     }
 }

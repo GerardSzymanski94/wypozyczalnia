@@ -63,27 +63,6 @@
             </section>
 
             <hr>
-            <section class="section_2">
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <h2>Wybierz liczbę dni</h2>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="days">Liczba dni <span
-                                            class="required">*</span></label>
-                                <input type="number" name="days" id="days" class="form-control" step="1" value="">
-
-                                @if($errors->has('days'))
-                                    <p class="alert alert-danger"> {{ $errors->first('days') }}
-                                    </p>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-            <hr>
             <section class="section_3">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
@@ -135,16 +114,58 @@
                 </div>
             </section>
             <hr>
+            <section class="section_2">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <h2>Wybierz liczbę dni</h2>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="days">Liczba dni <span
+                                            class="required">*</span></label>
+                                <input type="number" name="days" id="days" class="form-control" step="1" value="">
+
+                                @if($errors->has('days'))
+                                    <p class="alert alert-danger"> {{ $errors->first('days') }}
+                                    </p>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <hr>
+            <section class="section_6">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <h2>Ilość</h2>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="amount">Ilość<span
+                                            class="required">*</span></label>
+                                <input type="number" name="amount" id="amount" class="form-control" step="1" value="1">
+
+                                @if($errors->has('amount'))
+                                    <p class="alert alert-danger"> {{ $errors->first('amount') }}
+                                    </p>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <hr>
 
             <section class="section_4">
-                <a href="" class="btn btn-primary">
+                {{--<a href="" class="btn btn-primary">
                     Sprawdź cenę
-                </a>
+                </a>--}}
                 <div class="btn btn-primary" id="add_product">
                     Dodaj do koszyka
                 </div>
-                <a href="" class="btn btn-primary">
-                    Przejdź do podsumowania
+                <a href="{{ route('cart') }}" class="btn btn-primary">
+                    Przejdź do koszyka
                 </a>
             </section>
         </form>
@@ -185,6 +206,7 @@
             //   alert(product);
             var additional = $(".additional_checkbox:checked").val();
             var days = $("#days").val();
+            var amount = $("#amount").val();
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -192,7 +214,7 @@
                 dataType: 'json',
                 type: 'POST',
                 url: '{{ route('ajax.add_product') }}',
-                data: {product: product, additional: additional, days: days},
+                data: {product: product, additional: additional, days: days, amount:amount},
                 success: function (data) {
                     // $('.section_0').html(data.view);
                     $('#added_to_cart').show();
