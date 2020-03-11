@@ -55,6 +55,9 @@
                             <li>
                                 <a href="{{ route('admin.product.index') }}"><i class="fa fa-product-hunt"></i> Produkty</a>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.order.index') }}"><i class="fa fa-list"></i> Zamówienia</a>
+                            </li>
                         </ul>
                     </div>
 

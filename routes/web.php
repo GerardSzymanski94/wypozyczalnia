@@ -39,6 +39,14 @@ Route::namespace('Admin')->name('admin.')->prefix('administracja')->group(functi
         Route::post('/store', 'ProductController@store')->name('store');
         Route::get('/destroy/{product}', 'ProductController@destroy')->name('destroy');
     });
+    Route::prefix('order')->name('order.')->group(function () {
+        Route::get('/', 'OrderController@index')->name('index');
+        Route::get('/details/{order}', 'OrderController@details')->name('details');
+        Route::post('/update/{order}', 'OrderController@update')->name('update');
+        Route::get('/create', 'OrderController@create')->name('create');
+        Route::post('/store', 'OrderController@store')->name('store');
+        Route::get('/destroy/{order}', 'OrderController@destroy')->name('destroy');
+    });
 
     Route::get('login', 'LoginController@index')->name('login');
 
