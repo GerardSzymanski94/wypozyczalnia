@@ -82,4 +82,16 @@ class Product extends Model
 
         return $price * $amount;
     }
+
+    public function reduceAmount($value)
+    {
+        $this->amount = $this->amount - $value;
+        $this->save();
+    }
+
+    public function increaseAmount($value)
+    {
+        $this->amount = $this->amount + $value;
+        $this->save();
+    }
 }

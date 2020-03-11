@@ -24,29 +24,28 @@ class AjaxController extends Controller
             'date_from' => $from,
             'date_to' => $to
         ]);
-        $product = Product::find($request->product);
-        $orderProduct = OrderProduct::create([
-            'order_id' => $order->id,
-            'days' => $request->days,
-            'product_id' => $request->product,
-            'amount' => $request->amount,
-            'price' => $product->price($request->days,  $request->amount)
-        ]);
-        $product = Product::find($request->additional);
-        $orderProduct = OrderProduct::create([
-            'order_id' => $order->id,
-            'product_id' => $request->additional,
-            'amount' => $request->amount,
-            'days' => $request->days,
-            'price' => $product->price($request->days, $request->amount)
-        ]);
-
-        /*        $product = Product::find($request->product);
-                $days = $request->days;
-                $additional = Product::find($request->additional);
-                $id = $orderProduct->id;*/
-
-        //$view = view('ajax.order_item', compact('product', 'days', 'additional', 'id'))->render();
+        if ($request->has('product')) {
+            $product = Product::find($request->product);
+            $orderProduct = OrderProduct::create([
+                'order_id' => $order->id,
+                'days' => $request->days,
+                'product_id' => $request->product,
+                'amount' => $request->amount,
+                'price' => $product->price($request->days, $request->amount),
+                'status' => 1
+            ]);
+        }
+        if ($request->has('additional')) {
+            $product = Product::find($request->additional);
+            $orderProduct = OrderProduct::create([
+                'order_id' => $order->id,
+                'product_id' => $request->additional,
+                'amount' => $request->amount,
+                'days' => $request->days,
+                'price' => $product->price($request->days, $request->amount),
+                'status' => 1
+            ]);
+        }
 
         return response()->json(['view' => true]);
     }

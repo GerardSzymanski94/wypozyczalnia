@@ -64,6 +64,12 @@ class HomeController extends Controller
         $order->status = 2;
         $order->save();
 
+        foreach ($order->orderProducts as $orderProduct) {
+            $orderProduct->status = 2;
+            $orderProduct->save();
+            $orderProduct->product->reduceAmount($orderProduct->amount);
+        }
+
         return redirect()->route('index');
     }
 }
