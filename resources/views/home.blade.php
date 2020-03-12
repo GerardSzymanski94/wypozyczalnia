@@ -32,6 +32,9 @@
                                                 <p class="card-text">{{ $product->name }}</p>
                                             </div>
                                             <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+                                                    Dostępna ilość: {{ $product->amount }}
+                                                </li>
                                                 <li class="list-group-item">7 dni - {{ $product->price_one_week }}zł /
                                                     dzień
                                                 </li>
@@ -80,6 +83,10 @@
                                                 <p class="card-text">{{ $additional->name }}</p>
                                             </div>
                                             <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+                                                    Dostępna ilość: {{ $product->amount }}
+
+                                                </li>
                                                 <li class="list-group-item">7 dni - {{ $additional->price_one_week }}zł
                                                     /
                                                     dzień
@@ -122,7 +129,7 @@
                             <div class="form-group col-md-6">
                                 <label for="days">Liczba dni <span
                                             class="required">*</span></label>
-                                <input type="number" name="days" id="days" class="form-control" step="1" value="">
+                                <input type="number" name="days" id="days" class="form-control" step="1" value="1">
 
                                 @if($errors->has('days'))
                                     <p class="alert alert-danger"> {{ $errors->first('days') }}
@@ -214,7 +221,7 @@
                 dataType: 'json',
                 type: 'POST',
                 url: '{{ route('ajax.add_product') }}',
-                data: {product: product, additional: additional, days: days, amount:amount},
+                data: {product: product, additional: additional, days: days, amount: amount},
                 success: function (data) {
                     // $('.section_0').html(data.view);
                     $('#added_to_cart').show();
