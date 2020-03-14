@@ -65,8 +65,7 @@ class HomeController extends Controller
         $order->save();
 
         foreach ($order->orderProducts as $orderProduct) {
-            $orderProduct->status = 2;
-            $orderProduct->save();
+            $orderProduct->changeStatus(2);
             $orderProduct->product->reduceAmount($orderProduct->amount);
         }
 

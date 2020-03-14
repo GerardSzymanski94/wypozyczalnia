@@ -84,7 +84,7 @@
                                             </div>
                                             <ul class="list-group list-group-flush">
                                                 <li class="list-group-item">
-                                                    Dostępna ilość: {{ $product->amount }}
+                                                    Dostępna ilość: {{ $additional->amount }}
 
                                                 </li>
                                                 <li class="list-group-item">7 dni - {{ $additional->price_one_week }}zł

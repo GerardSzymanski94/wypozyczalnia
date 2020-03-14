@@ -23,6 +23,7 @@
                     <th>Produkt</th>
                     <th>Ilość</th>
                     <th>Cena</th>
+                    <th>Data oddania</th>
                     <th>Status</th>
                     <th></th>
                 </tr>
@@ -42,11 +43,21 @@
                             {{ $orderProduct->price }}
                         </td>
                         <td>
-                            {{ $orderProduct->status }}
+                            {{ $orderProduct->showDay() }}
+                        </td>
+                        <td>
+                            {{ $orderProduct->showStatus() }}
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
-
+                                @if($orderProduct->status==2)
+                                    <a class="btn btn-success"
+                                       href="{{ route('admin.order.return', ['orderProduct'=>$orderProduct->id]) }}">Zwrócono</a>
+                                @elseif($orderProduct->status==3)
+                                    <a class="btn btn-danger"
+                                       href="{{ route('admin.order.unavailable', ['orderProduct'=>$orderProduct->id]) }}">Nie
+                                        zwrócono</a>
+                                @endif
                             </div>
                         </td>
                     </tr>

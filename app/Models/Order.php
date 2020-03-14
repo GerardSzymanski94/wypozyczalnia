@@ -14,7 +14,8 @@ class Order extends Model
 
     }
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
@@ -27,4 +28,33 @@ class Order extends Model
         }
         return $price;
     }
+
+
+    public function showStatus()
+    {
+        switch ($this->status) {
+            case 1:
+                return 'Niedokończone';
+                break;
+            case 2:
+                return 'Zamówienie dokończone';
+                break;
+            case 3:
+                return 'Częściowo zwrócone';
+                break;
+            case 4:
+                return 'Zwrócone';
+                break;
+            default:
+                return 'Nieznany status';
+        }
+    }
+
+
+    public function changeStatus($status)
+    {
+        $this->status = $status;
+        $this->save();
+    }
+
 }

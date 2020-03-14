@@ -41,7 +41,7 @@
                             {{ $order->price() }}
                         </td>
                         <td>
-                            {{ $order->status }}
+                            {{ $order->showStatus() }}
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">

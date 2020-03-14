@@ -46,6 +46,8 @@ Route::namespace('Admin')->name('admin.')->prefix('administracja')->group(functi
         Route::get('/create', 'OrderController@create')->name('create');
         Route::post('/store', 'OrderController@store')->name('store');
         Route::get('/destroy/{order}', 'OrderController@destroy')->name('destroy');
+        Route::get('/return/{orderProduct}', 'OrderController@changeStatusToReturn')->name('return');
+        Route::get('/unavailable/{orderProduct}', 'OrderController@changeStatusToUnavailable')->name('unavailable');
     });
 
     Route::get('login', 'LoginController@index')->name('login');
