@@ -68,4 +68,22 @@ class AjaxController extends Controller
         }
         return response()->json(['view' => true]);
     }
+
+    public function getPrice(Request $request)
+    {
+        $product = Product::find($request->product);
+
+        $days = $request->days;
+        $amount = $request->amount;
+
+        $price = 0;
+        $price = $price + $product->price($days, $amount);
+
+        if (isset($request->additional)) {
+            $additional = Product::find($request->additional);
+            $price = $price + $additional->price($days, $amount);
+        }
+
+        return response()->json(['price' => $price]);
+    }
 }

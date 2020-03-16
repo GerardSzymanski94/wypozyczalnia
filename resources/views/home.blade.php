@@ -57,7 +57,7 @@
                                     </div>
                                 </label>
                                 <input type="checkbox" name="product[{{ $product->id }}]" class="product_checkbox"
-                                       value="{{ $product->id }}" style="display: none"
+                                       value="{{ $product->id }}"
                                        id="product_{{ $product->id }}">
                             @endforeach
                         </div>
@@ -113,7 +113,7 @@
                                     </div>
                                 </label>
                                 <input type="checkbox" name="additional[{{ $additional->id }}]"
-                                       class="additional_checkbox" style="display: none"
+                                       class="additional_checkbox"
                                        id="additional_{{ $additional->id }}" value="{{ $additional->id }}">
                             @endforeach
                         </div>
@@ -163,7 +163,9 @@
 
             </section>
             <hr>
-
+            <section class="section_6">
+                <p><span id="price">0</span> zł</p>
+            </section>
             <section class="section_4">
                 {{--<a href="" class="btn btn-primary">
                     Sprawdź cenę
@@ -193,7 +195,6 @@
                 "border-width": "2px",
                 "border-style": "solid"
             });
-            console.log($("#product_" + $(this).data('id')));
             $("#product_" + $(this).data('id')).is(":checked");
         });
         $('body').on('click', '.additional_card', function () {
@@ -203,14 +204,18 @@
                 "border-width": "2px",
                 "border-style": "solid"
             });
-            console.log($("#additional" + $(this).data('id')));
             $("#additional_" + $(this).data('id')).is(":checked");
         });
 
+        $('body').on('change', '#days', function () {
+            getPrice();
+        });
+        $('body').on('change', '#amount', function () {
+            getPrice();
+        });
+
         $('body').on('click', '#add_product', function () {
-            // alert('test');
             var product = $(".product_checkbox:checked").val();
-            //   alert(product);
             var additional = $(".additional_checkbox:checked").val();
             var days = $("#days").val();
             var amount = $("#amount").val();
@@ -223,7 +228,6 @@
                 url: '{{ route('ajax.add_product') }}',
                 data: {product: product, additional: additional, days: days, amount: amount},
                 success: function (data) {
-                    // $('.section_0').html(data.view);
                     $('#added_to_cart').show();
                     $('html, body').animate({
                             scrollTop: $("#added_to_cart").offset().top
@@ -260,6 +264,37 @@
                 });
             });
             $('.additional_checkbox').prop("checked", false);
+        }
+
+        $('body').on('change', '.product_checkbox', function () {
+            getPrice();
+        });
+        $('body').on('change', '.additional_checkbox', function () {
+            getPrice();
+        });
+
+        function getPrice() {
+            var product = $(".product_checkbox:checked").val();
+            var additional = $(".additional_checkbox:checked").val();
+            var days = $("#days").val();
+            var amount = $("#amount").val();
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                dataType: 'json',
+                type: 'POST',
+                url: '{{ route('ajax.get_price') }}',
+                data: {product: product, additional: additional, days: days, amount: amount},
+                success: function (data) {
+                    $('#price').empty().append(data.price);
+                },
+                error:
+                    function (jqXHR, textStatus, errorThrown) {
+                        console.log(JSON.stringify(jqXHR));
+                        console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+                    }
+            });
         }
     </script>
 @endsection
