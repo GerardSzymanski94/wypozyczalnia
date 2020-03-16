@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Order;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -64,9 +66,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        Order::where('session_key', Session::token())->update(['user_id' => $user->id]);
+        return $user;
     }
 }

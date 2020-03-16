@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -15,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -33,7 +35,14 @@ class HomeController extends Controller
 
     public function cart()
     {
-        $order = auth()->user()->actualOrder;
+        if (isset(auth()->user()->id)) {
+            $order = auth()->user()->actualOrder;
+        } else {
+            $order = Order::firstOrCreate([
+                'session_key' => Session::token(),
+            ]);
+        }
+
         return view('cart', compact('order'));
     }
 
@@ -45,6 +54,11 @@ class HomeController extends Controller
 
     public function userData()
     {
+        if (isset(auth()->user()->id)) {
+
+        } else {
+            return redirect()->route('login');
+        }
         $user = auth()->user();
         $order = $user->actualOrder;
         return view('data', compact('order', 'user'));

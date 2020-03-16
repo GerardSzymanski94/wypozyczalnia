@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -65,4 +67,10 @@ class LoginController extends Controller
     {
         return redirect()->back()->with('login-error', true);
     }
+
+    protected function authenticated(Request $request, $user)
+    {
+        Order::where('session_key', Session::token())->update(['user_id' => $user->id]);
+    }
+
 }

@@ -7,7 +7,7 @@ use App\Models\Order;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class OrderController extends BaseController
 {
     /**
      * Display a listing of the resource.

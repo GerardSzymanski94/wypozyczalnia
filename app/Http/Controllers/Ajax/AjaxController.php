@@ -8,22 +8,42 @@ use App\Models\OrderProduct;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AjaxController extends Controller
 {
     public function addProduct(Request $request)
     {
-        $userId = auth()->user()->id;
-        $now = Carbon::now();
-        $from = Carbon::now();
-        $to = $now->addDays($request->days);
-        $order = Order::firstOrCreate([
-            'user_id' => $userId,
-            'status' => 1,
-        ], [
-            'date_from' => $from,
-            'date_to' => $to
-        ]);
+
+        if (isset(auth()->user()->id)) {
+            $userId = auth()->user()->id;
+            $now = Carbon::now();
+            $from = Carbon::now();
+            $to = $now->addDays($request->days);
+            $order = Order::firstOrCreate([
+                'user_id' => $userId,
+                'status' => 1,
+            ], [
+                'date_from' => $from,
+                'date_to' => $to
+            ]);
+
+        } else {
+
+            $sessionKey = Session::token();
+            $now = Carbon::now();
+            $from = Carbon::now();
+            $to = $now->addDays($request->days);
+            $order = Order::firstOrCreate([
+                'session_key' => $sessionKey,
+                'status' => 1,
+            ], [
+                'date_from' => $from,
+                'date_to' => $to
+            ]);
+
+        }
+
         if ($request->has('product')) {
             $product = Product::find($request->product);
             $orderProduct = OrderProduct::create([
@@ -46,7 +66,6 @@ class AjaxController extends Controller
                 'status' => 1
             ]);
         }
-
         return response()->json(['view' => true]);
     }
 }
