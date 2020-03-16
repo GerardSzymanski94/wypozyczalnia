@@ -20,8 +20,8 @@ Dane do logowania do panelu admina
 
 ```php
 url: /administracja
-login: biuro@septen.pl
-hasło: 1qaz.2wsx
+login: admin@admin.pl
+hasło: 123qwe
 ```
 
 ### Podstawowa organizacja plików
