@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\CompleteOrderEvent;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -82,7 +85,16 @@ class HomeController extends Controller
             $orderProduct->changeStatus(2);
             $orderProduct->product->reduceAmount($orderProduct->amount);
         }
+        return view('complete', compact('order'));
+    }
 
-        return redirect()->route('index');
+    public function createPDF(Order $order)
+    {
+        $user = auth()->user();
+        $view = view('admin.order.pdf_content', compact('order', 'user'));
+
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML($view->render());
+        return $pdf->download();
     }
 }
