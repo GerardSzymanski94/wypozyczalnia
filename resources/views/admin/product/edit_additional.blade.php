@@ -4,7 +4,7 @@
 
     <div class="x_panel">
         <div class="x_title">
-            <h2>Edytuj produkt</h2>
+            <h2>Edytuj elektrody</h2>
 
             <div class="clearfix"></div>
         </div>
@@ -15,7 +15,7 @@
                 @csrf
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <h2>Dane o produkcie</h2>
+                        <h2>Dane o elektrodach</h2>
                     </div>
                 </div>
                 <div class="form-row">
@@ -52,8 +52,24 @@
                             </p>
                         @endif
                     </div>
-
                     <input type="hidden" name="status" value="2">
+                    {{--<div class="form-group col-md-6">
+                        <label for="status">Status <span class="required">*</span></label>
+
+                        <select name="status" id="status" class="form-control">
+                            <option value="1">
+                                Produkt podstawowy
+                            </option>
+                            <option value="2" @if($product->status == 2) selected @endif>
+                                Produkt dodatkowy
+                            </option>
+                        </select>
+
+                        @if($errors->has('status'))
+                            <p class="alert alert-danger"> {{ $errors->first('status') }}
+                            </p>
+                        @endif
+                    </div>--}}
                 </div>
                 <hr>
 
@@ -64,7 +80,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="price_one_week">Cena za dzień do 1 tygodnia <span class="required">*</span></label>
+                        <label for="price_one_week">Cena elektrod <span class="required">*</span></label>
                         <input type="number" name="price_one_week" id="price_one_week" class="form-control" step="0.01"
                                value="{{ old('price_one_week', $product->price_one_week ?? '') }}">
 
@@ -73,60 +89,10 @@
                             </p>
                         @endif
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="price_two_week">Cena za dzień do 2 tygodnii <span class="required">*</span></label>
-                        <input type="number" name="price_two_week" id="price_two_week" class="form-control" step="0.01"
-                               value="{{ old('price_two_week', $product->price_two_week ?? '') }}">
-
-                        @if($errors->has('price_two_week'))
-                            <p class="alert alert-danger"> {{ $errors->first('price_two_week') }}
-                            </p>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="price_three_week">Cena za dzień do 3 tygodnii <span
-                                    class="required">*</span></label>
-                        <input type="number" name="price_three_week" id="price_three_week" class="form-control"
-                               step="0.01"
-                               value="{{ old('price_three_week', $product->price_three_week ?? '') }}">
-
-                        @if($errors->has('price_three_week'))
-                            <p class="alert alert-danger"> {{ $errors->first('price_three_week') }}
-                            </p>
-                        @endif
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="price_four_week">Cena za dzień do 4 tygodnii <span class="required">*</span></label>
-                        <input type="number" name="price_four_week" id="price_four_week" class="form-control"
-                               step="0.01"
-                               value="{{ old('price_four_week', $product->price_four_week ?? '') }}">
-
-                        @if($errors->has('price_four_week'))
-                            <p class="alert alert-danger"> {{ $errors->first('price_four_week') }}
-                            </p>
-                        @endif
-                    </div>
-
 
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="price_more_month">Cena za dzień za ponad 4 tygodnie <span
-                                    class="required">*</span></label>
-                        <input type="number" name="price_more_month" id="price_more_month"
-                               class="form-control" step="0.01"
-                               value="{{ old('price_more_month', $product->price_more_month ?? '') }}">
 
-                        @if($errors->has('price_more_month'))
-                            <p class="alert alert-danger"> {{ $errors->first('price_more_month') }}
-                            </p>
-                        @endif
-                    </div>
 
-                </div>
                 <hr>
                 <div class="form-row">
                     <div class="form-group col-md-12">

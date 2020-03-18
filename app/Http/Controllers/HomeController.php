@@ -33,7 +33,7 @@ class HomeController extends Controller
         $products = Product::whereStatus(1)->get();
         $additionals = Product::whereStatus(2)->get();
 
-        return view('home', compact('products', 'additionals', 'orderItems'));
+        return view('home', compact('products', 'additionals'));
     }
 
     public function cart()

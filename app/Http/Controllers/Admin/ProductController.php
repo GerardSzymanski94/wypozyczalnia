@@ -16,8 +16,9 @@ class ProductController extends BaseController
      */
     public function index()
     {
-        $products = Product::all();
-        return view('admin.product.list', compact('products'));
+        $products = Product::where('status', 1)->get();
+        $additionals = Product::where('status', 2)->get();
+        return view('admin.product.list', compact('products', 'additionals'));
     }
 
     /**
@@ -28,6 +29,11 @@ class ProductController extends BaseController
     public function create()
     {
         return view('admin.product.create');
+    }
+
+    public function createAdditional()
+    {
+        return view('admin.product.create_additional');
     }
 
     /**
@@ -51,6 +57,7 @@ class ProductController extends BaseController
         return redirect()->route('admin.product.index')->with('add', true);
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -71,6 +78,11 @@ class ProductController extends BaseController
     public function edit(Product $product)
     {
         return view('admin.product.edit', compact('product'));
+    }
+
+    public function editAdditional(Product $product)
+    {
+        return view('admin.product.edit_additional', compact('product'));
     }
 
     /**

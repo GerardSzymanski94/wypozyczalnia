@@ -53,23 +53,8 @@
                             </p>
                         @endif
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="status">Status <span class="required">*</span></label>
 
-                        <select name="status" id="status" class="form-control">
-                            <option value="1">
-                                Produkt podstawowy
-                            </option>
-                            <option value="2">
-                                Produkt dodatkowy
-                            </option>
-                        </select>
-
-                        @if($errors->has('status'))
-                            <p class="alert alert-danger"> {{ $errors->first('status') }}
-                            </p>
-                        @endif
-                    </div>
+                    <input type="hidden" name="status" value="1">
                 </div>
                 <hr>
 

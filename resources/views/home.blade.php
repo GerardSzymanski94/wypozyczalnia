@@ -87,26 +87,7 @@
                                                     Dostępna ilość: {{ $additional->amount }}
 
                                                 </li>
-                                                <li class="list-group-item">7 dni - {{ $additional->price_one_week }}zł
-                                                    /
-                                                    dzień
-                                                </li>
-                                                <li class="list-group-item">14 dni - {{ $additional->price_two_week }}zł
-                                                    /
-                                                    dzień
-                                                </li>
-                                                <li class="list-group-item">21 dni - {{ $additional->price_three_week }}
-                                                    zł /
-                                                    dzień
-                                                </li>
-                                                <li class="list-group-item">28 dni
-                                                    - {{ $additional->price_four_week }}zł /
-                                                    dzień
-                                                </li>
-                                                <li class="list-group-item">>28 dni
-                                                    - {{ $additional->price_more_month }}zł
-                                                    /
-                                                    dzień
+                                                <li class="list-group-item">{{ $additional->price_one_week }} zł
                                                 </li>
                                             </ul>
                                         </div>
@@ -115,7 +96,12 @@
                                 <input type="checkbox" name="additional[{{ $additional->id }}]"
                                        class="additional_checkbox"
                                        id="additional_{{ $additional->id }}" value="{{ $additional->id }}">
+                                <label for="amount">Ilość<span
+                                            class="required">*</span></label>
+                                <input type="number" name="amount" id="amount" class="form-control" step="1" value="1">
                             @endforeach
+
+
                         </div>
                     </div>
                 </div>

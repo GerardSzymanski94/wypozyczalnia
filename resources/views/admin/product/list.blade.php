@@ -35,13 +35,15 @@
                     <td>
                         <a class="btn btn-primary" href="{{ route('admin.product.create') }}">
                             Dodaj produkt
+                        </a><a class="btn btn-primary" href="{{ route('admin.product.create_additional') }}">
+                            Dodaj elektrody
                         </a>
                     </td>
                 </tr>
                 @foreach($products as $product)
                     <tr>
                         <td>
-                            {{ $product->id }}
+
                         </td>
                         <td>
                             <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}" height="100px" width="100px"
@@ -61,6 +63,36 @@
                                 <a href="{{ route('admin.product.edit', ['product'=>$product->id]) }}"
                                    class="btn btn-secondary btn-primary"><i class="fa fa-edit"></i>Edytuj</a>
                                 <a href="{{ route('admin.product.destroy', ['product'=>$product->id]) }}"
+                                   class="btn btn-secondary btn-danger"
+                                   onclick="return confirm('Na pewno usunąć?');"><i class="fa fa-remove"></i>Usuń</a>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                @foreach($additionals as $additional)
+                    <tr>
+                        <td>
+
+                        </td>
+                        <td>
+                            <img src="{{ asset('storage/'. $additional->getMainPhoto->url) }}" height="100px"
+                                 width="100px"
+                                 class="float-left">
+                        </td>
+                        <td class="news-title">
+                            {{ $additional->name }}
+                        </td>
+                        <td class="news-content">
+                            {{ substr($additional->description, 0, 100) }}...
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a href="{{ route('admin.product.edit_additional', ['product'=>$additional->id]) }}"
+                                   class="btn btn-secondary btn-primary"><i class="fa fa-edit"></i>Edytuj</a>
+                                <a href="{{ route('admin.product.destroy', ['product'=>$additional->id]) }}"
                                    class="btn btn-secondary btn-danger"
                                    onclick="return confirm('Na pewno usunąć?');"><i class="fa fa-remove"></i>Usuń</a>
                             </div>

@@ -35,9 +35,11 @@ Route::namespace('Admin')->name('admin.')->prefix('administracja')->group(functi
     Route::prefix('product')->name('product.')->group(function () {
         Route::get('/', 'ProductController@index')->name('index');
         Route::get('/edit/{product}', 'ProductController@edit')->name('edit');
-        Route::post('/update/{product}', 'ProductController@update')->name('update');
+        Route::get('/edit_additional/{product}', 'ProductController@editAdditional')->name('edit_additional');
+        Route::get('/create_additional', 'ProductController@createAdditional')->name('create_additional');
         Route::get('/create', 'ProductController@create')->name('create');
         Route::post('/store', 'ProductController@store')->name('store');
+        Route::post('/update/{product}', 'ProductController@update')->name('update');
         Route::get('/destroy/{product}', 'ProductController@destroy')->name('destroy');
     });
     Route::prefix('order')->name('order.')->group(function () {
