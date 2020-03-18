@@ -57,7 +57,7 @@
                                     </div>
                                 </label>
                                 <input type="checkbox" name="product[{{ $product->id }}]" class="product_checkbox"
-                                       value="{{ $product->id }}"
+                                       value="{{ $product->id }}" style="display: none;"
                                        id="product_{{ $product->id }}">
                             @endforeach
                         </div>
@@ -94,11 +94,8 @@
                                     </div>
                                 </label>
                                 <input type="checkbox" name="additional[{{ $additional->id }}]"
-                                       class="additional_checkbox"
+                                       class="additional_checkbox" style="display: none;"
                                        id="additional_{{ $additional->id }}" value="{{ $additional->id }}">
-                                <label for="amount">Ilość<span
-                                            class="required">*</span></label>
-                                <input type="number" name="amount" id="amount" class="form-control" step="1" value="1">
                             @endforeach
 
 
