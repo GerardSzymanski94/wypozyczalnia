@@ -43,30 +43,39 @@ class AjaxController extends Controller
             ]);
 
         }
-
+        $checkAmount = true;
         if ($request->has('product')) {
             $product = Product::find($request->product);
-            $orderProduct = OrderProduct::create([
-                'order_id' => $order->id,
-                'days' => $request->days,
-                'product_id' => $request->product,
-                'amount' => $request->amount,
-                'price' => $product->price($request->days, $request->amount),
-                'status' => 1
-            ]);
+            if ($product->checkAmount($request->amount)) {
+                $orderProduct = OrderProduct::create([
+                    'order_id' => $order->id,
+                    'days' => $request->days,
+                    'product_id' => $request->product,
+                    'amount' => $request->amount,
+                    'price' => $product->price($request->days, $request->amount),
+                    'status' => 1
+                ]);
+            } else {
+                $checkAmount = false;
+            }
+
         }
         if ($request->has('additional')) {
             $product = Product::find($request->additional);
-            $orderProduct = OrderProduct::create([
-                'order_id' => $order->id,
-                'product_id' => $request->additional,
-                'amount_additional' => $request->amount_additional,
-                'days' => $request->days,
-                'price' => $product->priceAdditional($request->amount_additional),
-                'status' => 1
-            ]);
+            if ($product->checkAmount($request->amount_additional)) {
+                $orderProduct = OrderProduct::create([
+                    'order_id' => $order->id,
+                    'product_id' => $request->additional,
+                    'amount_additional' => $request->amount_additional,
+                    'days' => $request->days,
+                    'price' => $product->priceAdditional($request->amount_additional),
+                    'status' => 1
+                ]);
+            } else {
+                $checkAmount = false;
+            }
         }
-        return response()->json(['view' => true]);
+        return response()->json(['view' => true, 'checkAmount' => $checkAmount]);
     }
 
     public function getPrice(Request $request)
@@ -87,4 +96,5 @@ class AjaxController extends Controller
 
         return response()->json(['price' => $price]);
     }
+
 }

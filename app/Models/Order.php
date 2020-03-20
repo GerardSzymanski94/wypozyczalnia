@@ -57,4 +57,13 @@ class Order extends Model
         $this->save();
     }
 
+    public function checkAmounts()
+    {
+        foreach ($this->orderProducts as $orderProduct) {
+            if ($orderProduct->product->checkAmount($orderProduct->amount) == false)
+                return false;
+        }
+        return true;
+    }
+
 }

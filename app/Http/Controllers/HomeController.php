@@ -64,6 +64,7 @@ class HomeController extends Controller
         }
         $user = auth()->user();
         $order = $user->actualOrder;
+
         return view('data', compact('order', 'user'));
     }
 
@@ -78,6 +79,12 @@ class HomeController extends Controller
         $user->save();
 
         $order = $user->actualOrder;
+
+        if (!$order->checkAmounts()) {
+            $checkAmounts = true;
+            return view('data', compact('order', 'user', 'checkAmounts'));
+        }
+
         $order->status = 2;
         $order->save();
 

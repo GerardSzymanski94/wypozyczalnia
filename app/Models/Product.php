@@ -99,4 +99,13 @@ class Product extends Model
         $this->amount = $this->amount + $value;
         $this->save();
     }
+
+    public function checkAmount($amount)
+    {
+        if ($this->amount >= $amount) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
