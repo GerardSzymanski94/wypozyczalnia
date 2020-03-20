@@ -1,0 +1,52 @@
+.MainSection-hero {
+  @include margin-bottom-150;
+
+  &-image {
+    @include border-radius-20;
+
+    height: 468px;
+    padding: 0;
+    background: bottom no-repeat;
+    background-size: cover;
+    position: relative;
+    box-shadow: 0 25px 25px rgba(0, 0, 0, .12);
+    overflow: hidden;
+
+    @include screen-sm {
+      @include fluid-type( height, $sm, $xl, 400px, 500px );
+    }
+  }
+
+  &-overlay  {
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+    background: rgba(0, 0, 0, .40);
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: flex-end;
+
+    @include screen-sm {
+      padding: 50px;
+    }
+  }
+
+  &-text {
+    max-width: 500px;
+  }
+
+  &-text--title,
+  &-text--description {
+    color: $white;
+  }
+
+  &-text--title {
+    @include hero-title;
+  }
+
+  &-text--description {
+    margin-bottom: 0;
+  }
+}

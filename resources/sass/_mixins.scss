@@ -1,3 +1,8 @@
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
 @mixin only-screen-sm {
   @media (max-width: 576px) { @content; }
 }
@@ -31,11 +36,13 @@
 }
 
 @mixin margin-bottom-150 {
-  margin-bottom: 150px;
+  @include fluid-type( margin-bottom, $sm, $xl, 75px, 150px );
 }
 
 @mixin border-radius-20 {
-  border-radius: 20px;
+  @include screen-sm {
+    border-radius: 20px;
+  }
 }
 
 @mixin productCard {
@@ -54,16 +61,38 @@
 }
 
 @mixin hero-title {
+  @include fluid-type( font-size, $sm, $xl, 28px, 46px );
+
   margin: 0 0 25px;
   text-transform: uppercase;
   font-family: 'Oswald', sans-serif;
-  font-size: 46px;
   font-weight: 800;
   line-height: 1.333;
 }
 
 @mixin short-text {
-  font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.16px;
+}
+
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  @each $property in $properties {
+    #{$property}: $min-value;
+  }
+
+  @media screen and (min-width: $min-vw) {
+    @each $property in $properties {
+      #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+    }
+  }
+
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value;
+    }
+  }
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
 }

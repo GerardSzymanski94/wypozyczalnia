@@ -1,33 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <form>
+    <form>
+        <div class="container">
             <div class="row justify-content-center" id="added_to_cart" style="display: none;">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="alert alert-success">
                         Dodano do koszyka
                     </div>
                 </div>
             </div>
-            @csrf
-            <section class="section_0">
+        </div>
 
-            </section>
-            <hr>
-            <section class="section_1">
+        @csrf
+
+        <section class="MainSection-hero">
+            <div class="container px-0 px-sm-3">
+                <div class="MainSection-hero-image" style="background-image: url('{{ asset('images/slider1.jpg') }}')">
+                    <div class="MainSection-hero-overlay">
+                        <div class="MainSection-hero-text">
+                            <h1 class="MainSection-hero-text--title">Dla firm i osób prywatnych</h1>
+                            <p class="MainSection-hero-text--description">Zawsze nowe modele elektrostymulatorów od Compex. Dzięki nim przyspieszamy regenerację, wzmacniamy mięśnie i przygotowujemy cały organizm na duży wysiłek fizyczny.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="MainSection-chooseProduct">
+            <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <h2>Wybierz produkt</h2>
+                    <div class="col-12">
+                        <h2 class="MainSection-chooseProduct--title">Wybierz produkt</h2>
                         <div class="row">
                             @foreach($products as $product)
-                                <label class="col-md-4 product_card" for="product_{{ $product->id }}"
-                                       data-id="{{ $product->id }}">
+                                <label class="col-md-4 product_card" for="product_{{ $product->id }}" data-id="{{ $product->id }}">
                                     <div id="{{ $product->id }}">
                                         <div class="card" style="">
-                                            <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}"
-                                                 class="card-img-top"
-                                                 alt="...">
+                                            <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}" lass="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <p class="card-text">{{ $product->name }}</p>
                                             </div>
@@ -56,17 +66,18 @@
                                         </div>
                                     </div>
                                 </label>
-                                <input type="checkbox" name="product[{{ $product->id }}]" class="product_checkbox"
-                                       value="{{ $product->id }}" style="display: none;"
-                                       id="product_{{ $product->id }}">
+                                <input type="checkbox" name="product[{{ $product->id }}]" class="product_checkbox" value="{{ $product->id }}" style="display: none;" id="product_{{ $product->id }}">
                             @endforeach
                         </div>
                     </div>
                 </div>
-            </section>
-            <section>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <h2>Ilość urządzeń</h2>
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -82,42 +93,45 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-            </section>
-            <section class="section_2">
+        <section class="section_2">
+            <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <h2>Wybierz liczbę dni</h2>
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="days">Liczba dni <span
-                                            class="required">*</span></label>
+                                <label for="days">Liczba dni <span class="required">*</span></label>
                                 <input type="number" name="days" id="days" class="form-control" step="1" value="1">
 
                                 @if($errors->has('days'))
-                                    <p class="alert alert-danger"> {{ $errors->first('days') }}
-                                    </p>
+                                    <p class="alert alert-danger"> {{ $errors->first('days') }} </p>
                                 @endif
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-            </section>
-            <hr>
-            <section class="section_3">
+        <hr>
+
+        <section class="section_3">
+            <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <h2>Wybierz dodatki</h2>
                         <div class="row">
                             @foreach($additionals as $additional)
                                 <label class="col-md-4 additional_card" for="additional_{{ $additional->id }}"
-                                       data-id="{{ $additional->id }}">
+                                        data-id="{{ $additional->id }}">
                                     <div id="{{ $additional->id }}">
                                         <div class="card" style="">
                                             <img src="{{ asset('storage/'. $additional->getMainPhoto->url) }}"
-                                                 class="card-img-top"
-                                                 alt="...">
+                                                    class="card-img-top"
+                                                    alt="...">
                                             <div class="card-body">
                                                 <p class="card-text">{{ $additional->name }}</p>
                                             </div>
@@ -133,25 +147,26 @@
                                     </div>
                                 </label>
                                 <input type="checkbox" name="additional[{{ $additional->id }}]"
-                                       class="additional_checkbox" style="display: none;"
-                                       id="additional_{{ $additional->id }}" value="{{ $additional->id }}">
+                                        class="additional_checkbox" style="display: none;"
+                                        id="additional_{{ $additional->id }}" value="{{ $additional->id }}">
                             @endforeach
-
-
                         </div>
                     </div>
                 </div>
-            </section>
-            <section class="section_6">
+            </div>
+        </section>
+
+        <section class="section_6">
+            <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <h2>Ilość zestawów elektrod</h2>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="amount_additional">Ilość zestawów elektrod<span
                                             class="required">*</span></label>
                                 <input type="number" name="amount_additional" id="amount_additional"
-                                       class="form-control" step="1" value="1">
+                                        class="form-control" step="1" value="1">
 
                                 @if($errors->has('amount_additional'))
                                     <p class="alert alert-danger"> {{ $errors->first('amount_additional') }}
@@ -161,30 +176,39 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-            </section>
-            <hr>
-            <section class="section_6">
-                <p><span id="price">0</span> zł</p>
-            </section>
-            <section class="section_4">
-                {{--<a href="" class="btn btn-primary">
-                    Sprawdź cenę
-                </a>--}}
-                <div class="btn btn-primary" id="add_product">
-                    Dodaj do koszyka
+        <hr>
+
+        <section class="section_6">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p><span id="price">0</span> zł</p>
+                    </div>
                 </div>
-                <a href="{{ route('cart') }}" class="btn btn-primary">
-                    Przejdź do koszyka
-                </a>
-            </section>
-        </form>
-    </div>
-    <style>
-        .section {
-            margin-top: 30px;
-        }
-    </style>
+            </div>
+        </section>
+
+        <section class="section_4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        {{--<a href="" class="btn btn-primary">
+                            Sprawdź cenę
+                        </a>--}}
+                        <div class="btn btn-primary" id="add_product">
+                            Dodaj do koszyka
+                        </div>
+                        <a href="{{ route('cart') }}" class="btn btn-primary">
+                            Przejdź do koszyka
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
 @endsection
 
 @section('scripts')

@@ -22,7 +22,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app">
+<main id="app" class="main">
     <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -85,7 +85,7 @@
     <main>
         @yield('content')
     </main>
-</div>
+</main>
 <!-- jQuery -->
 <script src="{{ asset('/js/jquery.js') }}"></script>
 
