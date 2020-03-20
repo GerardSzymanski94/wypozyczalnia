@@ -1,0 +1,17 @@
+.MainSection-chooseProduct {
+  &--title {
+    @include section-title;
+  }
+
+  &--product-card {
+    // @include productCard;
+  }
+
+  &--card {
+    @include productCard;
+  }
+
+  &--checkbox {
+
+  }
+}
