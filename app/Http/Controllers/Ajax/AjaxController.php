@@ -60,9 +60,9 @@ class AjaxController extends Controller
             $orderProduct = OrderProduct::create([
                 'order_id' => $order->id,
                 'product_id' => $request->additional,
-                'amount' => $request->amount,
+                'amount_additional' => $request->amount_additional,
                 'days' => $request->days,
-                'price' => $product->price($request->days, $request->amount),
+                'price' => $product->priceAdditional($request->amount_additional),
                 'status' => 1
             ]);
         }
@@ -80,8 +80,9 @@ class AjaxController extends Controller
         $price = $price + $product->price($days, $amount);
 
         if (isset($request->additional)) {
+            $amountAdditional = $request->amount_additional;
             $additional = Product::find($request->additional);
-            $price = $price + $additional->price($days, $amount);
+            $price = $price + $additional->priceAdditional($amountAdditional);
         }
 
         return response()->json(['price' => $price]);

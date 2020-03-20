@@ -83,6 +83,11 @@ class Product extends Model
         return $price * $amount;
     }
 
+    public function priceAdditional($amount = 1)
+    {
+        return $this->price_one_week * $amount;
+    }
+
     public function reduceAmount($value)
     {
         $this->amount = $this->amount - $value;

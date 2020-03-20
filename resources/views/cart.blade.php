@@ -17,7 +17,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($order->orderProducts as $product)
-
+                                    @if($product->product->status ==1)
                                         <tr>
                                             <td>
                                                 {{ $product->product->name }}
@@ -32,9 +32,31 @@
                                                 {{ $product->price }} zł
                                             </td>
                                             <td>
-                                                <a href="{{ route('delete', ['product'=>$product->id]) }}" class="btn btn-danger"> Usuń z koszyka</a>
+                                                <a href="{{ route('delete', ['product'=>$product->id]) }}"
+                                                   class="btn btn-danger"> Usuń z koszyka</a>
                                             </td>
                                         </tr>
+
+                                    @else
+                                        <tr>
+                                            <td>
+                                                {{ $product->product->name }}
+                                            </td>
+                                            <td>
+                                                {{ $product->amount_additional }}
+                                            </td>
+                                            <td>
+
+                                            </td>
+                                            <td>
+                                                {{ $product->price }} zł
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('delete', ['product'=>$product->id]) }}"
+                                                   class="btn btn-danger"> Usuń z koszyka</a>
+                                            </td>
+                                        </tr>
+                                    @endif
                                 @endforeach
                                 <tr>
                                     <td>

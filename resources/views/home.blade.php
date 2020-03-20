@@ -64,46 +64,26 @@
                     </div>
                 </div>
             </section>
-
-            <hr>
-            <section class="section_3">
+            <section>
                 <div class="row justify-content-center">
                     <div class="col-md-8">
-                        <h2>Wybierz dodatki</h2>
+                        <h2>Ilość urządzeń</h2>
                         <div class="row">
-                            @foreach($additionals as $additional)
-                                <label class="col-md-4 additional_card" for="additional_{{ $additional->id }}"
-                                       data-id="{{ $additional->id }}">
-                                    <div id="{{ $additional->id }}">
-                                        <div class="card" style="">
-                                            <img src="{{ asset('storage/'. $additional->getMainPhoto->url) }}"
-                                                 class="card-img-top"
-                                                 alt="...">
-                                            <div class="card-body">
-                                                <p class="card-text">{{ $additional->name }}</p>
-                                            </div>
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    Dostępna ilość: {{ $additional->amount }}
+                            <div class="form-group col-md-6">
+                                <label for="amount">Ilość urządzeń<span
+                                            class="required">*</span></label>
+                                <input type="number" name="amount" id="amount" class="form-control" step="1" value="1">
 
-                                                </li>
-                                                <li class="list-group-item">{{ $additional->price_one_week }} zł
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </label>
-                                <input type="checkbox" name="additional[{{ $additional->id }}]"
-                                       class="additional_checkbox" style="display: none;"
-                                       id="additional_{{ $additional->id }}" value="{{ $additional->id }}">
-                            @endforeach
-
-
+                                @if($errors->has('amount'))
+                                    <p class="alert alert-danger"> {{ $errors->first('amount') }}
+                                    </p>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </section>
-            <hr>
             <section class="section_2">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
@@ -125,18 +105,56 @@
 
             </section>
             <hr>
+            <section class="section_3">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <h2>Wybierz dodatki</h2>
+                        <div class="row">
+                            @foreach($additionals as $additional)
+                                <label class="col-md-4 additional_card" for="additional_{{ $additional->id }}"
+                                       data-id="{{ $additional->id }}">
+                                    <div id="{{ $additional->id }}">
+                                        <div class="card" style="">
+                                            <img src="{{ asset('storage/'. $additional->getMainPhoto->url) }}"
+                                                 class="card-img-top"
+                                                 alt="...">
+                                            <div class="card-body">
+                                                <p class="card-text">{{ $additional->name }}</p>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+                                                    Dostępna ilość: {{ $additional->amount }}
+                                                </li>
+                                                <li class="list-group-item">
+                                                    {{ $additional->price_one_week }} zł
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </label>
+                                <input type="checkbox" name="additional[{{ $additional->id }}]"
+                                       class="additional_checkbox" style="display: none;"
+                                       id="additional_{{ $additional->id }}" value="{{ $additional->id }}">
+                            @endforeach
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="section_6">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
-                        <h2>Ilość</h2>
+                        <h2>Ilość zestawów elektrod</h2>
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="amount">Ilość<span
+                                <label for="amount_additional">Ilość zestawów elektrod<span
                                             class="required">*</span></label>
-                                <input type="number" name="amount" id="amount" class="form-control" step="1" value="1">
+                                <input type="number" name="amount_additional" id="amount_additional"
+                                       class="form-control" step="1" value="1">
 
-                                @if($errors->has('amount'))
-                                    <p class="alert alert-danger"> {{ $errors->first('amount') }}
+                                @if($errors->has('amount_additional'))
+                                    <p class="alert alert-danger"> {{ $errors->first('amount_additional') }}
                                     </p>
                                 @endif
                             </div>
@@ -196,12 +214,16 @@
         $('body').on('change', '#amount', function () {
             getPrice();
         });
+        $('body').on('change', '#amount_additional', function () {
+            getPrice();
+        });
 
         $('body').on('click', '#add_product', function () {
             var product = $(".product_checkbox:checked").val();
             var additional = $(".additional_checkbox:checked").val();
             var days = $("#days").val();
             var amount = $("#amount").val();
+            var amount_additional = $("#amount_additional").val();
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -209,7 +231,13 @@
                 dataType: 'json',
                 type: 'POST',
                 url: '{{ route('ajax.add_product') }}',
-                data: {product: product, additional: additional, days: days, amount: amount},
+                data: {
+                    product: product,
+                    additional: additional,
+                    amount_additional: amount_additional,
+                    days: days,
+                    amount: amount
+                },
                 success: function (data) {
                     $('#added_to_cart').show();
                     $('html, body').animate({
@@ -261,6 +289,7 @@
             var additional = $(".additional_checkbox:checked").val();
             var days = $("#days").val();
             var amount = $("#amount").val();
+            var amount_additional = $("#amount_additional").val();
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -268,7 +297,13 @@
                 dataType: 'json',
                 type: 'POST',
                 url: '{{ route('ajax.get_price') }}',
-                data: {product: product, additional: additional, days: days, amount: amount},
+                data: {
+                    product: product,
+                    additional: additional,
+                    amount_additional: amount_additional,
+                    days: days,
+                    amount: amount
+                },
                 success: function (data) {
                     $('#price').empty().append(data.price);
                 },
