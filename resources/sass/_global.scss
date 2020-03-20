@@ -21,10 +21,12 @@ body {
   &-basket,
   &-login,
   &-menu {
+    @include border-radius-20;
+
     width: 100%;
     height: 50px;
-    border-radius: 25px;
     background-color: $blue;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,6 +40,30 @@ body {
 
     &::after {
       content: unset;
+    }
+  }
+
+  @include screen-sm {
+    &-basket:hover {
+      color: $white;
+
+      &::before{
+        opacity: 1;
+      }
+    }
+
+    &-basket::before {
+      @include border-radius-20;
+
+      content:"";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+      opacity: 0;
+      transition: opacity .2s;
     }
   }
 

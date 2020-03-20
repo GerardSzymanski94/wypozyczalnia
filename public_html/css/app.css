@@ -11053,12 +11053,20 @@ body {
 .btn-menu {
   width: 100%;
   height: 50px;
-  border-radius: 25px;
   background-color: #3490dc;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
+}
+
+@media (min-width: 576px) {
+  .btn-basket,
+  .btn-login,
+  .btn-menu {
+    border-radius: 20px;
+  }
 }
 
 @media (min-width: 576px) {
@@ -11075,6 +11083,34 @@ body {
 .btn-login::after,
 .btn-menu::after {
   content: unset;
+}
+
+@media (min-width: 576px) {
+  .btn-basket:hover {
+    color: #fff;
+  }
+
+  .btn-basket:hover::before {
+    opacity: 1;
+  }
+
+  .btn-basket::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+}
+
+@media (min-width: 576px) and (min-width: 576px) {
+  .btn-basket::before {
+    border-radius: 20px;
+  }
 }
 
 .btn-login:focus {
