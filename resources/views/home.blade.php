@@ -10,6 +10,13 @@
                     </div>
                 </div>
             </div>
+            <div class="row justify-content-center" id="check_amount" style="display: none;">
+                <div class="col-md-8">
+                    <div class="alert alert-danger">
+                        Dodałeś do koszyka więcej produktów niż jest dostępny. Sprawdź dostępność i dodaj je ponownie
+                    </div>
+                </div>
+            </div>
         </div>
 
         @csrf
@@ -263,7 +270,13 @@
                     amount: amount
                 },
                 success: function (data) {
-                    $('#added_to_cart').show();
+                    if (data.checkAmount) {
+                        $('#check_amount').hide();
+                        $('#added_to_cart').show();
+                    } else {
+                        $('#added_to_cart').hide();
+                        $('#check_amount').show();
+                    }
                     $('html, body').animate({
                             scrollTop: $("#added_to_cart").offset().top
                         },

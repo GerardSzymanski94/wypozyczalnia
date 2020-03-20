@@ -2,6 +2,16 @@
 
 @section('content')
     <div class="container">
+
+        @if(isset($checkAmounts))
+            <div class="row justify-content-center" id="check_amount">
+                <div class="col-md-8">
+                    <div class="alert alert-danger">
+                        Dodałeś do koszyka więcej produktów niż jest dostępny. Sprawdź dostępność i dodaj je ponownie
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="x_panel">
