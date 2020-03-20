@@ -1,0 +1,25 @@
+.navbar {
+  padding: 25px 15px;
+
+  &-nav {
+    margin: 15px 0;
+
+    @include screen-sm {
+      margin: 0;
+    }
+  }
+
+  &-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &-item {
+    margin: 10px 0;
+
+    @include screen-sm {
+      margin: 0;
+    }
+  }
+}
+

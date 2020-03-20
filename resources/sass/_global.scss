@@ -1,0 +1,78 @@
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  line-height: 1.333;
+  font-size: 16px;
+}
+
+.btn {
+  &-basket,
+  &-login,
+  &-menu {
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background-color: $blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+
+    @include screen-sm {
+      width: auto;
+      height: 40px;
+      color: $white;
+    }
+
+    &::after {
+      content: unset;
+    }
+  }
+
+  &-login:focus {
+    color: $white;
+
+    @include screen-sm {
+      color: $black;
+    }
+  }
+
+  &-basket--icon {
+    margin-right: 15px;
+  }
+
+  &-menu {
+    @include screen-sm {
+      background-color: transparent;
+      color: $black;
+    }
+  }
+
+   .dropup &-menu::after {
+    content: unset;
+  }
+
+  &-menu:focus {
+    color: $white;
+
+    @include screen-sm {
+      color: $black;
+    }
+  }
+}
+
+.fa-bars {
+  color: $white;
+}
+
+.bg-white {
+  background: $white;
+}
