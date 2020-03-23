@@ -29,7 +29,8 @@
                 <img src="{{ asset('images/rehastore-logo.png') }}" alt="Logo Rehastore wypożyczalnia">
             </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -37,37 +38,45 @@
                 <ul class="navbar-nav ml-sm-auto">
                     @guest
                         <li class="navbar-item dropdown">
-                            <button type="button" class="btn btn-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="btn btn-menu dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
                                 <span>Zaloguj się lub załóz konto</span>
                             </button>
 
                             <div class="navbar-dropdown dropdown-menu dropdown-menu-right">
-                                <a class="navbar-dropdown-item dropdown-item btn btn-login" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="navbar-dropdown-item dropdown-item btn btn-login"
+                                   href="{{ route('login') }}">{{ __('Login') }}</a>
 
                                 @if (Route::has('register'))
-                                    <a class="navbar-dropdown-item dropdown-item btn btn-login" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="navbar-dropdown-item dropdown-item btn btn-login"
+                                       href="{{ route('register') }}">{{ __('Register') }}</a>
                                 @endif
                             </div>
                         </li>
                     @else
 
-                    <li class="navbar-item btn-group dropup-sm dropdown-md">
-                        <button type="button" class="btn btn-user dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->name }}
-                        </button>
+                        <li class="navbar-item btn-group dropup-sm dropdown-md">
+                            <button type="button" class="btn btn-user dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                            </button>
 
-                        <div class="navbar-dropdown dropdown-menu dropdown-menu-sm-right">
-                            <a class="navbar-dropdown-item dropdown-item btn btn-login" href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                            <div class="navbar-dropdown dropdown-menu dropdown-menu-sm-right">
+                                <a class="navbar-dropdown-item dropdown-item btn btn-login"
+                                   href="{{ route('user.orders') }}">
+                                    Zamówienia
+                                </a>
+                                <a class="navbar-dropdown-item dropdown-item btn btn-login" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
 
                     @endguest
 
