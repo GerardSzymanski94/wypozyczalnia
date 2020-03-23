@@ -23,7 +23,7 @@
 </head>
 <body>
 <main id="app" class="main">
-    <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-white">
+    <nav class="navbar navbar-expand-sm navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="{{ asset('images/rehastore-logo.png') }}" alt="Logo Rehastore wypożyczalnia">
@@ -36,28 +36,28 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav ml-sm-auto">
                     @guest
-                        <li class="navbar-item dropup dropdown-md">
+                        <li class="navbar-item dropdown">
                             <button type="button" class="btn btn-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span>Zaloguj się lub załóz konto</span>
                             </button>
 
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <div class="navbar-dropdown dropdown-menu dropdown-menu-right">
+                                <a class="navbar-dropdown-item dropdown-item btn btn-login" href="{{ route('login') }}">{{ __('Login') }}</a>
 
                                 @if (Route::has('register'))
-                                    <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="navbar-dropdown-item dropdown-item btn btn-login" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 @endif
                             </div>
                         </li>
                     @else
 
                     <li class="navbar-item btn-group dropup-sm dropdown-md">
-                        <button type="button" class="btn btn-login dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-user dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </button>
 
-                        <div class="dropdown-menu dropdown-menu-sm-right">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                        <div class="navbar-dropdown dropdown-menu dropdown-menu-sm-right">
+                            <a class="navbar-dropdown-item dropdown-item btn btn-login" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>

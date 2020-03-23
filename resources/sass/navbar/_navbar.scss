@@ -1,11 +1,31 @@
 .navbar {
   padding: 25px 15px;
+  z-index: $zindex6;
+
+  @include screen-sm {
+    padding: 35px 15px;
+  }
 
   &-nav {
-    margin: 25px 0 0;
+    margin: 0 0 10px;
 
     @include screen-sm {
       margin: 0;
+    }
+  }
+
+  &-collapse {
+    width: 100%;
+    padding: 0px 15px;
+    background: rgb(255, 255, 255);
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    z-index: $zindex6;
+
+    @include screen-sm {
+      padding: 0;
+      position: relative;
     }
   }
 
@@ -18,7 +38,29 @@
     margin: 10px 0;
 
     @include screen-sm {
-      margin: 0;
+      margin: 0 12px 0 0;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  &-dropdown {
+    width: 100%;
+    padding: 10px 15px;
+
+    @include screen-sm {
+      padding: 15px;
+      border-radius: 25px;
+    }
+  }
+
+  &-dropdown-item {
+    margin-bottom: 15px;
+
+    &:last-of-type {
+      margin-bottom: 0;
     }
   }
 }
