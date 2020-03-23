@@ -64,6 +64,20 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <div class="col-12 mx-auto">
+                                <hr class="mt-5 mb-4">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('New user?') }}</label>
+
+                            <div class="col-md-6">
+                                <a class="btn btn-link pl-0" href="{{ route('register') }}">{{ __('Sing up') }}</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -14,7 +14,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="{{ asset('vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
@@ -22,74 +22,72 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<main id="app" class="main">
+    <nav class="navbar navbar-expand-sm navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                Wypożyczalnia
+                <img src="{{ asset('images/rehastore-logo.png') }}" alt="Logo Rehastore wypożyczalnia">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-
-
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav ml-sm-auto">
                     @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+                        <li class="navbar-item dropdown">
+                            <button type="button" class="btn btn-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span>Zaloguj się lub załóz konto</span>
+                            </button>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('user.orders') }}">
-                                    Zamówienia
-                                </a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                            <div class="navbar-dropdown dropdown-menu dropdown-menu-right">
+                                <a class="navbar-dropdown-item dropdown-item btn btn-login" href="{{ route('login') }}">{{ __('Login') }}</a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
-                                    @csrf
-                                </form>
+                                @if (Route::has('register'))
+                                    <a class="navbar-dropdown-item dropdown-item btn btn-login" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                @endif
                             </div>
                         </li>
+                    @else
+
+                    <li class="navbar-item btn-group dropup-sm dropdown-md">
+                        <button type="button" class="btn btn-user dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                        </button>
+
+                        <div class="navbar-dropdown dropdown-menu dropdown-menu-sm-right">
+                            <a class="navbar-dropdown-item dropdown-item btn btn-login" href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+
                     @endguest
-                </ul>
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('cart') }}"><i class="fa fa-shopping-cart"></i>Koszyk</a>
+
+                    <li class="navbar-item">
+                        <a href="{{ route('cart') }}" type="button" class="btn btn-basket">
+                            <i class="fa fa-shopping-cart btn-basket--icon"></i>
+                            <span>Koszyk</span>
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <main class="py-4">
+    <main>
         @yield('content')
     </main>
-</div>
+</main>
 <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="{{ asset('/js/jquery.js') }}"></script>
 
 <!-- Bootstrap -->
 <script src="{{ asset('/vendors/bootstrap/dist/js/bootstrap.min.js') }}"
@@ -146,6 +144,9 @@
 
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/a2bd7673/cloudflare-static/rocket-loader.min.js"
         data-cf-settings="db25bb0af1c5ca965d7b8174-|49" defer=""></script>
+
+<!-- Main JS -->
+<script src="{{ asset('/js/main.js') }}"></script>
 
 @yield('scripts')
 </body>

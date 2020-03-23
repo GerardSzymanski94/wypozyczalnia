@@ -1,0 +1,10 @@
+.MainSection-chooseProduct {
+  &--title {
+    @include section-title;
+  }
+
+  &--card {
+    @include productCard;
+  }
+
+}

@@ -1,0 +1,98 @@
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+@mixin only-screen-sm {
+  @media (max-width: 576px) { @content; }
+}
+@mixin screen-sm {
+  @media (min-width: 576px) { @content; }
+}
+@mixin screen-md {
+  @media (min-width: 768px) { @content; }
+}
+@mixin screen-lg {
+  @media (min-width: 992px) { @content; }
+}
+@mixin screen-xl {
+  @media (min-width: 1200px) { @content; }
+}
+
+@mixin buttonShadow {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 25px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+@mixin margin-bottom-100 {
+  margin-bottom: 100px;
+}
+
+@mixin margin-bottom-150 {
+  @include fluid-type( margin-bottom, $sm, $xl, 75px, 150px );
+}
+
+@mixin border-radius-20 {
+  @include screen-sm {
+    border-radius: 20px;
+  }
+}
+
+@mixin productCard {
+  width: 100%;
+  border: 2px solid;
+  border-color: transparent;
+}
+
+@mixin section-title {
+  margin: 0 0 50px;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.333;
+}
+
+@mixin hero-title {
+  @include fluid-type( font-size, $sm, $xl, 28px, 46px );
+
+  margin: 0 0 25px;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 800;
+  line-height: 1.333;
+}
+
+@mixin short-text {
+  font-weight: 400;
+  letter-spacing: 0.16px;
+}
+
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  @each $property in $properties {
+    #{$property}: $min-value;
+  }
+
+  @media screen and (min-width: $min-vw) {
+    @each $property in $properties {
+      #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+    }
+  }
+
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value;
+    }
+  }
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
