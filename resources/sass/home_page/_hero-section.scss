@@ -1,5 +1,5 @@
 .MainSection-hero {
-  @include margin-bottom-150;
+  @include margin-bottom-100;
 
   &-image {
     @include border-radius-20;
@@ -48,5 +48,32 @@
 
   &-text--description {
     margin-bottom: 0;
+  }
+
+  &-text--icon {
+    padding: 10px 12px;
+    border: 1px solid $white;
+    border-radius: 25px;
+    margin-right: 15px;
+  }
+
+  &-text--svg {
+    width: 20px;
+    fill: $white;
+  }
+
+  &-text--button {
+    width: auto;
+    margin: 40px 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    color: $white;
+  }
+
+  &-text--button:hover {
+    color: $white;
+    text-decoration: none;
   }
 }

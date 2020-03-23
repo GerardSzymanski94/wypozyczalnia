@@ -28,6 +28,12 @@
                         <div class="MainSection-hero-text">
                             <h1 class="MainSection-hero-text--title">Dla firm i osób prywatnych</h1>
                             <p class="MainSection-hero-text--description">Zawsze nowe modele elektrostymulatorów od Compex. Dzięki nim przyspieszamy regenerację, wzmacniamy mięśnie i przygotowujemy cały organizm na duży wysiłek fizyczny.</p>
+                            <a href="#" class="MainSection-hero-text--button">
+                                <i class="MainSection-hero-text--icon">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="MainSection-hero-text--svg"><title>arrow-right</title><path d="M11.293 5.707l5.293 5.293h-11.586c-0.552 0-1 0.448-1 1s0.448 1 1 1h11.586l-5.293 5.293c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l7-7c0.092-0.092 0.166-0.202 0.217-0.324 0.101-0.245 0.101-0.521 0-0.766-0.049-0.118-0.121-0.228-0.217-0.324l-7-7c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path></svg>
+                                </i>
+                                <span>Dowiedź się więcej</span>
+                            </a>
                         </div>
                     </div>
                 </div>

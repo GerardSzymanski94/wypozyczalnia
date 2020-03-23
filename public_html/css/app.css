@@ -11261,19 +11261,7 @@ body {
 }
 
 .MainSection-hero {
-  margin-bottom: 75px;
-}
-
-@media screen and (min-width: 576px) {
-  .MainSection-hero {
-    margin-bottom: calc(75px + 75 * (100vw - 576px) / 624);
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .MainSection-hero {
-    margin-bottom: 150px;
-  }
+  margin-bottom: 100px;
 }
 
 .MainSection-hero-image {
@@ -11366,7 +11354,7 @@ body {
   padding: 10px 12px;
   border: 1px solid #fff;
   border-radius: 25px;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 .MainSection-hero-text--svg {
