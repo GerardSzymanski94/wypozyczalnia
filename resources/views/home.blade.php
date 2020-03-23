@@ -177,7 +177,7 @@
                     <div class="col-md-12">
                         <h2>Ilość zestawów elektrod</h2>
                         <div class="row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-6">
                                 <label for="amount_additional">Ilość zestawów elektrod<span class="required">*</span></label>
                                 <input type="number" name="amount_additional" id="amount_additional" class="form-control" step="1" value="1">
 
