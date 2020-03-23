@@ -46,8 +46,13 @@
 
                         </td>
                         <td>
-                            <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}" height="100px" width="100px"
-                                 class="float-left">
+                            @if(isset($product->getMainPhoto))
+                                <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}" height="100px"
+                                     width="100px"
+                                     class="float-left">
+                            @else
+                                Brak zdjęcia
+                            @endisset
                         </td>
                         <td class="news-title">
                             {{ $product->name }}
@@ -75,9 +80,13 @@
 
                         </td>
                         <td>
-                            <img src="{{ asset('storage/'. $additional->getMainPhoto->url) }}" height="100px"
-                                 width="100px"
-                                 class="float-left">
+                            @if(isset($additional->getMainPhoto))
+                                <img src="{{ asset('storage/'. $additional->getMainPhoto->url) }}" height="100px"
+                                     width="100px"
+                                     class="float-left">
+                            @else
+                                Brak zdjęcia
+                            @endisset
                         </td>
                         <td class="news-title">
                             {{ $additional->name }}
