@@ -25,6 +25,11 @@ Route::namespace('Ajax')->name('ajax.')->prefix('ajax')->group(function () {
     Route::post('/get_price', 'AjaxController@getPrice')->name('get_price');
 });
 
+Route::namespace('User')->name('user.')->prefix('uzytkownik')->group(function () {
+    Route::get('/zamowienia', 'UserController@orders')->name('orders');
+    Route::get('/szczegoly/{order}', 'UserController@details')->name('details');
+});
+
 Route::namespace('Admin')->name('admin.')->prefix('administracja')->group(function () {
 
     Route::get('/', 'DashboardController@index')->name('index');
