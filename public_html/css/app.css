@@ -11405,6 +11405,10 @@ hr {
   border-bottom: 0;
 }
 
+.MainSection-countItems {
+  margin-bottom: 100px;
+}
+
 .MainSection-hero {
   margin-bottom: 100px;
 }

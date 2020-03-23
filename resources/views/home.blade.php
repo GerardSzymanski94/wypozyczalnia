@@ -96,42 +96,33 @@
             </div>
         </section>
 
-        <section>
+        <section class="MainSection-countItems">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-12">
-                        <h2>Ilość urządzeń</h2>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="amount">Ilość urządzeń<span
-                                            class="required">*</span></label>
-                                <input type="number" name="amount" id="amount" class="form-control" step="1" value="1">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h2>Ilość urządzeń</h2>
+                            <label for="amount">Ilość urządzeń<span class="required">*</span></label>
+                            <input type="number" name="amount" id="amount" class="form-control" step="1" value="1">
 
-                                @if($errors->has('amount'))
-                                    <p class="alert alert-danger"> {{ $errors->first('amount') }}
-                                    </p>
-                                @endif
-                            </div>
+                            @if($errors->has('amount'))
+                                <p class="alert alert-danger">
+                                    {{ $errors->first('amount') }}
+                                </p>
+                            @endif
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="section_2">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-12">
-                        <h2>Wybierz liczbę dni</h2>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="days">Liczba dni <span class="required">*</span></label>
-                                <input type="number" name="days" id="days" class="form-control" step="1" value="1">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h2>Wybierz liczbę dni</h2>
 
-                                @if($errors->has('days'))
-                                    <p class="alert alert-danger"> {{ $errors->first('days') }} </p>
-                                @endif
-                            </div>
+                            <label for="days">Liczba dni <span class="required">*</span></label>
+                            <input type="number" name="days" id="days" class="form-control" step="1" value="1">
+
+                            @if($errors->has('days'))
+                                <p class="alert alert-danger"> {{ $errors->first('days') }} </p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -180,22 +171,25 @@
             </div>
         </section>
 
-        <section class="section_6">
+        <section class="MainSection-countItems">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <h2>Ilość zestawów elektrod</h2>
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="amount_additional">Ilość zestawów elektrod<span
-                                            class="required">*</span></label>
-                                <input type="number" name="amount_additional" id="amount_additional"
-                                        class="form-control" step="1" value="1">
+                                <label for="amount_additional">Ilość zestawów elektrod<span class="required">*</span></label>
+                                <input type="number" name="amount_additional" id="amount_additional" class="form-control" step="1" value="1">
 
                                 @if($errors->has('amount_additional'))
-                                    <p class="alert alert-danger"> {{ $errors->first('amount_additional') }}
+                                    <p class="alert alert-danger">
+                                        {{ $errors->first('amount_additional') }}
                                     </p>
                                 @endif
+                            </div>
+
+                            <div class="col-12">
+                                <p><span id="price">0</span> zł</p>
                             </div>
                         </div>
                     </div>
@@ -203,15 +197,6 @@
             </div>
         </section>
 
-        <section class="section_6">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <p><span id="price">0</span> zł</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section class="section_4">
             <div class="container">
