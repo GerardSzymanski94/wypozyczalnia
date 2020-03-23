@@ -40,45 +40,54 @@
             </div>
         </section>
 
-        <section class="MainSection-chooseProduct">
+        <section class="MainSection-Items">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12">
-                        <h2 class="MainSection-chooseProduct--title">Wybierz produkt</h2>
+                        <div class="MainSection-Items-description">
+                            <h2 class="MainSection-Items--title">Wybierz produkt</h2>
+                            <p>Najedź na produkt i kliknij, aby wybrać urządzenie do wyporzyczenia.</p>
+                        </div>
                         <div class="row">
                             @foreach($products as $product)
-                                <label class="col-md-4 product_card" for="product_{{ $product->id }}" data-id="{{ $product->id }}">
-                                    <div id="{{ $product->id }}">
-                                        <div class="card" style="">
-                                            <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}" lass="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <p class="card-text">{{ $product->name }}</p>
+                                <div class="col-12 col-md-4 col-xl-3">
+                                    <label class="MainSection-Items-box product_card" for="product_{{ $product->id }}" data-id="{{ $product->id }}">
+                                        <div id="{{ $product->id }}" class="card">
+                                            <div class="MainSection-Items-wrapper">
+                                                <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}" class="MainSection-Items--image" alt="{{ $product->name }}">
+                                                <div class="MainSection-Items-wrapper-description">
+                                                    <h5 class="MainSection-Items-wrapper-description--title">{{ $product->name }}</h5>
+                                                    <p class="MainSection-Items-wrapper-description--text">Dostępna ilość: {{ $product->amount }}</p>
+                                                </div>
+
+                                                <div class="MainSection-Items-collapse collapse fade multi-collapse" id="multiCollapse-{{ $product->id }}">
+                                                    <ul class="MainSection-Items-wrapper-group">
+                                                        <li class="MainSection-Items-wrapper-group--list">7 dni - {{ $product->price_one_week }}zł /
+                                                            dzień
+                                                        </li>
+                                                        <li class="MainSection-Items-wrapper-group--list">14 dni - {{ $product->price_two_week }}zł /
+                                                            dzień
+                                                        </li>
+                                                        <li class="MainSection-Items-wrapper-group--list">21 dni - {{ $product->price_three_week }}zł
+                                                            /
+                                                            dzień
+                                                        </li>
+                                                        <li class="MainSection-Items-wrapper-group--list">28 dni - {{ $product->price_four_week }}zł /
+                                                            dzień
+                                                        </li>
+                                                        <li class="MainSection-Items-wrapper-group--list">>28 dni - {{ $product->price_more_month }}zł
+                                                            /
+                                                            dzień
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
                                             </div>
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    Dostępna ilość: {{ $product->amount }}
-                                                </li>
-                                                <li class="list-group-item">7 dni - {{ $product->price_one_week }}zł /
-                                                    dzień
-                                                </li>
-                                                <li class="list-group-item">14 dni - {{ $product->price_two_week }}zł /
-                                                    dzień
-                                                </li>
-                                                <li class="list-group-item">21 dni - {{ $product->price_three_week }}zł
-                                                    /
-                                                    dzień
-                                                </li>
-                                                <li class="list-group-item">28 dni - {{ $product->price_four_week }}zł /
-                                                    dzień
-                                                </li>
-                                                <li class="list-group-item">>28 dni - {{ $product->price_more_month }}zł
-                                                    /
-                                                    dzień
-                                                </li>
-                                            </ul>
+
+                                            <button class="btn btn-product" type="button" data-toggle="collapse" data-target="#multiCollapse-{{ $product->id }}" aria-expanded="false" aria-controls="multiCollapse-{{ $product->id }}">Cennik dla tego modelu</button>
                                         </div>
-                                    </div>
-                                </label>
+                                    </label>
+                                </div>
                                 <input type="checkbox" name="product[{{ $product->id }}]" class="product_checkbox" value="{{ $product->id }}" style="display: none;" id="product_{{ $product->id }}">
                             @endforeach
                         </div>
@@ -129,39 +138,41 @@
             </div>
         </section>
 
-        <hr>
-
-        <section class="section_3">
+        <section class="MainSection-Items">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
-                        <h2>Wybierz dodatki</h2>
+                        <div class="MainSection-Items-description">
+                            <h2 class="MainSection-Items--title">Wybierz Dodatek</h2>
+                            <p>Najedź na produkt i kliknij, aby wybrać dodatek do wyporzyczenia.</p>
+                        </div>
                         <div class="row">
                             @foreach($additionals as $additional)
-                                <label class="col-md-4 additional_card" for="additional_{{ $additional->id }}"
-                                        data-id="{{ $additional->id }}">
-                                    <div id="{{ $additional->id }}">
-                                        <div class="card" style="">
-                                            <img src="{{ asset('storage/'. $additional->getMainPhoto->url) }}"
-                                                    class="card-img-top"
-                                                    alt="...">
-                                            <div class="card-body">
-                                                <p class="card-text">{{ $additional->name }}</p>
+                                <div class="col-12 col-md-4 col-xl-3">
+                                    <label class="MainSection-Items-box additional_card" for="additional_{{ $additional->id }}" data-id="{{ $additional->id }}">
+                                        <div id="{{ $additional->id }}" class="card">
+                                            <div class="MainSection-Items-wrapper">
+                                                <img src="{{ asset('storage/'. $additional->getMainPhoto->url) }}" class="MainSection-Items--image" alt="{{ $additional->name }}">
+
+                                                <div class="MainSection-Items-wrapper-description">
+                                                    <h5 class="MainSection-Items-wrapper-description--title">{{ $additional->name }}</h5>
+                                                    <p class="MainSection-Items-wrapper-description--text">
+                                                        Dostępna ilość: {{ $additional->amount }}
+                                                    </p>
+                                                </div>
+
+                                                <hr/>
+
+                                                <ul class="MainSection-Items-wrapper-group">
+                                                    <li class="MainSection-Items-wrapper-group--list">
+                                                        {{ $additional->price_one_week }} zł
+                                                    </li>
+                                                </ul>
                                             </div>
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    Dostępna ilość: {{ $additional->amount }}
-                                                </li>
-                                                <li class="list-group-item">
-                                                    {{ $additional->price_one_week }} zł
-                                                </li>
-                                            </ul>
                                         </div>
-                                    </div>
-                                </label>
-                                <input type="checkbox" name="additional[{{ $additional->id }}]"
-                                        class="additional_checkbox" style="display: none;"
-                                        id="additional_{{ $additional->id }}" value="{{ $additional->id }}">
+                                    </label>
+                                    <input type="checkbox" name="additional[{{ $additional->id }}]" class="additional_checkbox" style="display: none;" id="additional_{{ $additional->id }}" value="{{ $additional->id }}">
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -191,8 +202,6 @@
                 </div>
             </div>
         </section>
-
-        <hr>
 
         <section class="section_6">
             <div class="container">
@@ -228,29 +237,28 @@
     <script>
         $('body').on('click', '.product_card', function () {
             clearProducts();
-            $(this).css({
-                "border-color": "#000",
-                "border-width": "2px",
-                "border-style": "solid"
-            });
+            $(this).addClass('checked')
             $("#product_" + $(this).data('id')).is(":checked");
         });
+
+        $('body').on('click', '.btn-product', function() {
+            $(this).closest('.product_card').toggleClass('prices');
+        });
+
         $('body').on('click', '.additional_card', function () {
             clearAdditionals();
-            $(this).css({
-                "border-color": "#000",
-                "border-width": "2px",
-                "border-style": "solid"
-            });
+            $(this).addClass('checked')
             $("#additional_" + $(this).data('id')).is(":checked");
         });
 
         $('body').on('change', '#days', function () {
             getPrice();
         });
+
         $('body').on('change', '#amount', function () {
             getPrice();
         });
+
         $('body').on('change', '#amount_additional', function () {
             getPrice();
         });
@@ -303,19 +311,13 @@
         function clearProducts() {
             $('.product_checkbox').prop("checked", false);
             $('.product_card').each(function () {
-                $(this).css({
-                    "border-width": "0px",
-                    "border-style": "none"
-                });
+                $(this).removeClass('checked')
             });
         }
 
         function clearAdditionals() {
             $('.additional_card').each(function () {
-                $(this).css({
-                    "border-width": "0px",
-                    "border-style": "none"
-                });
+                $(this).removeClass('checked')
             });
             $('.additional_checkbox').prop("checked", false);
         }
@@ -323,6 +325,7 @@
         $('body').on('change', '.product_checkbox', function () {
             getPrice();
         });
+
         $('body').on('change', '.additional_checkbox', function () {
             getPrice();
         });
