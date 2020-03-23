@@ -46,7 +46,7 @@
                     <div class="col-12">
                         <div class="MainSection-Items-description">
                             <h2 class="MainSection-Items--title">Wybierz produkt</h2>
-                            <p>Najedź na produkt i kliknij, aby wybrać urządzenie do wyporzyczenia.</p>
+                            <p>Najedź na produkt i kliknij, aby wybrać urządzenie do wypożyczalnia.</p>
                         </div>
                         <div class="row">
                             @foreach($products as $product)
@@ -135,7 +135,7 @@
                     <div class="col-md-12">
                         <div class="MainSection-Items-description">
                             <h2 class="MainSection-Items--title">Wybierz Dodatek</h2>
-                            <p>Najedź na produkt i kliknij, aby wybrać dodatek do wyporzyczenia.</p>
+                            <p>Najedź na produkt i kliknij, aby wybrać dodatek do wypożyczalnia.</p>
                         </div>
                         <div class="row">
                             @foreach($additionals as $additional)
