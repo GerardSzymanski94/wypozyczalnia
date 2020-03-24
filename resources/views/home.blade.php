@@ -2,54 +2,54 @@
 
 @section('content')
     <form>
-        <div class="container">
+        <div class="MainSection-alerts container">
             <div class="row justify-content-center check_alert" id="added_to_cart" style="display: none;">
-                <div class="col-md-8">
-                    <div class="alert alert-success">
+                <div class="col-md-12">
+                    <div class="MainSection-alerts-alert alert-success">
                         Dodano do koszyka
                     </div>
                 </div>
             </div>
 
             <div class="row justify-content-center check_alert" id="check_input_product" style="display: none;">
-                <div class="col-md-8">
-                    <div class="alert alert-danger">
+                <div class="col-md-12">
+                    <div class="MainSection-alerts-alert alert-danger">
                         Nie wybrałeś żadnego produktu
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center check_alert" id="check_amount" style="display: none;">
-                <div class="col-md-8">
-                    <div class="alert alert-danger">
+                <div class="col-md-12">
+                    <div class="MainSection-alerts-alert alert-danger">
                         Dodałeś do koszyka więcej produktów niż jest dostępny. Sprawdź dostępność i dodaj je ponownie
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center check_alert" id="check_input_days" style="display: none;">
-                <div class="col-md-8">
-                    <div class="alert alert-danger">
+                <div class="col-md-12">
+                    <div class="MainSection-alerts-alert alert-danger">
                         Podano nieprawidłową liczbę dni
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center check_alert" id="check_amount_additional" style="display: none;">
-                <div class="col-md-8">
-                    <div class="alert alert-danger">
+                <div class="col-md-12">
+                    <div class="MainSection-alerts-alert alert-danger">
                         Dodałeś do koszyka więcej elektrod niż jest dostępnych. Sprawdź dostępność i dodaj je ponownie
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center check_alert" id="check_input_amount" style="display: none;">
-                <div class="col-md-8">
-                    <div class="alert alert-danger">
+                <div class="col-md-12">
+                    <div class="MainSection-alerts-alert alert-danger">
                         Niepoprawna liczba ilości produktów
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center check_alert" id="check_input_amount_additional"
                  style="display: none;">
-                <div class="col-md-8">
-                    <div class="alert alert-danger">
+                <div class="col-md-12">
+                    <div class="MainSection-alerts-alert alert-danger">
                         Niepoprawna liczba ilości elektrod
                     </div>
                 </div>
@@ -171,9 +171,6 @@
                                 </p>
                             @endif
                         </div>
-                    </div>
-
-                    <div class="col-md-6">
                         <div class="form-group">
                             <h2>Wybierz liczbę dni</h2>
 
@@ -184,6 +181,9 @@
                                 <p class="alert alert-danger"> {{ $errors->first('days') }} </p>
                             @endif
                         </div>
+                    </div>
+                    <div class="col-md-6">
+
                     </div>
                 </div>
             </div>
@@ -288,7 +288,7 @@
     <script>
         $('body').on('click', '.product_card', function () {
             clearProducts();
-            $(this).addClass('checked')
+            $(this).addClass('checked');
             $("#product_" + $(this).data('id')).is(":checked");
         });
 
@@ -339,6 +339,7 @@
                     if (!data.checkAmount) {
                         $('#check_amount').show();
                     }
+
                     if (!data.inputAmount) {
                         $('#check_input_amount').show();
                     }
@@ -360,9 +361,9 @@
                     }
 
                     $('html, body').animate({
-                            scrollTop: $("#added_to_cart").offset().top
-                        },
-                        'slow');
+                        scrollTop: $("body").offset().top
+                    }, '250');
+
                 },
                 error:
                     function (jqXHR, textStatus, errorThrown) {

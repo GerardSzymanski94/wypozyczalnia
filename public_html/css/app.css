@@ -11049,6 +11049,15 @@ hr {
   margin: 0;
 }
 
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: none !important;
+  -moz-appearance: unset;
+       appearance: unset;
+}
+
 .btn-user,
 .btn-basket,
 .btn-login,
@@ -11070,6 +11079,15 @@ hr {
   .btn-login,
   .btn-menu {
     border-radius: 20px;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .btn-user #safari,
+  .btn-basket #safari,
+  .btn-login #safari,
+  .btn-menu #safari {
+    background-color: #3490dc;
   }
 }
 
@@ -11524,5 +11542,12 @@ hr {
 .MainSection-hero-text--button:hover {
   color: #fff;
   text-decoration: none;
+}
+
+.MainSection-alerts-alert {
+  padding: 25px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
 }
 
