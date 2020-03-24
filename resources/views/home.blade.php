@@ -2,17 +2,17 @@
 
 @section('content')
     <form>
-        <div class="container">
+        <div class="MainSection-alerts container">
             <div class="row justify-content-center" id="added_to_cart" style="display: none;">
-                <div class="col-md-12">
-                    <div class="alert alert-success">
+                <div class="col-12">
+                    <div class="MainSection-alerts-alert alert-success">
                         Dodano do koszyka
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center" id="check_amount" style="display: none;">
-                <div class="col-md-8">
-                    <div class="alert alert-danger">
+                <div class="col-12">
+                    <div class="MainSection-alerts-alert alert-danger">
                         Dodałeś do koszyka więcej produktów niż jest dostępny. Sprawdź dostępność i dodaj je ponownie
                     </div>
                 </div>
@@ -111,9 +111,6 @@
                                 </p>
                             @endif
                         </div>
-                    </div>
-
-                    <div class="col-md-6">
                         <div class="form-group">
                             <h2>Wybierz liczbę dni</h2>
 
@@ -124,6 +121,9 @@
                                 <p class="alert alert-danger"> {{ $errors->first('days') }} </p>
                             @endif
                         </div>
+                    </div>
+                    <div class="col-md-6">
+
                     </div>
                 </div>
             </div>
@@ -222,7 +222,7 @@
     <script>
         $('body').on('click', '.product_card', function () {
             clearProducts();
-            $(this).addClass('checked')
+            $(this).addClass('checked');
             $("#product_" + $(this).data('id')).is(":checked");
         });
 
@@ -276,10 +276,11 @@
                         $('#added_to_cart').hide();
                         $('#check_amount').show();
                     }
+
                     $('html, body').animate({
-                            scrollTop: $("#added_to_cart").offset().top
-                        },
-                        'slow');
+                        scrollTop: $("body").offset().top
+                    }, '250');
+
                     clearProducts();
                     clearAdditionals();
                     $('#days').val(0);
