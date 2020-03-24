@@ -232,19 +232,17 @@
         </section>
 
         <section class="MainSection-countItems container" style="background-image: url('{{ asset('images/wypozyczalnia-rehastore-compex.jpg') }}');">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="MainSection-countItems-group">
-                        <h3 class="MainSection-countItems--title">Ilość zestawów elektrod</h3>
-                        <label class="MainSection-countItems--amount" for="amount_additional">Ilość zestawów elektrod<span class="required">*</span></label>
-                        <input class="MainSection-countItems--number" type="number" name="amount_additional" id="amount_additional" class="form-control" step="1" value="1" min="1">
+            <div class="row justify-content-center">
+                <div class="MainSection-countItems-group">
+                    <h3 class="MainSection-countItems--title">Ilość zestawów elektrod</h3>
+                    <label class="MainSection-countItems--amount" for="amount_additional">Ilość zestawów elektrod<span class="required">*</span></label>
+                    <input class="MainSection-countItems--number" type="number" name="amount_additional" id="amount_additional" class="form-control" step="1" value="1" min="1">
 
-                        @if($errors->has('amount_additional'))
-                            <p class="alert alert-danger">
-                                {{ $errors->first('amount_additional') }}
-                            </p>
-                        @endif
-                    </div>
+                    @if($errors->has('amount_additional'))
+                        <p class="alert alert-danger">
+                            {{ $errors->first('amount_additional') }}
+                        </p>
+                    @endif
                 </div>
             </div>
         </section>
