@@ -257,9 +257,7 @@
                         <p><span id="price">0</span> zł</p>
                     </div>
                     <div class="col-12">
-                        {{--<a href="" class="btn btn-primary">
-                            Sprawdź cenę
-                        </a>--}}
+                        <!-- {{--<a href="" class="btn btn-primary">Sprawdź cenę</a>--}} -->
                         <div class="btn btn-primary" id="add_product">
                             Dodaj do koszyka
                         </div>
