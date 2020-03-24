@@ -11425,6 +11425,78 @@ button,
 
 .MainSection-countItems {
   margin-bottom: 100px;
+  height: 350px;
+  padding: 25px;
+  background-color: #3490dc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+@media (min-width: 576px) {
+  .MainSection-countItems {
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 576px) {
+  .MainSection-countItems {
+    height: 250px;
+  }
+}
+
+.MainSection-countItems::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+}
+
+@media (min-width: 576px) {
+  .MainSection-countItems::after {
+    border-radius: 20px;
+  }
+}
+
+.MainSection-countItems-group {
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: -50px;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2000;
+}
+
+.MainSection-countItems--title {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 5px;
+  letter-spacing: 0.16px;
+}
+
+.MainSection-countItems--amount {
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.32px;
+}
+
+.MainSection-countItems--number {
+  font-weight: 600;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #a1a1a1;
+  border-radius: 10px;
+  box-shadow: none;
+  font-size: 16px;
 }
 
 .MainSection-hero {
