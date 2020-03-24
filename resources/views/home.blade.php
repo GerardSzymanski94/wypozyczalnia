@@ -155,30 +155,32 @@
             </div>
         </section>
 
-        <section class="MainSection-countItems container" style="background-image: url('{{ asset('images/wypozyczalnia-rehastore-compex.jpg') }}');">
-            <div class="row justify-content-center">
-                <div class="MainSection-countItems-group">
-                    <div class="row">
-                        <div class="col-12 col-sm-6 mb-4 mb-sm-0">
-                            <h3 class="MainSection-countItems--title">Ilość urządzeń</h3>
-                            <label class="MainSection-countItems--amount" for="amount">Ilość urządzeń<span class="required">*</span></label>
-                            <input class="MainSection-countItems--number" type="number" name="amount" id="amount" class="form-control" step="1" value="1" min="1">
+        <section class="MainSection-countItems container">
+            <div class="MainSection-countItems-background" style="background-image: url('{{ asset('images/wypozyczalnia-rehastore-compex.jpg') }}');">
+                <div class="row justify-content-center">
+                    <div class="MainSection-countItems-group">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 mb-4 mb-sm-0">
+                                <h3 class="MainSection-countItems--title">Ilość urządzeń</h3>
+                                <label class="MainSection-countItems--amount" for="amount">Ilość urządzeń<span class="required">*</span></label>
+                                <input class="MainSection-countItems--number" type="number" name="amount" id="amount" class="form-control" step="1" value="1" min="1">
 
-                            @if($errors->has('amount'))
-                                <p class="alert alert-danger">
-                                    {{ $errors->first('amount') }}
-                                </p>
-                            @endif
-                        </div>
+                                @if($errors->has('amount'))
+                                    <p class="alert alert-danger">
+                                        {{ $errors->first('amount') }}
+                                    </p>
+                                @endif
+                            </div>
 
-                        <div class="col-12 col-sm-6">
-                            <h3 class="MainSection-countItems--title">Wybierz liczbę dni</h3>
-                            <label class="MainSection-countItems--amount" for="days">Liczba dni <span class="required">*</span></label>
-                            <input class="MainSection-countItems--number" type="number" name="days" id="days" class="form-control" step="1" value="1" min="1">
+                            <div class="col-12 col-sm-6">
+                                <h3 class="MainSection-countItems--title">Wybierz liczbę dni</h3>
+                                <label class="MainSection-countItems--amount" for="days">Liczba dni <span class="required">*</span></label>
+                                <input class="MainSection-countItems--number" type="number" name="days" id="days" class="form-control" step="1" value="1" min="1">
 
-                            @if($errors->has('days'))
-                                <p class="alert alert-danger"> {{ $errors->first('days') }} </p>
-                            @endif
+                                @if($errors->has('days'))
+                                    <p class="alert alert-danger"> {{ $errors->first('days') }} </p>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -231,18 +233,20 @@
             </div>
         </section>
 
-        <section class="MainSection-countItems container" style="background-image: url('{{ asset('images/wypozyczalnia-rehastore-compex.jpg') }}');">
-            <div class="row justify-content-center">
-                <div class="MainSection-countItems-group">
-                    <h3 class="MainSection-countItems--title">Ilość zestawów elektrod</h3>
-                    <label class="MainSection-countItems--amount" for="amount_additional">Ilość zestawów elektrod<span class="required">*</span></label>
-                    <input class="MainSection-countItems--number" type="number" name="amount_additional" id="amount_additional" class="form-control" step="1" value="1" min="1">
+        <section class="MainSection-countItems container">
+            <div class="MainSection-countItems-background" style="background-image: url('{{ asset('images/wypozyczalnia-rehastore-compex.jpg') }}');">
+                <div class="row justify-content-center">
+                    <div class="MainSection-countItems-group">
+                        <h3 class="MainSection-countItems--title">Ilość zestawów elektrod</h3>
+                        <label class="MainSection-countItems--amount" for="amount_additional">Ilość zestawów elektrod<span class="required">*</span></label>
+                        <input class="MainSection-countItems--number" type="number" name="amount_additional" id="amount_additional" class="form-control" step="1" value="1" min="1">
 
-                    @if($errors->has('amount_additional'))
-                        <p class="alert alert-danger">
-                            {{ $errors->first('amount_additional') }}
-                        </p>
-                    @endif
+                        @if($errors->has('amount_additional'))
+                            <p class="alert alert-danger">
+                                {{ $errors->first('amount_additional') }}
+                            </p>
+                        @endif
+                    </div>
                 </div>
             </div>
         </section>

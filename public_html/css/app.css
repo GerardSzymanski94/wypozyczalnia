@@ -11301,6 +11301,123 @@ button,
   margin-bottom: 0;
 }
 
+.MainSection-hero {
+  margin-bottom: 100px;
+}
+
+.MainSection-hero-image {
+  height: 468px;
+  padding: 0;
+  background: bottom no-repeat;
+  background-size: cover;
+  position: relative;
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+@media (min-width: 576px) {
+  .MainSection-hero-image {
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 576px) {
+  .MainSection-hero-image {
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 576px) and (min-width: 576px) {
+  .MainSection-hero-image {
+    height: calc(400px + 100 * (100vw - 576px) / 624);
+  }
+}
+
+@media screen and (min-width: 576px) and (min-width: 1200px) {
+  .MainSection-hero-image {
+    height: 500px;
+  }
+}
+
+.MainSection-hero-overlay {
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+  background: rgba(0, 0, 0, 0.4);
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+@media (min-width: 576px) {
+  .MainSection-hero-overlay {
+    padding: 50px;
+  }
+}
+
+.MainSection-hero-text {
+  max-width: 500px;
+}
+
+.MainSection-hero-text--title,
+.MainSection-hero-text--description {
+  color: #fff;
+}
+
+.MainSection-hero-text--title {
+  font-size: 28px;
+  margin: 0 0 25px;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 800;
+  line-height: 1.333;
+}
+
+@media screen and (min-width: 576px) {
+  .MainSection-hero-text--title {
+    font-size: calc(28px + 18 * (100vw - 576px) / 624);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .MainSection-hero-text--title {
+    font-size: 46px;
+  }
+}
+
+.MainSection-hero-text--description {
+  margin-bottom: 0;
+}
+
+.MainSection-hero-text--icon {
+  padding: 10px 12px;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  margin-right: 15px;
+}
+
+.MainSection-hero-text--svg {
+  width: 20px;
+  fill: #fff;
+}
+
+.MainSection-hero-text--button {
+  width: auto;
+  margin: 40px 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  color: #fff;
+}
+
+.MainSection-hero-text--button:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
 .MainSection-Items {
   margin-bottom: 100px;
 }
@@ -11425,6 +11542,9 @@ button,
 
 .MainSection-countItems {
   margin-bottom: 100px;
+}
+
+.MainSection-countItems-background {
   height: 350px;
   padding: 25px;
   background-color: #3490dc;
@@ -11438,18 +11558,18 @@ button,
 }
 
 @media (min-width: 576px) {
-  .MainSection-countItems {
+  .MainSection-countItems-background {
     border-radius: 20px;
   }
 }
 
 @media (min-width: 576px) {
-  .MainSection-countItems {
+  .MainSection-countItems-background {
     height: 250px;
   }
 }
 
-.MainSection-countItems::after {
+.MainSection-countItems-background::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -11461,7 +11581,7 @@ button,
 }
 
 @media (min-width: 576px) {
-  .MainSection-countItems::after {
+  .MainSection-countItems-background::after {
     border-radius: 20px;
   }
 }
@@ -11499,121 +11619,8 @@ button,
   font-size: 16px;
 }
 
-.MainSection-hero {
+.MainSection-finishPrice {
   margin-bottom: 100px;
-}
-
-.MainSection-hero-image {
-  height: 468px;
-  padding: 0;
-  background: bottom no-repeat;
-  background-size: cover;
-  position: relative;
-  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.12);
-  overflow: hidden;
-}
-
-@media (min-width: 576px) {
-  .MainSection-hero-image {
-    border-radius: 20px;
-  }
-}
-
-@media (min-width: 576px) {
-  .MainSection-hero-image {
-    height: 400px;
-  }
-}
-
-@media screen and (min-width: 576px) and (min-width: 576px) {
-  .MainSection-hero-image {
-    height: calc(400px + 100 * (100vw - 576px) / 624);
-  }
-}
-
-@media screen and (min-width: 576px) and (min-width: 1200px) {
-  .MainSection-hero-image {
-    height: 500px;
-  }
-}
-
-.MainSection-hero-overlay {
-  width: 100%;
-  height: 100%;
-  padding: 25px;
-  background: rgba(0, 0, 0, 0.4);
-  position: relative;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: flex-end;
-}
-
-@media (min-width: 576px) {
-  .MainSection-hero-overlay {
-    padding: 50px;
-  }
-}
-
-.MainSection-hero-text {
-  max-width: 500px;
-}
-
-.MainSection-hero-text--title,
-.MainSection-hero-text--description {
-  color: #fff;
-}
-
-.MainSection-hero-text--title {
-  font-size: 28px;
-  margin: 0 0 25px;
-  text-transform: uppercase;
-  font-family: "Oswald", sans-serif;
-  font-weight: 800;
-  line-height: 1.333;
-}
-
-@media screen and (min-width: 576px) {
-  .MainSection-hero-text--title {
-    font-size: calc(28px + 18 * (100vw - 576px) / 624);
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .MainSection-hero-text--title {
-    font-size: 46px;
-  }
-}
-
-.MainSection-hero-text--description {
-  margin-bottom: 0;
-}
-
-.MainSection-hero-text--icon {
-  padding: 10px 12px;
-  border: 1px solid #fff;
-  border-radius: 25px;
-  margin-right: 15px;
-}
-
-.MainSection-hero-text--svg {
-  width: 20px;
-  fill: #fff;
-}
-
-.MainSection-hero-text--button {
-  width: auto;
-  margin: 40px 0 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  color: #fff;
-}
-
-.MainSection-hero-text--button:hover {
-  color: #fff;
-  text-decoration: none;
 }
 
 .MainSection-alerts-alert {
