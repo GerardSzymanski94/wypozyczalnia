@@ -1,4 +1,6 @@
 .MainContainer-footer {
+  flex-shrink: 0;
+
   &-app {
     @include border-radius-20;
 

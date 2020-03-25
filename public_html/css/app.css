@@ -11058,6 +11058,13 @@ button,
        appearance: unset;
 }
 
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .btn-user,
 .btn-basket,
 .btn-login,
@@ -11737,6 +11744,10 @@ button,
   .MainSection-finish-price--price {
     font-size: 28px;
   }
+}
+
+.MainContainer-footer {
+  flex-shrink: 0;
 }
 
 .MainContainer-footer-app {
