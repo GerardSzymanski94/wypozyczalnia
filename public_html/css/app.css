@@ -11760,6 +11760,7 @@ button,
 @media (min-width: 576px) {
   .MainContainer-footer-app {
     height: 350px;
+    margin: 0;
   }
 }
 
