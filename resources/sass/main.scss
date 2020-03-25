@@ -8,9 +8,10 @@
 @import './navbar/navbar';
 
 // sections
+@import './home_page/hero-section';
 @import './home_page/choose-items';
 @import './home_page/count-items';
-@import './home_page/hero-section';
+@import './home_page/finish-price';
 
 // alerts
-@import './alerts/alerts.scss';
+@import './alerts/alerts';

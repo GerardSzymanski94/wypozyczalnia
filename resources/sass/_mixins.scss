@@ -68,16 +68,34 @@ $xl: 1200px;
 }
 
 @mixin section-title {
+  @include fluid-type( font-size, $sm, $xl, 28px, 46px);
+
+  @include screen-sm {
+    max-width: 400px;
+  }
+
+  @include screen-lg {
+    max-width: 600px;
+  }
+
   margin: 0 0 10px;
   text-transform: uppercase;
   font-family: 'Oswald', sans-serif;
-  font-size: 46px;
   font-weight: 800;
   line-height: 1.333;
+
 }
 
 @mixin hero-title {
   @include fluid-type( font-size, $sm, $xl, 28px, 46px );
+
+  @include screen-sm {
+    max-width: 400px;
+  }
+
+  @include screen-lg {
+    max-width: unset;
+  }
 
   margin: 0 0 25px;
   text-transform: uppercase;

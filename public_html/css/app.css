@@ -11197,6 +11197,35 @@ button,
   color: #fff;
 }
 
+.btn-ending {
+  width: 100%;
+  padding: 20px 40px;
+  margin: 0 0 25px;
+  border: 1px solid #3490dc;
+}
+
+@media (min-width: 576px) {
+  .btn-ending {
+    width: auto;
+    margin: 0 15px 0 0;
+  }
+}
+
+.btn-ending:last-child {
+  margin: 0;
+}
+
+.btn-ending.full-color {
+  background-color: #3490dc;
+  color: #fff;
+}
+
+.btn-ending.full-color:hover,
+.btn-ending:hover {
+  background-color: #2176bd;
+  color: #fff;
+}
+
 .fa-bars {
   color: #fff;
 }
@@ -11387,6 +11416,18 @@ button,
   }
 }
 
+@media (min-width: 576px) {
+  .MainSection-hero-text--title {
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 992px) {
+  .MainSection-hero-text--title {
+    max-width: unset;
+  }
+}
+
 .MainSection-hero-text--description {
   margin-bottom: 0;
 }
@@ -11434,12 +11475,36 @@ button,
 }
 
 .MainSection-Items--title {
+  font-size: 28px;
   margin: 0 0 10px;
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
-  font-size: 46px;
   font-weight: 800;
   line-height: 1.333;
+}
+
+@media screen and (min-width: 576px) {
+  .MainSection-Items--title {
+    font-size: calc(28px + 18 * (100vw - 576px) / 624);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .MainSection-Items--title {
+    font-size: 46px;
+  }
+}
+
+@media (min-width: 576px) {
+  .MainSection-Items--title {
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 992px) {
+  .MainSection-Items--title {
+    max-width: 600px;
+  }
 }
 
 .MainSection-Items--card {
@@ -11619,8 +11684,59 @@ button,
   font-size: 16px;
 }
 
-.MainSection-finishPrice {
+.MainSection-finish-price {
   margin-bottom: 100px;
+}
+
+.MainSection-finish-price--title {
+  font-size: 28px;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 800;
+  line-height: 1.333;
+  margin-bottom: 75px;
+}
+
+@media screen and (min-width: 576px) {
+  .MainSection-finish-price--title {
+    font-size: calc(28px + 18 * (100vw - 576px) / 624);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .MainSection-finish-price--title {
+    font-size: 46px;
+  }
+}
+
+@media (min-width: 576px) {
+  .MainSection-finish-price--title {
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 992px) {
+  .MainSection-finish-price--title {
+    max-width: 600px;
+  }
+}
+
+.MainSection-finish-price--price {
+  font-size: 18px;
+  margin-bottom: 75px;
+}
+
+@media screen and (min-width: 576px) {
+  .MainSection-finish-price--price {
+    font-size: calc(18px + 10 * (100vw - 576px) / 624);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .MainSection-finish-price--price {
+    font-size: 28px;
+  }
 }
 
 .MainSection-alerts-alert {

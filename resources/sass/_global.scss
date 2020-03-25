@@ -137,6 +137,33 @@ button, [type=button], [type=reset], [type=submit] {
     background-color: darken($blue, 10%);
     color: $white;
   }
+
+  &-ending {
+    width: 100%;
+    padding: 20px 40px;
+    margin: 0 0 25px;
+    border: 1px solid $blue;
+
+    @include screen-sm {
+      width: auto;
+      margin: 0 15px 0 0;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &-ending.full-color {
+    background-color: $blue;
+    color: $white;
+  }
+
+  &-ending.full-color:hover,
+  &-ending:hover {
+    background-color: darken($blue, 10%);
+    color: $white;
+  }
 }
 
 .fa-bars {

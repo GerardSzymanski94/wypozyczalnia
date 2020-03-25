@@ -252,18 +252,18 @@
         </section>
 
 
-        <section class="section_4">
+        <section class="MainSection-finish-price">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <p><span id="price">0</span> zł</p>
+                        <h2 class="MainSection-finish-price--title">Podsumowanie kosztu wypożyczania</h2>
+                        <p class="MainSection-finish-price--price">Do zapłaty: <span id="price">0</span> zł</p>
                     </div>
                     <div class="col-12">
-                        <!-- {{--<a href="" class="btn btn-primary">Sprawdź cenę</a>--}} -->
-                        <div class="btn btn-primary" id="add_product">
+                        <button class="btn btn-ending full-color" id="add_product">
                             Dodaj do koszyka
-                        </div>
-                        <a href="{{ route('cart') }}" class="btn btn-primary">
+                        </button>
+                        <a href="{{ route('cart') }}" class="btn btn-ending">
                             Przejdź do koszyka
                         </a>
                     </div>
@@ -309,6 +309,7 @@
             var days = $("#days").val();
             var amount = $("#amount").val();
             var amount_additional = $("#amount_additional").val();
+
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
