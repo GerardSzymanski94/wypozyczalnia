@@ -305,6 +305,7 @@
 
         $('body').on('click', '#add_product', function (e) {
             e.preventDefault();
+
             var product = $(".product_checkbox:checked").val();
             var additional = $(".additional_checkbox:checked").val();
             var days = $("#days").val();
@@ -354,7 +355,6 @@
                     $('html, body').animate({
                         scrollTop: $("body").offset().top
                     }, '250');
-
                 },
                 error:
                     function (jqXHR, textStatus, errorThrown) {
