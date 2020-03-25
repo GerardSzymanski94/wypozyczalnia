@@ -303,7 +303,9 @@
             getPrice();
         });
 
-        $('body').on('click', '#add_product', function () {
+        $('body').on('click', '#add_product', function (e) {
+            e.eventDefault();
+
             var product = $(".product_checkbox:checked").val();
             var additional = $(".additional_checkbox:checked").val();
             var days = $("#days").val();
