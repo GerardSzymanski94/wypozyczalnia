@@ -1,0 +1,86 @@
+.MainContainer-footer {
+  &-app {
+    @include border-radius-20;
+
+    height: auto;
+    margin: 0 -15px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    @include screen-sm {
+      height: 350px;
+    }
+  }
+
+  &-wrapper {
+    @include border-radius-20;
+
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    background: rgba(0, 0, 0, .2);
+  }
+
+  &--title,
+  &--text {
+    text-align: center;
+
+    @include screen-sm {
+      text-align: left;
+    }
+
+    color: $white;
+  }
+
+  &--title {
+    @include section-title;
+  }
+
+  &--text {
+    margin-bottom: 25px;
+  }
+
+  &-buttons {
+    display: flex;
+    flex-flow: row wrap;
+
+  }
+
+  &--button {
+    width: 100%;
+    margin: 0 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include screen-sm {
+      width: auto;
+      margin: 0 15px 0 0;
+
+      &:last-of-type {
+        margin: 0;
+      };
+    }
+  };
+
+  &--button--image {
+    width: 75%;
+    margin: auto;
+
+    @include screen-sm {
+      width: auto;
+      max-width: 175px;
+    }
+  }
+
+  &--copyright {
+    padding: 30px 0;
+    margin: 0;
+    text-align: center;
+  }
+}
