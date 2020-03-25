@@ -305,7 +305,6 @@
 
         $('body').on('click', '#add_product', function (e) {
             e.preventDefault();
-
             var product = $(".product_checkbox:checked").val();
             var additional = $(".additional_checkbox:checked").val();
             var days = $("#days").val();
