@@ -19,6 +19,18 @@ $xl: 1200px;
   @media (min-width: 1200px) { @content; }
 }
 
+@mixin font-weight-400 {
+  font-weight: 400;
+}
+
+@mixin font-weight-600 {
+  font-weight: 600;
+}
+
+@mixin font-weight-800 {
+  font-weight: 800;
+}
+
 @mixin buttonShadow {
   width: 100%;
   height: 100%;
@@ -45,6 +57,10 @@ $xl: 1200px;
   }
 }
 
+@mixin border-radius-group-20 {
+  border-radius: 20px;
+}
+
 @mixin productCard {
   width: 100%;
   border: 2px solid;
@@ -52,16 +68,34 @@ $xl: 1200px;
 }
 
 @mixin section-title {
+  @include fluid-type( font-size, $sm, $xl, 28px, 46px);
+
+  @include screen-sm {
+    max-width: 400px;
+  }
+
+  @include screen-lg {
+    max-width: 600px;
+  }
+
   margin: 0 0 10px;
   text-transform: uppercase;
   font-family: 'Oswald', sans-serif;
-  font-size: 46px;
   font-weight: 800;
   line-height: 1.333;
+
 }
 
 @mixin hero-title {
   @include fluid-type( font-size, $sm, $xl, 28px, 46px );
+
+  @include screen-sm {
+    max-width: 400px;
+  }
+
+  @include screen-lg {
+    max-width: unset;
+  }
 
   margin: 0 0 25px;
   text-transform: uppercase;

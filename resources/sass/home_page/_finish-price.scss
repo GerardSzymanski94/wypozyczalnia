@@ -1,0 +1,14 @@
+.MainSection-finish-price {
+  @include margin-bottom-100;
+
+  &--title {
+    @include section-title;
+    margin-bottom: 75px;
+  }
+
+  &--price {
+    @include fluid-type( font-size, $sm, $xl, 18px, 28px);
+
+    margin-bottom: 75px;
+  }
+}

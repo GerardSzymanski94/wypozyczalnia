@@ -1,3 +1,72 @@
 .MainSection-countItems {
   @include margin-bottom-100;
+
+  &-background {
+    @include border-radius-20;
+
+    height: 350px;
+
+    @include screen-sm {
+      height: 250px;
+    }
+
+    padding: 25px;
+    background-color: $blue;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    &::after {
+      @include border-radius-20;
+
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .2);
+      position: absolute;
+      z-index: $zindex1;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &-group {
+    @include border-radius-group-20;
+
+    padding: 25px;
+    margin-bottom: -50px;
+    background: $white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .10);
+    position: relative;
+    z-index: $zindex2;
+  }
+
+  &--title {
+    @include font-weight-600;
+
+    font-size: 16px;
+    margin-bottom: 5px;
+    letter-spacing: .16px;
+  }
+
+  &--amount {
+    font-size: 12px;
+    line-height: 1.2;
+    letter-spacing: .32px
+  }
+
+  &--number {
+    @include font-weight-600;
+
+    width: 100%;
+    padding: 15px;
+    border: 1px solid $gray;
+    border-radius: 10px;
+    box-shadow: none;
+    font-size: 16px;
+  }
 }

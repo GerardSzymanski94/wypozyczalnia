@@ -64,9 +64,7 @@
                     <div class="MainSection-hero-overlay">
                         <div class="MainSection-hero-text">
                             <h1 class="MainSection-hero-text--title">Dla firm i osób prywatnych</h1>
-                            <p class="MainSection-hero-text--description">Zawsze nowe modele elektrostymulatorów od
-                                Compex. Dzięki nim przyspieszamy regenerację, wzmacniamy mięśnie i przygotowujemy cały
-                                organizm na duży wysiłek fizyczny.</p>
+                            <p class="MainSection-hero-text--description">Zawsze nowe modele elektrostymulatorów od Compex. Dzięki nim przyspieszamy regenerację, wzmacniamy mięśnie i przygotowujemy cały organizm na duży wysiłek fizyczny.</p>
                             <a href="#" class="MainSection-hero-text--button">
                                 <i class="MainSection-hero-text--icon">
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -155,35 +153,33 @@
             </div>
         </section>
 
-        <section class="MainSection-countItems">
-            <div class="container">
+        <section class="MainSection-countItems container">
+            <div class="MainSection-countItems-background" style="background-image: url('{{ asset('images/wypozyczalnia-rehastore-compex.jpg') }}');">
                 <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <h2>Ilość urządzeń</h2>
-                            <label for="amount">Ilość urządzeń<span class="required">*</span></label>
-                            <input type="number" name="amount" id="amount" class="form-control" step="1" value="1"
-                                   min="1">
+                    <div class="MainSection-countItems-group">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 mb-4 mb-sm-0">
+                                <h3 class="MainSection-countItems--title">Ilość urządzeń</h3>
+                                <label class="MainSection-countItems--amount" for="amount">Ilość urządzeń<span class="required">*</span></label>
+                                <input class="MainSection-countItems--number" type="number" name="amount" id="amount" class="form-control" step="1" value="1" min="1">
 
-                            @if($errors->has('amount'))
-                                <p class="alert alert-danger">
-                                    {{ $errors->first('amount') }}
-                                </p>
-                            @endif
+                                @if($errors->has('amount'))
+                                    <p class="alert alert-danger">
+                                        {{ $errors->first('amount') }}
+                                    </p>
+                                @endif
+                            </div>
+
+                            <div class="col-12 col-sm-6">
+                                <h3 class="MainSection-countItems--title">Wybierz liczbę dni</h3>
+                                <label class="MainSection-countItems--amount" for="days">Liczba dni <span class="required">*</span></label>
+                                <input class="MainSection-countItems--number" type="number" name="days" id="days" class="form-control" step="1" value="1" min="1">
+
+                                @if($errors->has('days'))
+                                    <p class="alert alert-danger"> {{ $errors->first('days') }} </p>
+                                @endif
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <h2>Wybierz liczbę dni</h2>
-
-                            <label for="days">Liczba dni <span class="required">*</span></label>
-                            <input type="number" name="days" id="days" class="form-control" step="1" value="1" min="1">
-
-                            @if($errors->has('days'))
-                                <p class="alert alert-danger"> {{ $errors->first('days') }} </p>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-
                     </div>
                 </div>
             </div>
@@ -235,46 +231,37 @@
             </div>
         </section>
 
-        <section class="MainSection-countItems">
-            <div class="container">
+        <section class="MainSection-countItems container">
+            <div class="MainSection-countItems-background" style="background-image: url('{{ asset('images/wypozyczalnia-rehastore-compex.jpg') }}');">
                 <div class="row justify-content-center">
-                    <div class="col-md-12">
-                        <h2>Ilość zestawów elektrod</h2>
-                        <div class="row">
-                            <div class="form-group col-6">
-                                <label for="amount_additional">Ilość zestawów elektrod<span
-                                            class="required">*</span></label>
-                                <input type="number" name="amount_additional" id="amount_additional"
-                                       class="form-control" step="1" value="1" min="1">
+                    <div class="MainSection-countItems-group">
+                        <h3 class="MainSection-countItems--title">Ilość zestawów elektrod</h3>
+                        <label class="MainSection-countItems--amount" for="amount_additional">Ilość zestawów elektrod<span class="required">*</span></label>
+                        <input class="MainSection-countItems--number" type="number" name="amount_additional" id="amount_additional" class="form-control" step="1" value="1" min="1">
 
-                                @if($errors->has('amount_additional'))
-                                    <p class="alert alert-danger">
-                                        {{ $errors->first('amount_additional') }}
-                                    </p>
-                                @endif
-                            </div>
-
-                            <div class="col-12">
-                                <p><span id="price">0</span> zł</p>
-                            </div>
-                        </div>
+                        @if($errors->has('amount_additional'))
+                            <p class="alert alert-danger">
+                                {{ $errors->first('amount_additional') }}
+                            </p>
+                        @endif
                     </div>
                 </div>
             </div>
         </section>
 
 
-        <section class="section_4">
+        <section class="MainSection-finish-price">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        {{--<a href="" class="btn btn-primary">
-                            Sprawdź cenę
-                        </a>--}}
-                        <div class="btn btn-primary" id="add_product">
+                        <h2 class="MainSection-finish-price--title">Podsumowanie kosztu wypożyczania</h2>
+                        <p class="MainSection-finish-price--price">Do zapłaty: <span id="price">0</span> zł</p>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-ending full-color" id="add_product">
                             Dodaj do koszyka
-                        </div>
-                        <a href="{{ route('cart') }}" class="btn btn-primary">
+                        </button>
+                        <a href="{{ route('cart') }}" class="btn btn-ending">
                             Przejdź do koszyka
                         </a>
                     </div>
@@ -314,12 +301,15 @@
             getPrice();
         });
 
-        $('body').on('click', '#add_product', function () {
+        $('body').on('click', '#add_product', function (e) {
+            e.preventDefault();
+
             var product = $(".product_checkbox:checked").val();
             var additional = $(".additional_checkbox:checked").val();
             var days = $("#days").val();
             var amount = $("#amount").val();
             var amount_additional = $("#amount_additional").val();
+
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -363,7 +353,6 @@
                     $('html, body').animate({
                         scrollTop: $("body").offset().top
                     }, '250');
-
                 },
                 error:
                     function (jqXHR, textStatus, errorThrown) {
