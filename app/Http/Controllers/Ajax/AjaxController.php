@@ -115,8 +115,7 @@ class AjaxController extends Controller
 
     }
 
-    public
-    function getPrice(Request $request)
+    public function getPrice(Request $request)
     {
         $product = Product::find($request->product);
 
@@ -133,6 +132,47 @@ class AjaxController extends Controller
         }
 
         return response()->json(['price' => $price]);
+    }
+
+    public function updateAmount(Request $request)
+    {
+        $orderProduct = OrderProduct::find($request->product);
+        $orderProduct->amount = $request->amount;
+        $orderProduct->save();
+
+        $product = $orderProduct->product;
+
+
+        if ($product->status == 1) {
+            $orderProduct->price = $product->price($orderProduct->days, $orderProduct->amount);
+        } else {
+            $orderProduct->price = $product->priceAdditional($orderProduct->amount);
+        }
+
+        $orderProduct->save();
+
+        $order = $orderProduct->order;
+        $order->total_price = $order->price();
+        $order->save();
+
+        return response()->json(['price' => $orderProduct->price, 'id' => $orderProduct->id, 'total_price' => $order->total_price]);
+    }
+
+    public function updateDays(Request $request)
+    {
+        $orderProduct = OrderProduct::find($request->product);
+        $orderProduct->days = $request->days;
+        $orderProduct->save();
+
+        $product = $orderProduct->product;
+        $orderProduct->price = $product->price($orderProduct->days, $orderProduct->amount);
+        $orderProduct->save();
+
+        $order = $orderProduct->order;
+        $order->total_price = $order->price();
+        $order->save();
+
+        return response()->json(['price' => $orderProduct->price, 'id' => $orderProduct->id, 'total_price' => $order->total_price]);
     }
 
 }

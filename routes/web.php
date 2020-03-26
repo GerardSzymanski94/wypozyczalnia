@@ -23,6 +23,8 @@ Route::get('/create_pdf/{order}', 'HomeController@createPDF')->name('create_pdf'
 Route::namespace('Ajax')->name('ajax.')->prefix('ajax')->group(function () {
     Route::post('/add_product', 'AjaxController@addProduct')->name('add_product');
     Route::post('/get_price', 'AjaxController@getPrice')->name('get_price');
+    Route::post('/update_amount', 'AjaxController@updateAmount')->name('update_amount');
+    Route::post('/update_days', 'AjaxController@updateDays')->name('update_days');
 });
 
 Route::namespace('User')->name('user.')->prefix('uzytkownik')->group(function () {

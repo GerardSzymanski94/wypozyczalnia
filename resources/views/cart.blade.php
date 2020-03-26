@@ -23,12 +23,17 @@
                                                 {{ $product->product->name }}
                                             </td>
                                             <td>
-                                                {{ $product->amount }}
+                                                <input type="number" name="product[{{ $product->id }}]"
+                                                       value="{{ $product->amount }}" min="1"
+                                                       class="order_product_amount"
+                                                       data-id="{{ $product->id }}">
                                             </td>
                                             <td>
-                                                {{ $product->days }} dni
+                                                <input type="number" name="product[{{ $product->id }}]"
+                                                       value="{{ $product->days }}" min="1" class="order_product_days"
+                                                       data-id="{{ $product->id }}"> dni
                                             </td>
-                                            <td>
+                                            <td id="product_price_{{ $product->id }}">
                                                 {{ $product->price }} zł
                                             </td>
                                             <td>
@@ -43,12 +48,15 @@
                                                 {{ $product->product->name }}
                                             </td>
                                             <td>
-                                                {{ $product->amount_additional }}
+                                                <input type="number" name="product[{{ $product->id }}]"
+                                                       value="{{ $product->amount_additional }}" min="1"
+                                                       class="order_product_amount"
+                                                       data-id="{{ $product->id }}">
                                             </td>
                                             <td>
 
                                             </td>
-                                            <td>
+                                            <td id="product_price_{{ $product->id }}">
                                                 {{ $product->price }} zł
                                             </td>
                                             <td>
@@ -68,7 +76,7 @@
                                     <td>
 
                                     </td>
-                                    <td>
+                                    <td id="total_price">
                                         {{ $order->price() }} zł
                                     </td>
                                 </tr>
@@ -86,3 +94,62 @@
 
 @endsection
 
+@section('scripts')
+
+    <script>
+
+        $('body').on('change', '.order_product_amount', function () {
+            let product = $(this).data('id');
+            let amount = $(this).val();
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                dataType: 'json',
+                type: 'POST',
+                url: '{{ route('ajax.update_amount') }}',
+                data: {
+                    product: product,
+                    amount: amount
+                },
+                success: function (data) {
+                    $('#product_price_' + data.id).empty().append(data.price + " " + "zł");
+                    $('#total_price').empty().append(data.total_price + " " + "zł");
+                },
+                error:
+                    function (jqXHR, textStatus, errorThrown) {
+                        console.log(JSON.stringify(jqXHR));
+                        console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+                    }
+            });
+        });
+
+        $('body').on('change', '.order_product_days', function () {
+            let product = $(this).data('id');
+            let days = $(this).val();
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                dataType: 'json',
+                type: 'POST',
+                url: '{{ route('ajax.update_days') }}',
+                data: {
+                    product: product,
+                    days: days
+                },
+                success: function (data) {
+                    $('#product_price_' + data.id).empty().append(data.price + " " + "zł");
+                    $('#total_price').empty().append(data.total_price + " " + "zł");
+                },
+                error:
+                    function (jqXHR, textStatus, errorThrown) {
+                        console.log(JSON.stringify(jqXHR));
+                        console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+                    }
+            });
+        });
+
+    </script>
+
+@endsection
