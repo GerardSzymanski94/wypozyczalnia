@@ -59,7 +59,7 @@
         @csrf
 
         <section class="MainSection-hero">
-            <div class="container px-0 px-sm-3">
+            <div class="container px-0 px-md-3">
                 <div class="MainSection-hero-image" style="background-image: url('{{ asset('images/slider1.jpg') }}')">
                     <div class="MainSection-hero-overlay">
                         <div class="MainSection-hero-text">
@@ -158,7 +158,7 @@
                 <div class="row justify-content-center">
                     <div class="MainSection-countItems-group">
                         <div class="row">
-                            <div class="col-12 col-sm-6 mb-4 mb-sm-0">
+                            <div class="col-12 col-md-6 mb-4 mb-md-0">
                                 <h3 class="MainSection-countItems--title">Ilość urządzeń</h3>
                                 <label class="MainSection-countItems--amount" for="amount">Ilość urządzeń<span class="required">*</span></label>
                                 <input class="MainSection-countItems--number" type="number" name="amount" id="amount" class="form-control" step="1" value="1" min="1">
@@ -170,7 +170,7 @@
                                 @endif
                             </div>
 
-                            <div class="col-12 col-sm-6">
+                            <div class="col-12 col-md-6">
                                 <h3 class="MainSection-countItems--title">Wybierz liczbę dni</h3>
                                 <label class="MainSection-countItems--amount" for="days">Liczba dni <span class="required">*</span></label>
                                 <input class="MainSection-countItems--number" type="number" name="days" id="days" class="form-control" step="1" value="1" min="1">

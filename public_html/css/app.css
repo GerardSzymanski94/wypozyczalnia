@@ -10345,17 +10345,17 @@ button, [type=button], [type=reset], [type=submit] {
     border-radius: 20px;
   }
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .MainSection-hero-image {
     height: 400px;
   }
 }
-@media screen and (min-width: 576px) and (min-width: 576px) {
+@media screen and (min-width: 768px) and (min-width: 576px) {
   .MainSection-hero-image {
     height: calc(400px + 100 * (100vw - 576px) / 624);
   }
 }
-@media screen and (min-width: 576px) and (min-width: 1200px) {
+@media screen and (min-width: 768px) and (min-width: 1200px) {
   .MainSection-hero-image {
     height: 500px;
   }
@@ -10371,7 +10371,7 @@ button, [type=button], [type=reset], [type=submit] {
   display: flex;
   align-items: flex-end;
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .MainSection-hero-overlay {
     padding: 50px;
   }
@@ -10581,7 +10581,7 @@ button, [type=button], [type=reset], [type=submit] {
     border-radius: 20px;
   }
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .MainSection-countItems-background {
     height: 250px;
   }
