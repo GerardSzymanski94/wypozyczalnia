@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
-
+<section class="MainSection-orders">
     <div class="container">
-        <div class="justify-content-center">
-            <div class=" col-md-8">
+        <div class="row justify-content-center">
+            <div class=" col-md-12">
                 @if(\Illuminate\Support\Facades\Session::has('message'))
 
                     <div class="alert alert-success">
@@ -13,59 +12,59 @@
                     </div>
                 @endif
 
-                <div class="x_panel">
-                    <div class="x_title">
-                        <h2>
-                        </h2>
-                        <div class="clearfix"></div>
+                <div class="MainSection-orders-panel">
+                    <div class="MainSection-orders-header">
+                        <h2 class="MainSection-orders--title">Zamówienia</h2>
                     </div>
-                    <div class="x_content">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>Data</th>
-                                <th>Email</th>
-                                <th>Cena</th>
-                                <th>Status</th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                            </tr>
-                            @foreach($orders as $order)
-                                <tr>
-                                    <td>
-                                        {{ $order->created_at }}
-                                    </td>
-                                    <td>
-                                        {{ $order->user->email }}
-                                    </td>
-                                    <td class="news-title">
-                                        {{ $order->price() }} zł
-                                    </td>
-                                    <td>
-                                        {{ $order->showStatus() }}
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                            <a href="{{ route('user.details', ['order'=>$order->id]) }}"
-                                               class="btn btn-secondary btn-primary"><i class="fa fa-list"></i>Szczegóły</a>
-                                            <a href="{{ route('create_pdf', ['order'=>$order->id]) }}"
-                                               class="btn btn-secondary btn-danger"><i class="fa fa-file-pdf-o"></i>Pobierz
-                                                umowę</a>
+                    <div class="MainSection-orders-content">
+                        <ul class="MainSection-orders-table">
+                            <li class="MainSection-orders-table-row MainSection-orders-table-cell-header">
+                                <div class="MainSection-orders-table-cell MainSection-orders-table--data">Data</div>
+                                <div class="MainSection-orders-table-cell MainSection-orders-table--email">Email</div>
+                                <div class="MainSection-orders-table-cell MainSection-orders-table--price">Cena</div>
+                                <div class="MainSection-orders-table-cell MainSection-orders-table--status">Status</div>
+                                <div class="MainSection-orders-table-cell MainSection-orders-table--more">Więcej</div>
+                            </li>
 
-                                        </div>
-                                    </td>
-                                </tr>
+                            @foreach($orders as $order)
+                            <li class="MainSection-orders-table-row">
+                                <div class="MainSection-orders-table-cell MainSection-orders-table--data">
+                                    <div class="MainSection-orders-table-cell-name">Data</div>
+                                    <span>{{ $order->created_at }}</span>
+                                </div>
+                                <div class="MainSection-orders-table-cell MainSection-orders-table--email">
+                                    <div class="MainSection-orders-table-cell-name">Email</div>
+                                    <span>{{ $order->user->email }}</span>
+                                </div>
+                                <div class="MainSection-orders-table-cell MainSection-orders-table--price">
+                                    <div class="MainSection-orders-table-cell-name">Cena</div>
+                                    <span>{{ $order->price() }} zł</span>
+                                </div>
+                                <div class="MainSection-orders-table-cell MainSection-orders-table--status">
+                                    <div class="MainSection-orders-table-cell-name">Status</div>
+                                    <span>{{ $order->showStatus() }}</span>
+                                </div>
+                                <div class="MainSection-orders-button-group btn-group MainSection-orders-table--more" role="group" aria-label="Basic example">
+                                    <a href="{{ route('user.details', ['order'=>$order->id]) }}"
+                                    class="btn btn-secondary btn-primary MainSection-orders-button">
+                                        <i class="MainSection-orders-button-icon fa fa-list"></i>
+                                        <span>Szczegóły</span>
+                                    </a>
+                                    <a href="{{ route('create_pdf', ['order'=>$order->id]) }}"
+                                    class="btn btn-secondary btn-danger MainSection-orders-button">
+                                        <i class="MainSection-orders-button-icon fa fa-file-pdf-o"></i>
+                                        <span>Pobierz umowę</span>
+                                    </a>
+                                </div>
+                            </li>
                             @endforeach
-                            </tbody>
-                        </table>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
 @endsection
 
 @section('scripts')
