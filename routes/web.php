@@ -14,7 +14,7 @@
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('index');
 Route::get('/koszyk', 'HomeController@cart')->name('cart');
-Route::get('/delete/{product}', 'HomeController@cartDelete')->name('delete');
+Route::get('/delete/{id}', 'HomeController@cartDelete')->name('delete');
 Route::get('/dane', 'HomeController@userData')->name('data');
 Route::post('/save_order', 'HomeController@saveOrder')->name('save');
 Route::get('/create_pdf/{order}', 'HomeController@createPDF')->name('create_pdf');

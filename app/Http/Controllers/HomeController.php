@@ -49,9 +49,11 @@ class HomeController extends Controller
         return view('cart', compact('order'));
     }
 
-    public function cartDelete(OrderProduct $product)
+    public function cartDelete($id)
     {
-        $product->delete();
+        $product = OrderProduct::find($id);
+        if (isset($product->id))
+            $product->delete();
         return redirect()->route('cart');
     }
 
