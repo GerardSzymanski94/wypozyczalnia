@@ -10264,7 +10264,7 @@ button, [type=button], [type=reset], [type=submit] {
   padding: 25px 15px;
   z-index: 6000;
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .navbar {
     padding: 35px 15px;
   }
@@ -10272,22 +10272,26 @@ button, [type=button], [type=reset], [type=submit] {
 .navbar-nav {
   margin: 0 0 10px;
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .navbar-nav {
     margin: 0;
   }
 }
 .navbar-collapse {
   width: 100%;
+  max-width: 540px;
   padding: 0px 15px;
   background: white;
+  box-shadow: 0 5px 8px -8px rgba(0, 0, 0, 0.12);
   position: absolute;
   top: 100%;
-  left: 0px;
+  left: 50%;
   z-index: 6000;
+  transform: translateX(-50%);
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .navbar-collapse {
+    max-width: unset;
     padding: 0;
     position: relative;
   }
@@ -10299,7 +10303,7 @@ button, [type=button], [type=reset], [type=submit] {
 .navbar-item {
   margin: 10px 0;
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .navbar-item {
     margin: 0 12px 0 0;
   }
@@ -10311,7 +10315,7 @@ button, [type=button], [type=reset], [type=submit] {
   width: 100%;
   padding: 10px 15px;
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .navbar-dropdown {
     padding: 15px;
     border-radius: 25px;
