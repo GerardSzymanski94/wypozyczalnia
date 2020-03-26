@@ -10295,6 +10295,8 @@ button, [type=button], [type=reset], [type=submit] {
     padding: 0;
     box-shadow: unset;
     position: relative;
+    left: 0;
+    transform: none;
   }
 }
 .navbar-brand {
