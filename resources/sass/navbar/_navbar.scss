@@ -29,6 +29,7 @@
     @include screen-md {
       max-width: unset;
       padding: 0;
+      box-shadow: unset;
       position: relative;
     }
   }

@@ -10293,6 +10293,7 @@ button, [type=button], [type=reset], [type=submit] {
   .navbar-collapse {
     max-width: unset;
     padding: 0;
+    box-shadow: unset;
     position: relative;
   }
 }
