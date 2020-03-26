@@ -10127,7 +10127,7 @@ button, [type=button], [type=reset], [type=submit] {
     background-color: #3490dc;
   }
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .btn-user, .btn-basket, .btn-login, .btn-menu {
     width: auto;
     height: 40px;
@@ -10137,7 +10137,7 @@ button, [type=button], [type=reset], [type=submit] {
 .btn-user::after, .btn-basket::after, .btn-login::after, .btn-menu::after {
   content: unset;
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .btn-basket:hover {
     color: #fff;
   }
@@ -10156,7 +10156,7 @@ button, [type=button], [type=reset], [type=submit] {
     transition: opacity 0.2s;
   }
 }
-@media (min-width: 576px) and (min-width: 576px) {
+@media (min-width: 768px) and (min-width: 576px) {
   .btn-basket::before {
     border-radius: 20px;
   }
@@ -10164,7 +10164,7 @@ button, [type=button], [type=reset], [type=submit] {
 .btn-login:focus {
   color: #fff;
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .btn-login:focus {
     color: #000;
   }
@@ -10172,7 +10172,7 @@ button, [type=button], [type=reset], [type=submit] {
 .btn-basket--icon {
   margin-right: 15px;
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .btn-menu {
     background-color: transparent;
     color: #000;
@@ -10184,7 +10184,7 @@ button, [type=button], [type=reset], [type=submit] {
 .btn-menu:focus {
   color: #fff;
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .btn-menu:focus {
     color: #000;
   }
@@ -10216,7 +10216,7 @@ button, [type=button], [type=reset], [type=submit] {
   margin: 0 0 25px;
   border: 1px solid #3490dc;
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .btn-ending {
     width: auto;
     margin: 0 15px 0 0;
