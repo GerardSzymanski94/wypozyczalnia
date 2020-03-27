@@ -11039,6 +11039,11 @@ img {
   width: 100%;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   line-height: 1.333;
   font-size: 16px;
@@ -11062,7 +11067,10 @@ button,
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+
+.app-body {
+  flex: 1 0 auto;
 }
 
 .btn-user,
