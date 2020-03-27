@@ -34,10 +34,7 @@ Route::namespace('User')->name('user.')->prefix('uzytkownik')->group(function ()
 
 Route::namespace('Admin')->name('admin.')->prefix('administracja')->group(function () {
 
-    Route::get('/', 'DashboardController@index')->name('index');
-    Route::prefix('dashboard')->name('dashboard.')->group(function () {
-        Route::get('/', 'DashboardController@index')->name('index');
-    });
+    Route::get('/', 'OrderController@index')->name('index');
 
     Route::prefix('product')->name('product.')->group(function () {
         Route::get('/', 'ProductController@index')->name('index');

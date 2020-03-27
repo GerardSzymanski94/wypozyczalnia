@@ -16,7 +16,7 @@ class OrderController extends BaseController
      */
     public function index()
     {
-        $orders = Order::where('status', '>', 1)->get();
+        $orders = Order::where('status', '>', 1)->orderBy('id', 'desc')->get();
         return view('admin.order.list', compact('orders'));
     }
 
