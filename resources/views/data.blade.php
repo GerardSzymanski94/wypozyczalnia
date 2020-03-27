@@ -42,6 +42,9 @@
                                             {{ $product->price }} zł
                                         </td>
                                         <td>
+                                            @if(isset($product->product->deposit) && $product->product->deposit>0)
+                                                <span style="color: red;">{{ $product->product->deposit }}</span>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

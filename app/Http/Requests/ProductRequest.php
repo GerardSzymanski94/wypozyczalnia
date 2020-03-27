@@ -33,6 +33,7 @@ class ProductRequest extends FormRequest
             'price_three_week' => 'nullable',
             'price_four_week' => 'nullable',
             'price_more_month' => 'nullable',
+            'deposit' => 'nullable',
         ];
     }
 

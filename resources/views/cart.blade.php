@@ -37,23 +37,25 @@
                                             <div class="MainSection-cart-item-cell MainSection-cart-item--count">
                                                 <div class="MainSection-cart-item-name"><span>Ilość</span></div>
                                                 <input type="number" name="product[{{ $product->id }}]"
-                                                        value="{{ $product->amount }}" min="1"
-                                                        class="order_product_amount MainSection-cart-item--input"
-                                                        data-id="{{ $product->id }}">
+                                                       value="{{ $product->amount }}" min="1"
+                                                       class="order_product_amount MainSection-cart-item--input"
+                                                       data-id="{{ $product->id }}">
                                             </div>
                                             <div class="MainSection-cart-item-cell MainSection-cart-item--days">
                                                 <div class="MainSection-cart-item-name"><span>Dni</span></div>
                                                 <input type="number" name="product[{{ $product->id }}]"
-                                                        value="{{ $product->days }}" min="1" class="order_product_days MainSection-cart-item--input"
-                                                        data-id="{{ $product->id }}"> dni
+                                                       value="{{ $product->days }}" min="1"
+                                                       class="order_product_days MainSection-cart-item--input"
+                                                       data-id="{{ $product->id }}"> dni
                                             </div>
-                                            <div id="product_price_{{ $product->id }}" class="MainSection-cart-item-cell MainSection-cart-item--price">
+                                            <div id="product_price_{{ $product->id }}"
+                                                 class="MainSection-cart-item-cell MainSection-cart-item--price">
                                                 <div class="MainSection-cart-item-name"><span>Cena</span></div>
                                                 <span> {{ $product->price }} zł</span>
                                             </div>
                                             <div class="MainSection-cart-item-cell MainSection-cart-item--button">
                                                 <a href="{{ route('delete', ['product'=>$product->id]) }}"
-                                                    class="btn btn-danger"> Usuń z koszyka</a>
+                                                   class="btn btn-danger"> Usuń z koszyka</a>
                                             </div>
                                         </li>
                                     @else
@@ -65,18 +67,19 @@
                                             <div class="MainSection-cart-item-cell MainSection-cart-item--count">
                                                 <div class="MainSection-cart-item-name"><span>Ilość</span></div>
                                                 <input type="number" name="product[{{ $product->id }}]"
-                                                        value="{{ $product->amount_additional }}" min="1"
-                                                        class="order_product_amount MainSection-cart-item--input"
-                                                        data-id="{{ $product->id }}">
+                                                       value="{{ $product->amount_additional }}" min="1"
+                                                       class="order_product_amount MainSection-cart-item--input"
+                                                       data-id="{{ $product->id }}">
                                             </div>
                                             <div class="MainSection-cart-item-cell MainSection-cart-item--days mobile"></div>
-                                            <div id="product_price_{{ $product->id }}" class="MainSection-cart-item-cell MainSection-cart-item--price">
+                                            <div id="product_price_{{ $product->id }}"
+                                                 class="MainSection-cart-item-cell MainSection-cart-item--price">
                                                 <div class="MainSection-cart-item-name"><span>Cena</span></div>
                                                 <span>{{ $product->price }} zł</span>
                                             </div>
                                             <div class="MainSection-cart-item-cell MainSection-cart-item--button">
                                                 <a href="{{ route('delete', ['product'=>$product->id]) }}"
-                                                    class="btn btn-danger"> Usuń z koszyka</a>
+                                                   class="btn btn-danger"> Usuń z koszyka</a>
                                             </div>
                                         </li>
                                     @endif
@@ -84,7 +87,8 @@
                             </ul>
                             <div class="MainSection-cart-summary">
                                 <p class="MainSection-cart-summary--text">Podsumowanie: {{ $order->price() }} zł</p>
-                                <a href="{{ route('data') }}" class="btn btn-ending full-color MainSection-cart-summary--button">Przejdź dalej</a>
+                                <a href="{{ route('data') }}"
+                                   class="btn btn-ending full-color MainSection-cart-summary--button">Przejdź dalej</a>
                             </div>
                         @else
                             <p>Koszyk jest pusty</p>

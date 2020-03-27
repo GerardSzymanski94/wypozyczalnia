@@ -61,7 +61,7 @@
                             {{ substr($product->description, 0, 100) }}...
                         </td>
                         <td>
-
+                            {{ $product->amount }}
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
@@ -95,7 +95,7 @@
                             {{ substr($additional->description, 0, 100) }}...
                         </td>
                         <td>
-
+                            {{ $additional->amount }}
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">

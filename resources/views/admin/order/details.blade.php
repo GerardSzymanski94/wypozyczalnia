@@ -23,6 +23,7 @@
                     <th>Produkt</th>
                     <th>Ilość</th>
                     <th>Cena</th>
+                    <th>Kaucja</th>
                     <th>Data oddania</th>
                     <th>Status</th>
                     <th></th>
@@ -41,6 +42,9 @@
                         </td>
                         <td class="news-title">
                             {{ $orderProduct->price }}
+                        </td>
+                        <td>
+                            {{ $orderProduct->product->deposit }}
                         </td>
                         <td>
                             {{ $orderProduct->showDay() }}

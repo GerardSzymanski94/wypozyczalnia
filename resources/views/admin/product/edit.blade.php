@@ -126,6 +126,18 @@
                         @endif
                     </div>
 
+                    <div class="form-group col-md-6">
+                        <label for="deposit">Kaucja <span
+                                    class="required">*</span></label>
+                        <input type="number" name="deposit" id="deposit"
+                               class="form-control" step="0.01"
+                               value="{{ old('deposit', $product->deposit ?? '') }}">
+
+                        @if($errors->has('deposit'))
+                            <p class="alert alert-danger"> {{ $errors->first('deposit') }}
+                            </p>
+                        @endif
+                    </div>
                 </div>
                 <hr>
                 <div class="form-row">

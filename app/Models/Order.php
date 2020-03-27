@@ -24,7 +24,7 @@ class Order extends Model
         $price = 0;
         foreach ($this->orderProducts as $orderProduct) {
             if (isset($orderProduct->price) && $orderProduct->price != null)
-                $price = $price + $orderProduct->price;
+                $price = $price + $orderProduct->price + $orderProduct->product->deposit;
         }
         return $price;
     }
