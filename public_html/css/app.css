@@ -11217,6 +11217,7 @@ button,
   padding: 20px 40px;
   margin: 0 0 25px;
   border: 1px solid #3490dc;
+  border-radius: 20px;
 }
 
 @media (min-width: 768px) {
@@ -12423,6 +12424,170 @@ button,
 
 .MainSection-cart-summary--button {
   width: 250px;
+}
+
+.MainSection-summary {
+  margin-bottom: 100px;
+}
+
+.MainSection-summary--title {
+  font-size: 28px;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 800;
+  line-height: 1.333;
+}
+
+@media screen and (min-width: 576px) {
+  .MainSection-summary--title {
+    font-size: calc(28px + 18 * (100vw - 576px) / 624);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .MainSection-summary--title {
+    font-size: 46px;
+  }
+}
+
+@media (min-width: 576px) {
+  .MainSection-summary--title {
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 992px) {
+  .MainSection-summary--title {
+    max-width: 600px;
+  }
+}
+
+.MainSection-summary-header {
+  margin: 25px 0 50px;
+}
+
+@media (min-width: 768px) {
+  .MainSection-summary-header {
+    margin: 50px 0 75px;
+  }
+}
+
+.MainSection-summary-content {
+  margin: 0 0 50px;
+}
+
+.MainSection-summary-list {
+  padding: 0;
+  margin: 0 0 50px;
+  list-style: none;
+}
+
+.MainSection-summary-list-item {
+  width: 100%;
+  padding: 0 0 15px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 6px -5px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .MainSection-summary-list-item {
+    padding: 15px;
+    margin-bottom: 5px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.MainSection-summary-list-item:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+  box-shadow: none;
+}
+
+.MainSection-summary-list-item-header {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .MainSection-summary-list-item-header {
+    display: flex;
+  }
+}
+
+.MainSection-summary-list-cell {
+  padding: 0 0 5px;
+  display: flex;
+  flex-flow: row;
+}
+
+@media (min-width: 768px) {
+  .MainSection-summary-list-cell {
+    padding: 0;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.MainSection-summary-list-product,
+.MainSection-summary-list-count,
+.MainSection-summary-list-days,
+.MainSection-summary-list-price,
+.MainSection-summary-list-deposit {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .MainSection-summary-list-product {
+    max-width: 170px;
+  }
+}
+
+@media screen and (min-width: 768px) and (min-width: 768px) {
+  .MainSection-summary-list-product {
+    max-width: calc(170px + 110 * (100vw - 768px) / 432);
+  }
+}
+
+@media screen and (min-width: 768px) and (min-width: 1200px) {
+  .MainSection-summary-list-product {
+    max-width: 280px;
+  }
+}
+
+@media (min-width: 768px) {
+  .MainSection-summary-list-count,
+  .MainSection-summary-list-days,
+  .MainSection-summary-list-price,
+  .MainSection-summary-list-deposit {
+    max-width: 100px;
+  }
+}
+
+.MainSection-summary-list-name {
+  width: 100%;
+  max-width: 150px;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .MainSection-summary-list-name {
+    display: none;
+  }
+}
+
+.MainSection-summary-list-name-summary,
+.MainSection-summary-list-price-summary {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.MainSection-summary-form--header {
+  margin: 25px 0;
 }
 
 .MainContainer-footer {

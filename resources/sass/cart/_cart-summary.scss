@@ -1,0 +1,113 @@
+.MainSection-summary {
+  @include margin-bottom-100;
+
+  &--title {
+    @include section-title;
+  }
+
+  &-header {
+    margin: 25px 0 50px;
+
+    @include screen-md {
+      margin: 50px 0 75px;
+    }
+  }
+
+  &-content {
+    margin: 0 0 50px;
+  }
+
+  &-list {
+    padding: 0;
+    margin: 0 0 50px;
+    list-style: none;
+  }
+
+  &-list-item {
+    width: 100%;
+    padding: 0 0 15px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+
+    @include screen-md {
+      padding: 15px;
+      margin-bottom: 5px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    border-bottom: 1px solid $gray-shadow;
+    box-shadow: 0 4px 6px -5px $gray-shadow;
+    overflow: hidden;
+
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom: 0;
+      box-shadow: none;
+    }
+  }
+
+  &-list-item-header {
+    display: none;
+
+    @include screen-md {
+      display: flex;
+    }
+  }
+
+  &-list-cell {
+    padding: 0 0 5px;
+    display: flex;
+    flex-flow: row;
+
+    @include screen-md {
+      padding: 0;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &-list-product,
+  &-list-count,
+  &-list-days,
+  &-list-price,
+  &-list-deposit {
+    width: 100%;
+  }
+
+  &-list-product {
+    @include screen-md {
+      @include fluid-type( max-width, $md, $xl, 170px, 280px );
+    }
+  }
+
+  &-list-count,
+  &-list-days,
+  &-list-price,
+  &-list-deposit {
+    @include screen-md {
+      max-width: 100px;
+    }
+  }
+
+  &-list-name {
+    width: 100%;
+    max-width: 150px;
+    display: block;
+
+    @include screen-md {
+      display: none;
+    }
+  }
+
+  &-list-name-summary,
+  &-list-price-summary {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &-form--header {
+    margin: 25px 0;
+  }
+}
