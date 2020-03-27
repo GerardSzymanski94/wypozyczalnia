@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form>
+    <form id='form'>
         <div class="MainSection-alerts container">
             <div class="row justify-content-center check_alert" id="added_to_cart" style="display: none;">
                 <div class="col-md-12">
@@ -64,7 +64,9 @@
                     <div class="MainSection-hero-overlay">
                         <div class="MainSection-hero-text">
                             <h1 class="MainSection-hero-text--title">Dla firm i osób prywatnych</h1>
-                            <p class="MainSection-hero-text--description">Zawsze nowe modele elektrostymulatorów od Compex. Dzięki nim przyspieszamy regenerację, wzmacniamy mięśnie i przygotowujemy cały organizm na duży wysiłek fizyczny.</p>
+                            <p class="MainSection-hero-text--description">Zawsze nowe modele elektrostymulatorów od
+                                Compex. Dzięki nim przyspieszamy regenerację, wzmacniamy mięśnie i przygotowujemy cały
+                                organizm na duży wysiłek fizyczny.</p>
                             <a href="#" class="MainSection-hero-text--button">
                                 <i class="MainSection-hero-text--icon">
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -143,7 +145,7 @@
                                         </div>
                                     </label>
                                 </div>
-                                <input type="checkbox" name="product[{{ $product->id }}]" class="product_checkbox"
+                                <input type="checkbox" name="product" class="product_checkbox"
                                        value="{{ $product->id }}" style="display: none;"
                                        id="product_{{ $product->id }}">
                             @endforeach
@@ -154,14 +156,17 @@
         </section>
 
         <section class="MainSection-countItems container">
-            <div class="MainSection-countItems-background" style="background-image: url('{{ asset('images/wypozyczalnia-rehastore-compex.jpg') }}');">
+            <div class="MainSection-countItems-background"
+                 style="background-image: url('{{ asset('images/wypozyczalnia-rehastore-compex.jpg') }}');">
                 <div class="row justify-content-center">
                     <div class="MainSection-countItems-group">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-4 mb-md-0">
                                 <h3 class="MainSection-countItems--title">Ilość urządzeń</h3>
-                                <label class="MainSection-countItems--amount" for="amount">Ilość urządzeń<span class="required">*</span></label>
-                                <input class="MainSection-countItems--number" type="number" name="amount" id="amount" class="form-control" step="1" value="1" min="1">
+                                <label class="MainSection-countItems--amount" for="amount">Ilość urządzeń<span
+                                            class="required">*</span></label>
+                                <input class="MainSection-countItems--number" type="number" name="amount" id="amount"
+                                       class="form-control" step="1" value="1" min="1">
 
                                 @if($errors->has('amount'))
                                     <p class="alert alert-danger">
@@ -172,8 +177,10 @@
 
                             <div class="col-12 col-md-6">
                                 <h3 class="MainSection-countItems--title">Wybierz liczbę dni</h3>
-                                <label class="MainSection-countItems--amount" for="days">Liczba dni <span class="required">*</span></label>
-                                <input class="MainSection-countItems--number" type="number" name="days" id="days" class="form-control" step="1" value="1" min="1">
+                                <label class="MainSection-countItems--amount" for="days">Liczba dni <span
+                                            class="required">*</span></label>
+                                <input class="MainSection-countItems--number" type="number" name="days" id="days"
+                                       class="form-control" step="1" value="1" min="1">
 
                                 @if($errors->has('days'))
                                     <p class="alert alert-danger"> {{ $errors->first('days') }} </p>
@@ -223,6 +230,9 @@
                                     <input type="checkbox" name="additional[{{ $additional->id }}]"
                                            class="additional_checkbox" style="display: none;"
                                            id="additional_{{ $additional->id }}" value="{{ $additional->id }}">
+                                    <input class="MainSection-countItems--number" type="number"
+                                           name="amount_additional[{{ $additional->id }}]"
+                                           id="amount_additional" class="form-control" step="1" value="1" min="1">
                                 </div>
                             @endforeach
                         </div>
@@ -232,18 +242,19 @@
         </section>
 
         <section class="MainSection-countItems container">
-            <div class="MainSection-countItems-background" style="background-image: url('{{ asset('images/wypozyczalnia-rehastore-compex.jpg') }}');">
+            <div class="MainSection-countItems-background"
+                 style="background-image: url('{{ asset('images/wypozyczalnia-rehastore-compex.jpg') }}');">
                 <div class="row justify-content-center">
                     <div class="MainSection-countItems-group">
-                        <h3 class="MainSection-countItems--title">Ilość zestawów elektrod</h3>
-                        <label class="MainSection-countItems--amount" for="amount_additional">Ilość zestawów elektrod<span class="required">*</span></label>
-                        <input class="MainSection-countItems--number" type="number" name="amount_additional" id="amount_additional" class="form-control" step="1" value="1" min="1">
+                        {{-- <h3 class="MainSection-countItems--title">Ilość zestawów elektrod</h3>
+                         <label class="MainSection-countItems--amount" for="amount_additional">Ilość zestawów elektrod<span class="required">*</span></label>
+                         <input class="MainSection-countItems--number" type="number" name="amount_additional" id="amount_additional" class="form-control" step="1" value="1" min="1">
 
-                        @if($errors->has('amount_additional'))
-                            <p class="alert alert-danger">
-                                {{ $errors->first('amount_additional') }}
-                            </p>
-                        @endif
+                         @if($errors->has('amount_additional'))
+                             <p class="alert alert-danger">
+                                 {{ $errors->first('amount_additional') }}
+                             </p>
+                         @endif--}}
                     </div>
                 </div>
             </div>
@@ -284,9 +295,14 @@
         });
 
         $('body').on('click', '.additional_card', function () {
-            clearAdditionals();
-            $(this).addClass('checked')
-            $("#additional_" + $(this).data('id')).is(":checked");
+            //clearAdditionals();
+            if ($(this).hasClass('checked')) {
+                $(this).removeClass('checked')
+                $("#additional_" + $(this).data('id')).is(":unchecked");
+            } else {
+                $(this).addClass('checked')
+                $("#additional_" + $(this).data('id')).is(":checked");
+            }
         });
 
         $('body').on('change', '#days', function () {
@@ -304,12 +320,13 @@
         $('body').on('click', '#add_product', function (e) {
             e.preventDefault();
 
-            var product = $(".product_checkbox:checked").val();
-            var additional = $(".additional_checkbox:checked").val();
-            var days = $("#days").val();
-            var amount = $("#amount").val();
-            var amount_additional = $("#amount_additional").val();
+            /* var product = $(".product_checkbox:checked").val();
+             var additional = $(".additional_checkbox:checked").val();
+             var days = $("#days").val();
+             var amount = $("#amount").val();
+             var amount_additional = $("#amount_additional").val();*/
 
+            var form = $("#form").serialize();
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -318,11 +335,7 @@
                 type: 'POST',
                 url: '{{ route('ajax.add_product') }}',
                 data: {
-                    product: product,
-                    additional: additional,
-                    amount_additional: amount_additional,
-                    days: days,
-                    amount: amount
+                    form: form
                 },
                 success: function (data) {
                     $('.check_alert').hide();
@@ -386,11 +399,13 @@
         });
 
         function getPrice() {
-            var product = $(".product_checkbox:checked").val();
-            var additional = $(".additional_checkbox:checked").val();
-            var days = $("#days").val();
-            var amount = $("#amount").val();
-            var amount_additional = $("#amount_additional").val();
+            /* var product = $(".product_checkbox:checked").val();
+             var additional = $(".additional_checkbox:checked").val();
+             var days = $("#days").val();
+             var amount = $("#amount").val();
+             var amount_additional = $("#amount_additional").val();*/
+
+            var form = $("#form").serialize();
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -399,11 +414,7 @@
                 type: 'POST',
                 url: '{{ route('ajax.get_price') }}',
                 data: {
-                    product: product,
-                    additional: additional,
-                    amount_additional: amount_additional,
-                    days: days,
-                    amount: amount
+                    form: form
                 },
                 success: function (data) {
                     $('#price').empty().append(data.price);
@@ -414,6 +425,17 @@
                         console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
                     }
             });
+        }
+
+        function getFormData($form) {
+            var unindexed_array = $form.serializeArray();
+            var indexed_array = {};
+
+            $.map(unindexed_array, function (n, i) {
+                indexed_array[n['name']] = n['value'];
+            });
+
+            return indexed_array;
         }
     </script>
 @endsection

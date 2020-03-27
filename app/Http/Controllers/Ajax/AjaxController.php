@@ -14,7 +14,9 @@ class AjaxController extends Controller
 {
     public function addProduct(Request $request)
     {
+        $params = [];
 
+        parse_str($request->form, $params);
         $checkAmount = true; //Dostępna ilość produktów
         $checkAmountAdditional = true; //Dostępna ilość elektrod
         $inputAmount = true; //poprawna liczba ilości
@@ -24,16 +26,16 @@ class AjaxController extends Controller
         $inputAdditionals = true; //zaznaczono elektrody
         $addedToCart = false;
 
-        if (!$request->has('days') || $request->days <= 0) {
+        if (!isset($params['days']) || $params['days'] <= 0) {
             $inputDays = false;
         }
-        if (!$request->has('amount') || $request->amount <= 0) {
+        if (!isset($params['amount']) || $params['amount'] <= 0) {
             $inputAmount = false;
         }
 
-        if ($request->has('product')) {
-            $product = Product::find($request->product);
-            if ($product->checkAmount($request->amount)) {
+        if (isset($params['product'])) {
+            $product = Product::find($params['product']);
+            if ($product->checkAmount($params['amount'])) {
                 $checkAmount = true;
             } else {
                 $checkAmount = false;
@@ -42,12 +44,14 @@ class AjaxController extends Controller
             $inputProducts = false;
         }
 
-        if ($request->has('additional')) {
-            $product = Product::find($request->additional);
-            if ($product->checkAmount($request->amount_additional)) {
-                $checkAmountAdditional = true;
-            } else {
-                $checkAmountAdditional = false;
+        if (isset($params['additional'])) {
+            foreach ($params['additional'] as $additional) {
+                $product = Product::find($additional);
+                if ($product->checkAmount($params['amount_additional'][$additional])) {
+                    $checkAmountAdditional = true;
+                } else {
+                    $checkAmountAdditional = false;
+                }
             }
         } else {
             $inputAdditionals = false;
@@ -62,7 +66,7 @@ class AjaxController extends Controller
                 $userId = auth()->user()->id;
                 $now = Carbon::now();
                 $from = Carbon::now();
-                $to = $now->addDays($request->days);
+                $to = $now->addDays($params['days']);
                 $order = Order::firstOrCreate([
                     'user_id' => $userId,
                     'status' => 1,
@@ -76,7 +80,7 @@ class AjaxController extends Controller
                 $sessionKey = Session::token();
                 $now = Carbon::now();
                 $from = Carbon::now();
-                $to = $now->addDays($request->days);
+                $to = $now->addDays($params['days']);
                 $order = Order::firstOrCreate([
                     'session_key' => $sessionKey,
                     'status' => 1,
@@ -87,25 +91,28 @@ class AjaxController extends Controller
 
             }
 
-            $product = Product::find($request->product);
+            $product = Product::find($params['product']);
             $orderProduct = OrderProduct::create([
                 'order_id' => $order->id,
-                'days' => $request->days,
-                'product_id' => $request->product,
-                'amount' => $request->amount,
-                'price' => $product->price($request->days, $request->amount),
+                'days' => $params['days'],
+                'product_id' => $params['product'],
+                'amount' => $params['amount'],
+                'price' => $product->price($params['days'], $params['amount']),
                 'status' => 1
             ]);
             if ($inputAdditionals && $inputAmountAdditional && $checkAmountAdditional) {
-                $product = Product::find($request->additional);
-                $orderProduct = OrderProduct::create([
-                    'order_id' => $order->id,
-                    'product_id' => $request->additional,
-                    'amount_additional' => $request->amount_additional,
-                    'days' => $request->days,
-                    'price' => $product->priceAdditional($request->amount_additional),
-                    'status' => 1
-                ]);
+                foreach ($params['additional'] as $additional) {
+                    $product = Product::find($additional);
+                    $orderProduct = OrderProduct::create([
+                        'order_id' => $order->id,
+                        'product_id' => $additional,
+                        'amount_additional' => $params['amount_additional'][$additional],
+                        'days' => $params['days'],
+                        'price' => $product->priceAdditional($params['amount_additional'][$additional]),
+                        'status' => 1
+                    ]);
+                }
+
             }
             $addedToCart = true;
 
@@ -117,18 +124,25 @@ class AjaxController extends Controller
 
     public function getPrice(Request $request)
     {
-        $product = Product::find($request->product);
+        $params = [];
 
-        $days = $request->days;
-        $amount = $request->amount;
+        parse_str($request->form, $params);
+
+        $product = Product::find($params['product']);
+
+        $days = $params['days'];
+        $amount = $params['amount'];
 
         $price = 0;
         $price = $price + $product->price($days, $amount);
 
-        if (isset($request->additional)) {
-            $amountAdditional = $request->amount_additional;
-            $additional = Product::find($request->additional);
-            $price = $price + $additional->priceAdditional($amountAdditional);
+        if (isset($params['additional'])) {
+            foreach ($params['additional'] as $additional) {
+                $amountAdditional = $params['amount_additional'][$additional];
+                $additional = Product::find($additional);
+                $price = $price + $additional->priceAdditional($amountAdditional);
+            }
+
         }
 
         return response()->json(['price' => $price]);
