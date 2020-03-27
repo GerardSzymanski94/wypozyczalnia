@@ -90,7 +90,7 @@
         </div>
     </nav>
 
-    <main>
+    <main class="app-body">
         @yield('content')
     </main>
 
