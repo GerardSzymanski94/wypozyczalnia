@@ -16,6 +16,17 @@
                 <li>Nazwisko: {{ $order->user->surname }}</li>
                 <li>Adres: {{ $order->user->street }}, {{ $order->user->city }}, {{ $order->user->zip_code }}</li>
             </ul>
+
+            @if($order->invoice==1)
+                <h2>Użytkownik chce fakture</h2>
+                <ul>
+                    <li>Nazwa: {{ $order->user->name_invoice }}</li>
+                    <li>NIP: {{ $order->user->nip_invoice }}</li>
+                    <li>Adres: {{ $order->user->street_invoice }}, {{ $order->user->city_invoice }}
+                        , {{ $order->user->zip_code_invoice }}</li>
+                </ul>
+            @endif
+
             <h2>Szczegóły zamówienia</h2>
             <table class="table">
                 <thead>

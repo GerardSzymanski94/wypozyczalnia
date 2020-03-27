@@ -80,6 +80,7 @@ class HomeController extends Controller
         $user->surname = $request->surname;
         $user->save();
 
+
         $order = $user->actualOrder;
 
         if (!$order->checkAmounts()) {
@@ -88,6 +89,19 @@ class HomeController extends Controller
         }
 
         $order->status = 2;
+        $order->invoice = 0;
+
+        if ($request->has('invoice')) {
+            $user->street_invoice = $request->street_invoice;
+            $user->city_invoice = $request->city_invoice;
+            $user->zip_code_invoice = $request->zip_code_invoice;
+            $user->name_invoice = $request->name_invoice;
+            $user->nip_invoice = $request->nip_invoice;
+            $user->save();
+
+            $order->invoice = 1;
+        }
+
         $order->save();
 
         foreach ($order->orderProducts as $orderProduct) {
