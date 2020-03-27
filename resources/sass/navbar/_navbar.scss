@@ -2,30 +2,37 @@
   padding: 25px 15px;
   z-index: $zindex6;
 
-  @include screen-sm {
+  @include screen-md {
     padding: 35px 15px;
   }
 
   &-nav {
     margin: 0 0 10px;
 
-    @include screen-sm {
+    @include screen-md {
       margin: 0;
     }
   }
 
   &-collapse {
     width: 100%;
+    max-width: 540px;
     padding: 0px 15px;
     background: rgb(255, 255, 255);
+    box-shadow: 0 5px 8px -8px $gray-shadow;
     position: absolute;
     top: 100%;
-    left: 0px;
+    left: 50%;
     z-index: $zindex6;
+    transform: translateX(-50%);
 
-    @include screen-sm {
+    @include screen-md {
+      max-width: unset;
       padding: 0;
+      box-shadow: unset;
       position: relative;
+      left: 0;
+      transform: none;
     }
   }
 
@@ -37,7 +44,7 @@
   &-item {
     margin: 10px 0;
 
-    @include screen-sm {
+    @include screen-md {
       margin: 0 12px 0 0;
 
       &:last-child {
@@ -50,7 +57,7 @@
     width: 100%;
     padding: 10px 15px;
 
-    @include screen-sm {
+    @include screen-md {
       padding: 15px;
       border-radius: 25px;
     }

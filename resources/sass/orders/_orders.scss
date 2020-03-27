@@ -1,0 +1,136 @@
+.MainSection-orders {
+  @include margin-bottom-100;
+
+  &-header {
+    margin: 25px 0 50px;
+
+    @include screen-md {
+      margin: 50px 0 75px;
+    }
+  }
+
+  &--title {
+    @include section-title;
+
+    margin: 0;
+  }
+
+  &-table {
+    width: 100%;
+    padding: 0;
+  }
+
+  &-table-row {
+    width: 100%;
+    padding: 0 0 15px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+
+    @include screen-md {
+      padding: 15px;
+      margin-bottom: 5px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    border-bottom: 1px solid $gray-shadow;
+    box-shadow: 0 4px 6px -5px $gray-shadow;
+    overflow: hidden;
+
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom: 0;
+      box-shadow: none;
+    }
+  }
+
+  &-table-cell {
+    padding: 0 0 15px;
+    display: flex;
+    flex-flow: row wrap;
+
+    @include screen-md {
+      padding: 10px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &-table--data,
+  &-table--email,
+  &-table--price,
+  &-table--status,
+  &-table--more {
+    width: 100%;
+  }
+
+  &-table--data {
+    @include screen-md {
+      @include fluid-type( max-width, $md, $xl, 110px, 170px );
+    }
+  }
+
+  &-table--email {
+    @include screen-md {
+      max-width: 150px;
+    }
+  }
+
+  &-table--price {
+    @include screen-md {
+      max-width: 80px;
+    }
+  }
+
+  &-table--status {
+    @include screen-md {
+      @include fluid-type( max-width, $md, $xl, 140px, 210px );
+    }
+  }
+
+  &-table--more {
+    @include screen-md {
+      max-width: 260px;
+    }
+  }
+
+  &-table-cell-header {
+    display: none;
+
+    @include screen-md {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &-table-cell-name {
+    width: 100%;
+    max-width: 60px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include screen-md {
+      display: none;
+    }
+
+    &::after {
+      content: '-';
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  &-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-button-icon {
+    margin-right: 5px;
+  }
+}

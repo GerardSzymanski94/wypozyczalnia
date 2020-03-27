@@ -6,7 +6,7 @@
 
     height: 350px;
 
-    @include screen-sm {
+    @include screen-md {
       height: 250px;
     }
 

@@ -22,7 +22,7 @@
 </head>
 <body>
 <main id="app" class="main">
-    <nav class="navbar navbar-expand-sm navbar-light bg-white">
+    <nav class="navbar navbar-expand-md navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="{{ asset('images/rehastore-logo.png') }}" alt="Logo Rehastore wypożyczalnia">

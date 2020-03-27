@@ -1,0 +1,164 @@
+.MainSection-details-order {
+  @include margin-bottom-100;
+
+
+  &-header {
+    margin: 25px 0 50px;
+
+    @include screen-md {
+      margin: 50px 0 75px;
+    }
+  }
+
+  &-header--title {
+    @include section-title;
+    font-weight: 600;
+  }
+
+  &-user-adress {
+    @include border-radius-20;
+
+    background-color: $background-gray;
+    margin: 0 0 25px;
+    padding: 25px 0 25px 0;
+    border-bottom: 1px solid $gray-shadow;
+    box-shadow: 0 4px 6px -5px $gray-shadow;
+
+    @include screen-md {
+      padding: 50px 0 50px 25px;
+      margin: 0 0 5px;
+    }
+  }
+
+  &-user--title {
+    margin-bottom: 15px;
+  }
+
+  &-user--list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &-user--text {
+    margin: 0 0 10px;
+  }
+
+  &-table {
+    width: 100%;
+    padding: 0;
+    list-style: none;
+  }
+
+  &-table-row {
+    width: 100%;
+    padding: 0 0 15px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+
+    @include screen-md {
+      padding: 15px;
+      margin-bottom: 5px;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    border-bottom: 1px solid $gray-shadow;
+    box-shadow: 0 4px 6px -5px $gray-shadow;
+    overflow: hidden;
+
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom: 0;
+      box-shadow: none;
+    }
+  }
+
+  &-table-cell {
+    width: 100%;
+    padding: 0 0 10px;
+    display: flex;
+    flex-flow: row wrap;
+
+    &:last-child {
+      padding: 0;
+    }
+
+    @include screen-md {
+      padding: 10px;
+      flex-direction: row;
+      justify-content: space-between;
+      text-emphasis: center;
+
+      &:last-child {
+        padding: 10px;
+      }
+    }
+  }
+
+  &-table-cell-header {
+    display: none;
+
+    @include screen-md {
+      display: flex;
+    }
+  }
+
+  &-table-cell-name {
+    width: 100%;
+    margin-right: 10px;
+    max-width: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include screen-md {
+      display: none;
+    }
+
+    &::after {
+      content: '-';
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  &-table--product,
+  &-table--count,
+  &-table--price,
+  &-table--date,
+  &-table--status {
+    width: 100%;
+  }
+
+  &-table--product {
+    @include screen-md {
+      @include fluid-type( max-width, $md, $xl, 170px, 280px );
+    }
+  }
+
+  &-table--count {
+    @include screen-md {
+      max-width: 100px;
+    }
+  }
+
+  &-table--price {
+    @include screen-md {
+      max-width: 100px;
+    }
+  }
+
+  &-table--date {
+    @include screen-md {
+      max-width: 125px;
+    }
+  }
+
+  &-table--status {
+    @include screen-md {
+      @include fluid-type( max-width, $md, $xl, 105px, 125px );
+    }
+  }
+}

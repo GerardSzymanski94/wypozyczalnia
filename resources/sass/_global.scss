@@ -54,7 +54,7 @@ button, [type=button], [type=reset], [type=submit] {
     align-items: center;
     color: $white;
 
-    @include screen-sm {
+    @include screen-md {
       width: auto;
       height: 40px;
       color: $white;
@@ -65,7 +65,7 @@ button, [type=button], [type=reset], [type=submit] {
     }
   }
 
-  @include screen-sm {
+  @include screen-md {
     &-basket:hover {
       color: $white;
 
@@ -92,7 +92,7 @@ button, [type=button], [type=reset], [type=submit] {
   &-login:focus {
     color: $white;
 
-    @include screen-sm {
+    @include screen-md {
       color: $black;
     }
   }
@@ -102,7 +102,7 @@ button, [type=button], [type=reset], [type=submit] {
   }
 
   &-menu {
-    @include screen-sm {
+    @include screen-md {
       background-color: transparent;
       color: $black;
     }
@@ -115,7 +115,7 @@ button, [type=button], [type=reset], [type=submit] {
   &-menu:focus {
     color: $white;
 
-    @include screen-sm {
+    @include screen-md {
       color: $black;
     }
   }
@@ -151,7 +151,7 @@ button, [type=button], [type=reset], [type=submit] {
     margin: 0 0 25px;
     border: 1px solid $blue;
 
-    @include screen-sm {
+    @include screen-md {
       width: auto;
       margin: 0 15px 0 0;
     }
