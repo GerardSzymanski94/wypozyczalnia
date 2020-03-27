@@ -24,6 +24,9 @@
                                     <div class="MainSection-cart-item-cell MainSection-cart-item--price">
                                         <span>Cena</span>
                                     </div>
+                                    <div class="MainSection-cart-item-cell MainSection-cart-item--deposit">
+                                        <span>Kaucja</span>
+                                    </div>
                                     <div class="MainSection-cart-item-cell MainSection-cart-item--button"></div>
                                 </li>
 
@@ -53,6 +56,10 @@
                                                 <div class="MainSection-cart-item-name"><span>Cena</span></div>
                                                 <span> {{ $product->price }} zł</span>
                                             </div>
+                                            <div class="MainSection-cart-item-cell MainSection-cart-item--deposit">
+                                                <div class="MainSection-cart-item-name"><span class=>Kaucja</span></div>
+                                                <span class="color-red">{{ $product->product->deposit }} zł</span>
+                                            </div>
                                             <div class="MainSection-cart-item-cell MainSection-cart-item--button">
                                                 <a href="{{ route('delete', ['product'=>$product->id]) }}"
                                                    class="btn btn-danger"> Usuń z koszyka</a>
@@ -71,12 +78,13 @@
                                                        class="order_product_amount MainSection-cart-item--input"
                                                        data-id="{{ $product->id }}">
                                             </div>
-                                            <div class="MainSection-cart-item-cell MainSection-cart-item--days mobile"></div>
+                                            <div class="MainSection-cart-item-cell MainSection-cart-item--days disable-mobile"></div>
                                             <div id="product_price_{{ $product->id }}"
                                                  class="MainSection-cart-item-cell MainSection-cart-item--price">
                                                 <div class="MainSection-cart-item-name"><span>Cena</span></div>
                                                 <span>{{ $product->price }} zł</span>
                                             </div>
+                                            <div class="MainSection-cart-item-cell MainSection-cart-item--price disable-mobile"></div>
                                             <div class="MainSection-cart-item-cell MainSection-cart-item--button">
                                                 <a href="{{ route('delete', ['product'=>$product->id]) }}"
                                                    class="btn btn-danger"> Usuń z koszyka</a>

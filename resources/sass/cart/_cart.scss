@@ -48,10 +48,19 @@
     width: 100%;
     max-width: 100px;
     margin-right: 15px;
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
     @include screen-md {
       display: none;
+    }
+
+
+    &::after {
+      content: '-';
+      display: inline-block;
+      margin-left: 10px;
     }
   }
 
@@ -67,6 +76,7 @@
   &-item--count,
   &-item--days,
   &-item--price,
+  &-item--deposit,
   &-item--button {
     width: 100%;
     display: flex;
@@ -85,18 +95,22 @@
   }
 
   &-item--count,
-  &-item--days,
-  &-item--price {
+  &-item--days {
     @include screen-md {
-      @include fluid-type( max-width, $md, $xl, 100px, 150px );
+      max-width: 90px;
+    }
+    @include screen-lg {
+      max-width: 120px;
     }
   }
 
-  &-item--days.mobile {
-    display: none;
-
+  &-item--price,
+  &-item--deposit {
     @include screen-md {
-      display: block;
+      max-width: 90px;
+    }
+    @include screen-lg {
+      max-width: 120px;
     }
   }
 
@@ -110,13 +124,16 @@
 
   &-item--input {
     width: 100%;
-    max-width: 200px;
+    max-width: 115px;
     padding: 5px;
     border: 1px solid $gray-shadow;
     border-radius: 10px;
 
     @include screen-md {
-      max-width: unset;
+      max-width: 50px;
+    }
+    @include screen-lg {
+      max-width: 100px;
     }
   }
 

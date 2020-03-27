@@ -189,6 +189,18 @@ button, [type=button], [type=reset], [type=submit] {
   background: $white;
 }
 
+.color-red {
+  color: $red;
+}
+
+.disable-mobile {
+  display: none!important;
+
+  @include screen-md {
+    display: block!important;
+  }
+}
+
 .fade.collapsing {
   transition: opacity .15s linear;
 }
