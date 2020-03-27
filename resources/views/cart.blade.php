@@ -1,88 +1,91 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <section class="MainSection-cart container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="x_panel">
-                    <div class="x_title">
-                        <h2>
-                        </h2>
-                        <div class="clearfix"></div>
+                    <div class="MainSection-cart-header">
+                        <h2 class="MainSection-cart--title">Koszyk</h2>
                     </div>
-                    <div class="x_content">
+                    <div class="MainSection-cart-content">
                         @if($order !== null)
-                            <table class="table">
-                                <thead>
-                                </thead>
-                                <tbody>
+                            <ul class="MainSection-cart-list">
+                                <li class="MainSection-cart-item MainSection-cart-item-header">
+                                    <div class="MainSection-cart-item-cell MainSection-cart-item--product">
+                                        <span>Produkt</span>
+                                    </div>
+                                    <div class="MainSection-cart-item-cell MainSection-cart-item--count">
+                                        <span>Ilość</span>
+                                    </div>
+                                    <div class="MainSection-cart-item-cell MainSection-cart-item--days">
+                                        <span>Dni</span>
+                                    </div>
+                                    <div class="MainSection-cart-item-cell MainSection-cart-item--price">
+                                        <span>Cena</span>
+                                    </div>
+                                    <div class="MainSection-cart-item-cell MainSection-cart-item--button"></div>
+                                </li>
+
                                 @foreach($order->orderProducts as $product)
-                                    @if($product->product->status ==1)
-                                        <tr>
-                                            <td>
-                                                {{ $product->product->name }}
-                                            </td>
-                                            <td>
+                                    @if($product->product->status == 1)
+                                        <li class="MainSection-cart-item">
+                                            <div class="MainSection-cart-item-cell MainSection-cart-item--product">
+                                                <div class="MainSection-cart-item-name"><span>Produkt</span></div>
+                                                <span>{{ $product->product->name }}</span>
+                                            </div>
+                                            <div class="MainSection-cart-item-cell MainSection-cart-item--count">
+                                                <div class="MainSection-cart-item-name"><span>Ilość</span></div>
                                                 <input type="number" name="product[{{ $product->id }}]"
-                                                       value="{{ $product->amount }}" min="1"
-                                                       class="order_product_amount"
-                                                       data-id="{{ $product->id }}">
-                                            </td>
-                                            <td>
+                                                        value="{{ $product->amount }}" min="1"
+                                                        class="order_product_amount MainSection-cart-item--input"
+                                                        data-id="{{ $product->id }}">
+                                            </div>
+                                            <div class="MainSection-cart-item-cell MainSection-cart-item--days">
+                                                <div class="MainSection-cart-item-name"><span>Dni</span></div>
                                                 <input type="number" name="product[{{ $product->id }}]"
-                                                       value="{{ $product->days }}" min="1" class="order_product_days"
-                                                       data-id="{{ $product->id }}"> dni
-                                            </td>
-                                            <td id="product_price_{{ $product->id }}">
-                                                {{ $product->price }} zł
-                                            </td>
-                                            <td>
+                                                        value="{{ $product->days }}" min="1" class="order_product_days MainSection-cart-item--input"
+                                                        data-id="{{ $product->id }}"> dni
+                                            </div>
+                                            <div id="product_price_{{ $product->id }}" class="MainSection-cart-item-cell MainSection-cart-item--price">
+                                                <div class="MainSection-cart-item-name"><span>Cena</span></div>
+                                                <span> {{ $product->price }} zł</span>
+                                            </div>
+                                            <div class="MainSection-cart-item-cell MainSection-cart-item--button">
                                                 <a href="{{ route('delete', ['product'=>$product->id]) }}"
-                                                   class="btn btn-danger"> Usuń z koszyka</a>
-                                            </td>
-                                        </tr>
-
+                                                    class="btn btn-danger"> Usuń z koszyka</a>
+                                            </div>
+                                        </li>
                                     @else
-                                        <tr>
-                                            <td>
-                                                {{ $product->product->name }}
-                                            </td>
-                                            <td>
+                                        <li class="MainSection-cart-item">
+                                            <div class="MainSection-cart-item-cell MainSection-cart-item--product">
+                                                <div class="MainSection-cart-item-name"><span>Produkt</span></div>
+                                                <span>{{ $product->product->name }}</span>
+                                            </div>
+                                            <div class="MainSection-cart-item-cell MainSection-cart-item--count">
+                                                <div class="MainSection-cart-item-name"><span>Ilość</span></div>
                                                 <input type="number" name="product[{{ $product->id }}]"
-                                                       value="{{ $product->amount_additional }}" min="1"
-                                                       class="order_product_amount"
-                                                       data-id="{{ $product->id }}">
-                                            </td>
-                                            <td>
-
-                                            </td>
-                                            <td id="product_price_{{ $product->id }}">
-                                                {{ $product->price }} zł
-                                            </td>
-                                            <td>
+                                                        value="{{ $product->amount_additional }}" min="1"
+                                                        class="order_product_amount MainSection-cart-item--input"
+                                                        data-id="{{ $product->id }}">
+                                            </div>
+                                            <div class="MainSection-cart-item-cell MainSection-cart-item--days mobile"></div>
+                                            <div id="product_price_{{ $product->id }}" class="MainSection-cart-item-cell MainSection-cart-item--price">
+                                                <div class="MainSection-cart-item-name"><span>Cena</span></div>
+                                                <span>{{ $product->price }} zł</span>
+                                            </div>
+                                            <div class="MainSection-cart-item-cell MainSection-cart-item--button">
                                                 <a href="{{ route('delete', ['product'=>$product->id]) }}"
-                                                   class="btn btn-danger"> Usuń z koszyka</a>
-                                            </td>
-                                        </tr>
+                                                    class="btn btn-danger"> Usuń z koszyka</a>
+                                            </div>
+                                        </li>
                                     @endif
                                 @endforeach
-                                <tr>
-                                    <td>
-                                        Podsumowanie:
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                    <td id="total_price">
-                                        {{ $order->price() }} zł
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <a href="{{ route('data') }}" class="btn btn-primary">Przejdź dalej</a>
+                            </ul>
+                            <div class="MainSection-cart-summary">
+                                <p class="MainSection-cart-summary--text">Podsumowanie: {{ $order->price() }} zł</p>
+                                <a href="{{ route('data') }}" class="btn btn-ending full-color MainSection-cart-summary--button">Przejdź dalej</a>
+                            </div>
                         @else
                             <p>Koszyk jest pusty</p>
                         @endif
@@ -90,7 +93,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
 @endsection
 

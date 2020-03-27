@@ -1,0 +1,138 @@
+.MainSection-cart {
+  @include margin-bottom-100;
+
+  &-header {
+    margin: 25px 0 50px;
+
+    @include screen-md {
+      margin: 50px 0 75px;
+    }
+  }
+
+  &--title {
+    @include section-title;
+  }
+
+  &-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &-item {
+    margin-bottom: 25px;
+    border-bottom: 1px solid $gray-shadow;
+    box-shadow: 0 4px 6px -5px $gray-shadow;
+    display: flex;
+    flex-direction: column;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include screen-md {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &-item-header {
+    display: none;
+
+    @include screen-md {
+      display: flex;
+    }
+  }
+
+  &-item-name {
+    width: 100%;
+    max-width: 100px;
+    margin-right: 15px;
+    display: block;
+
+    @include screen-md {
+      display: none;
+    }
+  }
+
+  &-item-cell {
+    padding: 10px 0;
+
+    @include screen-md {
+      padding: 10px;
+    }
+  }
+
+  &-item--product,
+  &-item--count,
+  &-item--days,
+  &-item--price,
+  &-item--button {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &-item--product {
+    @include screen-md {
+      @include fluid-type( max-width, $md, $xl, 160px, 220px );
+    }
+  }
+
+  &-item--days &-item--input {
+    margin-right: 5px;
+  }
+
+  &-item--count,
+  &-item--days,
+  &-item--price {
+    @include screen-md {
+      @include fluid-type( max-width, $md, $xl, 100px, 150px );
+    }
+  }
+
+  &-item--days.mobile {
+    display: none;
+
+    @include screen-md {
+      display: block;
+    }
+  }
+
+  &-item--button {
+    max-width: 150px;
+  }
+
+  &-item--button .btn{
+    width: 100%;
+  }
+
+  &-item--input {
+    width: 100%;
+    max-width: 200px;
+    padding: 5px;
+    border: 1px solid $gray-shadow;
+    border-radius: 10px;
+
+    @include screen-md {
+      max-width: unset;
+    }
+  }
+
+  &-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &-summary--text {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 50px 0;
+  }
+
+  &-summary--button {
+    width: 250px;
+  }
+}
