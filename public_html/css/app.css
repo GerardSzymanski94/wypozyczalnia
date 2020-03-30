@@ -11512,7 +11512,7 @@ button,
 }
 
 .MainSection-Items--title {
-  font-size: 28px;
+  font-size: 24px;
   margin: 0 0 10px;
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
@@ -11522,26 +11522,18 @@ button,
 
 @media screen and (min-width: 576px) {
   .MainSection-Items--title {
-    font-size: calc(28px + 18 * (100vw - 576px) / 624);
+    font-size: calc(24px + 12 * (100vw - 576px) / 624);
   }
 }
 
 @media screen and (min-width: 1200px) {
   .MainSection-Items--title {
-    font-size: 46px;
+    font-size: 36px;
   }
 }
 
-@media (min-width: 576px) {
-  .MainSection-Items--title {
-    max-width: 400px;
-  }
-}
-
-@media (min-width: 992px) {
-  .MainSection-Items--title {
-    max-width: 600px;
-  }
+.MainSection-Items--text {
+  max-width: 600px;
 }
 
 .MainSection-Items--card {
@@ -11764,7 +11756,7 @@ button,
 }
 
 .MainSection-finish-price--title {
-  font-size: 28px;
+  font-size: 24px;
   margin: 0 0 10px;
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
@@ -11775,25 +11767,13 @@ button,
 
 @media screen and (min-width: 576px) {
   .MainSection-finish-price--title {
-    font-size: calc(28px + 18 * (100vw - 576px) / 624);
+    font-size: calc(24px + 12 * (100vw - 576px) / 624);
   }
 }
 
 @media screen and (min-width: 1200px) {
   .MainSection-finish-price--title {
-    font-size: 46px;
-  }
-}
-
-@media (min-width: 576px) {
-  .MainSection-finish-price--title {
-    max-width: 400px;
-  }
-}
-
-@media (min-width: 992px) {
-  .MainSection-finish-price--title {
-    max-width: 600px;
+    font-size: 36px;
   }
 }
 
@@ -11829,7 +11809,7 @@ button,
 }
 
 .MainSection-orders--title {
-  font-size: 28px;
+  font-size: 24px;
   margin: 0 0 10px;
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
@@ -11840,25 +11820,13 @@ button,
 
 @media screen and (min-width: 576px) {
   .MainSection-orders--title {
-    font-size: calc(28px + 18 * (100vw - 576px) / 624);
+    font-size: calc(24px + 12 * (100vw - 576px) / 624);
   }
 }
 
 @media screen and (min-width: 1200px) {
   .MainSection-orders--title {
-    font-size: 46px;
-  }
-}
-
-@media (min-width: 576px) {
-  .MainSection-orders--title {
-    max-width: 400px;
-  }
-}
-
-@media (min-width: 992px) {
-  .MainSection-orders--title {
-    max-width: 600px;
+    font-size: 36px;
   }
 }
 
@@ -12027,7 +11995,7 @@ button,
 }
 
 .MainSection-details-order-header--title {
-  font-size: 28px;
+  font-size: 24px;
   margin: 0 0 10px;
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
@@ -12038,25 +12006,13 @@ button,
 
 @media screen and (min-width: 576px) {
   .MainSection-details-order-header--title {
-    font-size: calc(28px + 18 * (100vw - 576px) / 624);
+    font-size: calc(24px + 12 * (100vw - 576px) / 624);
   }
 }
 
 @media screen and (min-width: 1200px) {
   .MainSection-details-order-header--title {
-    font-size: 46px;
-  }
-}
-
-@media (min-width: 576px) {
-  .MainSection-details-order-header--title {
-    max-width: 400px;
-  }
-}
-
-@media (min-width: 992px) {
-  .MainSection-details-order-header--title {
-    max-width: 600px;
+    font-size: 36px;
   }
 }
 
@@ -12260,7 +12216,7 @@ button,
 }
 
 .MainSection-cart--title {
-  font-size: 28px;
+  font-size: 24px;
   margin: 0 0 10px;
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
@@ -12270,25 +12226,13 @@ button,
 
 @media screen and (min-width: 576px) {
   .MainSection-cart--title {
-    font-size: calc(28px + 18 * (100vw - 576px) / 624);
+    font-size: calc(24px + 12 * (100vw - 576px) / 624);
   }
 }
 
 @media screen and (min-width: 1200px) {
   .MainSection-cart--title {
-    font-size: 46px;
-  }
-}
-
-@media (min-width: 576px) {
-  .MainSection-cart--title {
-    max-width: 400px;
-  }
-}
-
-@media (min-width: 992px) {
-  .MainSection-cart--title {
-    max-width: 600px;
+    font-size: 36px;
   }
 }
 
@@ -12469,7 +12413,7 @@ button,
 }
 
 .MainSection-summary--title {
-  font-size: 28px;
+  font-size: 24px;
   margin: 0 0 10px;
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
@@ -12479,25 +12423,13 @@ button,
 
 @media screen and (min-width: 576px) {
   .MainSection-summary--title {
-    font-size: calc(28px + 18 * (100vw - 576px) / 624);
+    font-size: calc(24px + 12 * (100vw - 576px) / 624);
   }
 }
 
 @media screen and (min-width: 1200px) {
   .MainSection-summary--title {
-    font-size: 46px;
-  }
-}
-
-@media (min-width: 576px) {
-  .MainSection-summary--title {
-    max-width: 400px;
-  }
-}
-
-@media (min-width: 992px) {
-  .MainSection-summary--title {
-    max-width: 600px;
+    font-size: 36px;
   }
 }
 
@@ -12684,7 +12616,7 @@ button,
 }
 
 .MainContainer-footer--title {
-  font-size: 28px;
+  font-size: 24px;
   margin: 0 0 10px;
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
@@ -12694,25 +12626,13 @@ button,
 
 @media screen and (min-width: 576px) {
   .MainContainer-footer--title {
-    font-size: calc(28px + 18 * (100vw - 576px) / 624);
+    font-size: calc(24px + 12 * (100vw - 576px) / 624);
   }
 }
 
 @media screen and (min-width: 1200px) {
   .MainContainer-footer--title {
-    font-size: 46px;
-  }
-}
-
-@media (min-width: 576px) {
-  .MainContainer-footer--title {
-    max-width: 400px;
-  }
-}
-
-@media (min-width: 992px) {
-  .MainContainer-footer--title {
-    max-width: 600px;
+    font-size: 36px;
   }
 }
 

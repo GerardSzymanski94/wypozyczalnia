@@ -88,8 +88,8 @@
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="MainSection-Items-description">
-                            <h2 class="MainSection-Items--title">Wybierz produkt</h2>
-                            <p>Najedź na produkt i kliknij, aby wybrać urządzenie do wypożyczania.</p>
+                            <h2 class="MainSection-Items--title">Wybierz i zaznacz urządzenie, które chcesz wypożyczyć</h2>
+                            <p  class="MainSection-Items--text">Aby wybrać urządzenie - najedź i kliknij na produkt. Ceny wypożyczania możesz sprawdzić klikając w przycisk "Cennik dla tego modelu".</p>
                         </div>
                         <div class="row">
                             @foreach($products as $product)
@@ -108,7 +108,7 @@
 
                                                 <div class="MainSection-Items-collapse collapse fade multi-collapse"
                                                      id="multiCollapse-{{ $product->id }}">
-                                                    <ul class="MainSection-Items-wrapper-group-list3">
+                                                    <ul class="MainSection-Items-wrapper-group-list">
                                                         <li class="MainSection-Items-wrapper-group--list">7 dni
                                                             - {{ $product->price_one_week }}zł /
                                                             dzień
@@ -174,8 +174,8 @@
                             </div>
 
                             <div class="col-12 col-md-6">
-                                <h3 class="MainSection-countItems--title">Wybierz liczbę dni</h3>
-                                <label class="MainSection-countItems--amount" for="days">Liczba dni <span
+                                <h3 class="MainSection-countItems--title">Wybierz liczbę dni na jaką chcesz wypożyczyć urządzenie</h3>
+                                <label class="MainSection-countItems--amount" for="days">Liczba dni wypożyczenia<span
                                             class="required">*</span></label>
                                 <input class="MainSection-countItems--number" type="number" name="days" id="days"
                                        class="form-control" step="1" value="1" min="1">
@@ -195,8 +195,8 @@
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="MainSection-Items-description">
-                            <h2 class="MainSection-Items--title">Wybierz Dodatek</h2>
-                            <p>Najedź na produkt i kliknij, aby wybrać dodatek do wypożyczania.</p>
+                            <h2 class="MainSection-Items--title">Do korzystania z elektrostymulatora konieczne są elektrody. Można także skorzystać z dodatkówych akcesoriów. Akcesoria i elektrody możesz kupić w tym kroku. Przygotowaliśmy take zestawy elektrod pod konkretne potrzeby.</h2>
+                            <p  class="MainSection-Items--text">Zaznacz produkty, które chcesz dobrać do wypożyczonego urządzenia.</p>
                         </div>
                         <div class="row">
                             @foreach($additionals as $additional)

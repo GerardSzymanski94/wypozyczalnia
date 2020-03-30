@@ -13,6 +13,10 @@
     @include section-title;
   }
 
+  &--text {
+    max-width: 600px;
+  }
+
   &--card {
     @include productCard;
     border-radius: 20px;
