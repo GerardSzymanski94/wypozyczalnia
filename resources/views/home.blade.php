@@ -96,7 +96,7 @@
                                 <div class="col-12 col-md-4 col-xl-3">
                                     <label class="MainSection-Items-box product_card" for="product_{{ $product->id }}"
                                            data-id="{{ $product->id }}">
-                                        <div id="{{ $product->id }}" class="card">
+                                        <div id="{{ $product->id }}" class="MainSection-Items--box-height">
                                             <div class="MainSection-Items-wrapper">
                                                 <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}"
                                                      class="MainSection-Items--image" alt="{{ $product->name }}">
@@ -108,7 +108,7 @@
 
                                                 <div class="MainSection-Items-collapse collapse fade multi-collapse"
                                                      id="multiCollapse-{{ $product->id }}">
-                                                    <ul class="MainSection-Items-wrapper-group">
+                                                    <ul class="MainSection-Items-wrapper-group-list3">
                                                         <li class="MainSection-Items-wrapper-group--list">7 dni
                                                             - {{ $product->price_one_week }}zł /
                                                             dzień
@@ -134,14 +134,12 @@
                                                     </ul>
                                                 </div>
 
-                                            </div>
-
-                                            <button class="btn btn-product" type="button" data-toggle="collapse"
+                                                <button class="btn btn-product MainSection-Items-wrapper-group--button" type="button" data-toggle="collapse"
                                                     data-target="#multiCollapse-{{ $product->id }}"
                                                     aria-expanded="false"
-                                                    aria-controls="multiCollapse-{{ $product->id }}">Cennik dla tego
-                                                modelu
-                                            </button>
+                                                    aria-controls="multiCollapse-{{ $product->id }}">Cennik dla tego modelu
+                                                </button>
+                                            </div>
                                         </div>
                                     </label>
                                 </div>
@@ -205,7 +203,7 @@
                                 <div class="col-12 col-md-4 col-xl-3">
                                     <label class="MainSection-Items-box additional_card"
                                            for="additional_{{ $additional->id }}" data-id="{{ $additional->id }}">
-                                        <div id="{{ $additional->id }}" class="card">
+                                        <div id="{{ $additional->id }}" class="MainSection-Items--box-height">
                                             <div class="MainSection-Items-wrapper">
                                                 <img src="{{ asset('storage/'. $additional->getMainPhoto->url) }}"
                                                      class="MainSection-Items--image" alt="{{ $additional->name }}">
@@ -217,11 +215,17 @@
                                                     </p>
                                                 </div>
 
-                                                <hr/>
-
                                                 <ul class="MainSection-Items-wrapper-group">
                                                     <li class="MainSection-Items-wrapper-group--list">
                                                         {{ $additional->price_one_week }} zł
+                                                    </li>
+                                                    <li>
+                                                        <label class="MainSection-Items-wrapper-group--label">
+                                                            <span>Ilość:</span>
+                                                            <input class="MainSection-Items-wrapper-group--countItems-number" type="number"
+                                                                name="amount_additional[{{ $additional->id }}]" id="amount_additional"
+                                                                class="form-control" step="1" value="1" min="1">
+                                                        </label>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -230,9 +234,6 @@
                                     <input type="checkbox" name="additional[{{ $additional->id }}]"
                                            class="additional_checkbox" style="display: none;"
                                            id="additional_{{ $additional->id }}" value="{{ $additional->id }}">
-                                    <input class="MainSection-countItems--number" type="number"
-                                           name="amount_additional[{{ $additional->id }}]"
-                                           id="amount_additional" class="form-control" step="1" value="1" min="1">
                                 </div>
                             @endforeach
                         </div>
