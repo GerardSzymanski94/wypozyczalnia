@@ -11673,12 +11673,25 @@ button,
 }
 
 .MainSection-countItems {
-  margin-bottom: 100px;
+  margin-bottom: 75px;
+}
+
+@media screen and (min-width: 576px) {
+  .MainSection-countItems {
+    margin-bottom: calc(75px + 75 * (100vw - 576px) / 624);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .MainSection-countItems {
+    margin-bottom: 150px;
+  }
 }
 
 .MainSection-countItems-background {
   height: 350px;
-  padding: 25px;
+  margin: 0 -15px;
+  padding: 30px;
   background-color: #3490dc;
   background-position: center;
   background-repeat: no-repeat;
@@ -11698,6 +11711,8 @@ button,
 @media (min-width: 768px) {
   .MainSection-countItems-background {
     height: 250px;
+    margin: 0;
+    padding: 25px;
   }
 }
 
@@ -11720,6 +11735,7 @@ button,
 
 .MainSection-countItems-group {
   border-radius: 20px;
+  height: 100%;
   padding: 25px;
   margin-bottom: -50px;
   background: #fff;
@@ -11728,10 +11744,25 @@ button,
   z-index: 2000;
 }
 
+.MainSection-countItems-group-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.MainSection-countItems-group-wrapper-space {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .MainSection-countItems--title {
   font-weight: 600;
-  font-size: 16px;
+  max-width: 400px;
   margin-bottom: 5px;
+  font-size: 16px;
   letter-spacing: 0.16px;
 }
 
@@ -11744,6 +11775,7 @@ button,
 .MainSection-countItems--number {
   font-weight: 600;
   width: 100%;
+  height: 40px;
   padding: 15px;
   border: 1px solid #a1a1a1;
   border-radius: 10px;

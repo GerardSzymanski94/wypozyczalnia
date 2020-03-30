@@ -160,11 +160,17 @@
                     <div class="MainSection-countItems-group">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-4 mb-md-0">
-                                <h3 class="MainSection-countItems--title">Ilość urządzeń</h3>
-                                <label class="MainSection-countItems--amount" for="amount">Ilość urządzeń<span
-                                            class="required">*</span></label>
-                                <input class="MainSection-countItems--number" type="number" name="amount" id="amount"
-                                       class="form-control" step="1" value="1" min="1">
+                                <div class="MainSection-countItems-group-wrapper">
+                                   <div class="MainSection-countItems-group-wrapper-space">
+                                        <h3 class="MainSection-countItems--title">Ilość urządzeń</h3>
+                                        <label class="MainSection-countItems--amount" for="amount">Ilość urządzeń
+                                            <span class="required">*</span>
+                                        </label>
+                                   </div>
+
+                                    <input class="MainSection-countItems--number" type="number" name="amount" id="amount"
+                                    step="1" value="1" min="1">
+                                </div>
 
                                 @if($errors->has('amount'))
                                     <p class="alert alert-danger">
@@ -174,11 +180,16 @@
                             </div>
 
                             <div class="col-12 col-md-6">
-                                <h3 class="MainSection-countItems--title">Wybierz liczbę dni na jaką chcesz wypożyczyć urządzenie</h3>
-                                <label class="MainSection-countItems--amount" for="days">Liczba dni wypożyczenia<span
-                                            class="required">*</span></label>
-                                <input class="MainSection-countItems--number" type="number" name="days" id="days"
-                                       class="form-control" step="1" value="1" min="1">
+                                <div class="MainSection-countItems-group-wrapper">
+                                    <div class="MainSection-countItems-group-wrapper-space">
+                                        <h3 class="MainSection-countItems--title">Wybierz liczbę dni na jaką chcesz wypożyczyć urządzenie</h3>
+                                        <label class="MainSection-countItems--amount" for="days">Liczba dni wypożyczenia
+                                            <span class="required">*</span>
+                                        </label>
+                                    </div>
+                                    <input class="MainSection-countItems--number form-control" type="number"
+                                    name="days" id="days" step="1" value="1" min="1">
+                                </div>
 
                                 @if($errors->has('days'))
                                     <p class="alert alert-danger"> {{ $errors->first('days') }} </p>
