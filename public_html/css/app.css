@@ -11081,6 +11081,7 @@ button,
   height: 50px;
   padding: 0 15px;
   background-color: #3490dc;
+  border-color: transparent;
   position: relative;
   display: flex;
   justify-content: center;
@@ -11127,6 +11128,7 @@ button,
 @media (min-width: 768px) {
   .btn-basket:hover {
     color: #fff;
+    background: #2176bd;
   }
 
   .btn-basket:hover::before {
@@ -11150,6 +11152,11 @@ button,
   .btn-basket::before {
     border-radius: 20px;
   }
+}
+
+.btn-login:hover {
+  background: #2176bd;
+  color: #fff;
 }
 
 .btn-login:focus {
@@ -12757,6 +12764,60 @@ button,
   .MainSection-login-buttons {
     flex-direction: row;
   }
+}
+
+.MainSection-register--title {
+  font-size: 24px;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 800;
+  line-height: 1.333;
+  margin-bottom: 50px;
+}
+
+@media screen and (min-width: 576px) {
+  .MainSection-register--title {
+    font-size: calc(24px + 12 * (100vw - 576px) / 624);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .MainSection-register--title {
+    font-size: 36px;
+  }
+}
+
+.MainSection-register-form {
+  max-width: 500px;
+  margin: 50px auto;
+}
+
+@media (min-width: 768px) {
+  .MainSection-register-form {
+    margin: 100px auto;
+  }
+}
+
+.MainSection-register-controls {
+  margin-bottom: 50px;
+  border-radius: 5px;
+  border: 1px solid #a1a1a1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.MainSection-register-control {
+  height: 50px;
+  padding: 30px 15px;
+  border: 0;
+  border-top: 1px solid #a1a1a1;
+}
+
+.MainSection-register-control:first-of-type {
+  border-top: 0;
 }
 
 .MainSection-thankyou {
