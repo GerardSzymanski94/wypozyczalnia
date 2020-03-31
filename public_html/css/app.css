@@ -12766,7 +12766,8 @@ button,
   }
 }
 
-.MainSection-register--title {
+.MainSection-register--title,
+.MainSection-reset-password--title {
   font-size: 24px;
   margin: 0 0 10px;
   text-transform: uppercase;
@@ -12777,29 +12778,34 @@ button,
 }
 
 @media screen and (min-width: 576px) {
-  .MainSection-register--title {
+  .MainSection-register--title,
+  .MainSection-reset-password--title {
     font-size: calc(24px + 12 * (100vw - 576px) / 624);
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .MainSection-register--title {
+  .MainSection-register--title,
+  .MainSection-reset-password--title {
     font-size: 36px;
   }
 }
 
-.MainSection-register-form {
+.MainSection-register-form,
+.MainSection-reset-password-form {
   max-width: 500px;
-  margin: 50px auto;
+  margin: 50px auto 75px;
 }
 
 @media (min-width: 768px) {
-  .MainSection-register-form {
+  .MainSection-register-form,
+  .MainSection-reset-password-form {
     margin: 100px auto;
   }
 }
 
-.MainSection-register-controls {
+.MainSection-register-controls,
+.MainSection-reset-password-controls {
   margin-bottom: 50px;
   border-radius: 5px;
   border: 1px solid #a1a1a1;
@@ -12809,14 +12815,16 @@ button,
   justify-content: center;
 }
 
-.MainSection-register-control {
+.MainSection-register-control,
+.MainSection-reset-password-control {
   height: 50px;
   padding: 30px 15px;
   border: 0;
   border-top: 1px solid #a1a1a1;
 }
 
-.MainSection-register-control:first-of-type {
+.MainSection-register-control:first-of-type,
+.MainSection-reset-password-control:first-of-type {
   border-top: 0;
 }
 
