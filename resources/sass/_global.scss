@@ -180,6 +180,41 @@ button, [type=button], [type=reset], [type=submit] {
     background-color: darken($blue, 10%);
     color: $white;
   }
+
+  &-login-page {
+    width: 100%;
+
+    @include screen-md {
+      max-width: 225px;
+    }
+
+    height: auto;
+    padding: 15px 25px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    box-shadow: 0 0 10px rgba(25, 91, 145, .12);
+    color: $black;
+  }
+
+  &-login-page.full-color {
+    margin-bottom: 25px;
+
+    @include screen-md {
+      margin-bottom: 0;
+    }
+
+    background: $blue;
+    color: $white;
+  }
+
+  &-login-page:hover,
+  &-login-page.full-color:hover {
+    background: darken($blue, 10%);
+    color: $white;
+  }
 }
 
 .fa-bars {
