@@ -6,7 +6,10 @@
             <div class="row justify-content-center check_alert" id="added_to_cart" style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-success">
-                        Dodano do koszyka
+                        <span>Dodano do koszyka</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -14,35 +17,50 @@
             <div class="row justify-content-center check_alert" id="check_input_product" style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-danger">
-                        Nie wybrałeś żadnego produktu
+                        <span>Nie wybrałeś żadnego produktu</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center check_alert" id="check_amount" style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-danger">
-                        Dodałeś do koszyka więcej produktów niż jest dostępny. Sprawdź dostępność i dodaj je ponownie
+                        <span>Dodałeś do koszyka więcej produktów niż jest dostępny. Sprawdź dostępność i dodaj je ponownie</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center check_alert" id="check_input_days" style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-danger">
-                        Podano nieprawidłową liczbę dni
+                        <span>Podano nieprawidłową liczbę dni</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center check_alert" id="check_amount_additional" style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-danger">
-                        Dodałeś do koszyka więcej elektrod niż jest dostępnych. Sprawdź dostępność i dodaj je ponownie
+                        <span>Dodałeś do koszyka więcej elektrod niż jest dostępnych. Sprawdź dostępność i dodaj je ponownie</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center check_alert" id="check_input_amount" style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-danger">
-                        Niepoprawna liczba ilości produktów
+                        <span>Nie wybrałeś żadnego produktu</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -50,7 +68,10 @@
                  style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-danger">
-                        Niepoprawna liczba ilości elektrod
+                        <span>Niepoprawna liczba ilości elektrod</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -287,10 +308,9 @@
         });
 
         $('body').on('click', '.additional_card', function () {
-            //clearAdditionals();
             if ($(this).hasClass('checked')) {
                 $(this).removeClass('checked')
-                $("#additional_" + $(this).data('id')).is(":unchecked");
+                $("#additional_" + $(this).data('id')).is(":checked");
             } else {
                 $(this).addClass('checked')
                 $("#additional_" + $(this).data('id')).is(":checked");
@@ -357,7 +377,11 @@
 
                     $('html, body').animate({
                         scrollTop: $("body").offset().top
-                    }, '250');
+                    }, '250', () => {
+                        $('.MainSection-alerts-close').on( 'click', () => {
+                            $('.check_alert').hide();
+                        })
+                    });
                 },
                 error:
                     function (jqXHR, textStatus, errorThrown) {

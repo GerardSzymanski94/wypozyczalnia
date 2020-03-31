@@ -12762,5 +12762,44 @@ button,
   margin-bottom: 50px;
   border-radius: 20px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.MainSection-alerts-close {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border-radius: 50%;
+  border: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.MainSection-alerts-close::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #c0d4ba;
+  opacity: 0;
+  transition: opacity 0.1s;
+  z-index: 1000;
+}
+
+.MainSection-alerts-close:hover::after {
+  opacity: 1;
+}
+
+.MainSection-alerts-icon {
+  position: relative;
+  z-index: 2000;
 }
 
