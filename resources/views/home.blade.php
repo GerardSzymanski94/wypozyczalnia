@@ -112,62 +112,72 @@
                             <h2 class="MainSection-Items--title">Wybierz i zaznacz urządzenie, które chcesz wypożyczyć</h2>
                             <p  class="MainSection-Items--text">Aby wybrać urządzenie - najedź i kliknij na produkt. Ceny wypożyczania możesz sprawdzić klikając w przycisk "Cennik dla tego modelu".</p>
                         </div>
-                        <div class="row">
-                            @foreach($products as $product)
-                                <div class="col-12 col-md-4 col-xl-3">
-                                    <label class="MainSection-Items-box product_card" for="product_{{ $product->id }}"
-                                           data-id="{{ $product->id }}">
-                                        <div id="{{ $product->id }}" class="MainSection-Items--box-height">
-                                            <div class="MainSection-Items-wrapper">
-                                                <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}"
-                                                     class="MainSection-Items--image" alt="{{ $product->name }}">
-                                                <div class="MainSection-Items-wrapper-description">
-                                                    <h5 class="MainSection-Items-wrapper-description--title">{{ $product->name }}</h5>
-                                                    <p class="MainSection-Items-wrapper-description--text">Dostępna
-                                                        ilość: {{ $product->amount }}</p>
-                                                </div>
+                        <div class="Main-items swiper-container">
+                            <div class="swiper-wrapper">
+                                @foreach($products as $product)
+                                    <div class="swiper-slide">
+                                        <label class="MainSection-Items-box product_card" for="product_{{ $product->id }}"
+                                            data-id="{{ $product->id }}">
+                                            <div id="{{ $product->id }}" class="MainSection-Items--box-height">
+                                                <div class="MainSection-Items-wrapper">
+                                                    <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}"
+                                                        class="MainSection-Items--image" alt="{{ $product->name }}">
+                                                    <div class="MainSection-Items-wrapper-description">
+                                                        <h5 class="MainSection-Items-wrapper-description--title">{{ $product->name }}</h5>
+                                                        <p class="MainSection-Items-wrapper-description--text">Dostępna
+                                                            ilość: {{ $product->amount }}</p>
+                                                    </div>
 
-                                                <div class="MainSection-Items-collapse collapse fade multi-collapse"
-                                                     id="multiCollapse-{{ $product->id }}">
-                                                    <ul class="MainSection-Items-wrapper-group-list">
-                                                        <li class="MainSection-Items-wrapper-group--list">7 dni
-                                                            - {{ $product->price_one_week }}zł /
-                                                            dzień
-                                                        </li>
-                                                        <li class="MainSection-Items-wrapper-group--list">14 dni
-                                                            - {{ $product->price_two_week }}zł /
-                                                            dzień
-                                                        </li>
-                                                        <li class="MainSection-Items-wrapper-group--list">21 dni
-                                                            - {{ $product->price_three_week }}zł
-                                                            /
-                                                            dzień
-                                                        </li>
-                                                        <li class="MainSection-Items-wrapper-group--list">28 dni
-                                                            - {{ $product->price_four_week }}zł /
-                                                            dzień
-                                                        </li>
-                                                        <li class="MainSection-Items-wrapper-group--list">>28 dni
-                                                            - {{ $product->price_more_month }}zł
-                                                            /
-                                                            dzień
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                                    <div class="MainSection-Items-collapse collapse fade multi-collapse"
+                                                        id="multiCollapse-{{ $product->id }}">
+                                                        <ul class="MainSection-Items-wrapper-group-list">
+                                                            <li class="MainSection-Items-wrapper-group--list">7 dni
+                                                                - {{ $product->price_one_week }}zł /
+                                                                dzień
+                                                            </li>
+                                                            <li class="MainSection-Items-wrapper-group--list">14 dni
+                                                                - {{ $product->price_two_week }}zł /
+                                                                dzień
+                                                            </li>
+                                                            <li class="MainSection-Items-wrapper-group--list">21 dni
+                                                                - {{ $product->price_three_week }}zł
+                                                                /
+                                                                dzień
+                                                            </li>
+                                                            <li class="MainSection-Items-wrapper-group--list">28 dni
+                                                                - {{ $product->price_four_week }}zł /
+                                                                dzień
+                                                            </li>
+                                                            <li class="MainSection-Items-wrapper-group--list">>28 dni
+                                                                - {{ $product->price_more_month }}zł
+                                                                /
+                                                                dzień
+                                                            </li>
+                                                        </ul>
+                                                    </div>
 
-                                                <button class="btn btn-product MainSection-Items-wrapper-group--button" type="button" data-toggle="collapse"
-                                                    data-target="#multiCollapse-{{ $product->id }}"
-                                                    aria-expanded="false"
-                                                    aria-controls="multiCollapse-{{ $product->id }}">Cennik dla tego modelu
-                                                </button>
+                                                    <button class="btn btn-product MainSection-Items-wrapper-group--button" type="button" data-toggle="collapse"
+                                                        data-target="#multiCollapse-{{ $product->id }}"
+                                                        aria-expanded="false"
+                                                        aria-controls="multiCollapse-{{ $product->id }}">Cennik dla tego modelu
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <input type="checkbox" name="product" class="product_checkbox"
-                                       value="{{ $product->id }}" style="display: none;"
-                                       id="product_{{ $product->id }}">
-                            @endforeach
+                                        </label>
+                                    </div>
+                                    <input type="checkbox" name="product" class="product_checkbox"
+                                        value="{{ $product->id }}" style="display: none;"
+                                        id="product_{{ $product->id }}">
+                                @endforeach
+                            </div>
+
+                              <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left" class="swiper-button-prev-icon svg-inline--fa fa-angle-left fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
+                            </div>
+                            <div class="swiper-button-next">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" class="swiper-button-prev-icon svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>
+                            </div>
                         </div>
                     </div>
                 </div>
