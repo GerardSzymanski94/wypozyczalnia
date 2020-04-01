@@ -11525,10 +11525,6 @@ button,
   border-radius: 20px 0 20px 0;
 }
 
-.MainSection-Items-box:hover {
-  border: 1px solid #b6b6b6;
-}
-
 .MainSection-Items-box::after {
   content: "";
   width: 30px;
@@ -11546,6 +11542,10 @@ button,
 
 .MainSection-Items-box:not(.checked)::after {
   display: none;
+}
+
+.MainSection-Items-box:not(.checked):hover {
+  border: 1px solid #b6b6b6;
 }
 
 .MainSection-Items-box:not(.prices) .btn-product {
