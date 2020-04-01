@@ -57,6 +57,11 @@ Route::namespace('Admin')->name('admin.')->prefix('administracja')->group(functi
         Route::get('/unavailable/{orderProduct}', 'OrderController@changeStatusToUnavailable')->name('unavailable');
     });
 
+    Route::prefix('api')->name('api.')->group(function () {
+        Route::get('/get_products', 'ApiController@getProducts')->name('get_products');
+        Route::get('/get_statuses', 'ApiController@getOrderStatusList')->name('get_statuses');
+    });
+
     Route::get('login', 'LoginController@index')->name('login');
 
 });

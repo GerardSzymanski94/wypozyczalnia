@@ -19,10 +19,9 @@ class CompleteOrderEvent
      *
      * @return void
      */
-    public function __construct($order, $user)
+    public function __construct($order)
     {
         $this->order = $order;
-        $this->user = $user;
     }
 
     /**

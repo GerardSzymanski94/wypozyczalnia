@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Events\CompleteOrderEvent;
+use App\Models\Configuration;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
+use App\Repository\BaselinkerApiRepository;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -108,6 +110,11 @@ class HomeController extends Controller
             $orderProduct->changeStatus(2);
             $orderProduct->product->reduceAmount($orderProduct->amount);
         }
+        $conf = Configuration::where('id', '>', 0)->first();
+
+        if ($conf->turn_on_baselinker == 1)
+            event(new CompleteOrderEvent($order));
+
         return view('complete', compact('order'));
     }
 

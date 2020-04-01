@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Events\CompleteOrderEvent;
 use App\Listeners\CreatePDF;
+use App\Listeners\SendOrderToBaselinker;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -21,7 +22,7 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         CompleteOrderEvent::class => [
-            CreatePDF::class,
+            SendOrderToBaselinker::class,
         ]
     ];
 
