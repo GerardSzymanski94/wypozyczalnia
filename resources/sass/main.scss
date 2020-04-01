@@ -3,6 +3,7 @@
 
 // global
 @import 'global';
+@import 'swiper';
 
 // navbar
 @import './navbar/navbar';
@@ -20,6 +21,13 @@
 // Cart
 @import './cart/cart';
 @import './cart/cart-summary';
+
+// auth
+@import './auth/login';
+@import './auth/register-and-reset';
+
+// thank
+@import './thankyou_page/thankyou_page';
 
 // footer
 @import './footer/footer';

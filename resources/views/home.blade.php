@@ -6,7 +6,10 @@
             <div class="row justify-content-center check_alert" id="added_to_cart" style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-success">
-                        Dodano do koszyka
+                        <span>Dodano do koszyka</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -14,35 +17,50 @@
             <div class="row justify-content-center check_alert" id="check_input_product" style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-danger">
-                        Nie wybrałeś żadnego produktu
+                        <span>Nie wybrałeś żadnego produktu</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center check_alert" id="check_amount" style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-danger">
-                        Dodałeś do koszyka więcej produktów niż jest dostępny. Sprawdź dostępność i dodaj je ponownie
+                        <span>Dodałeś do koszyka więcej produktów niż jest dostępny. Sprawdź dostępność i dodaj je ponownie</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center check_alert" id="check_input_days" style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-danger">
-                        Podano nieprawidłową liczbę dni
+                        <span>Podano nieprawidłową liczbę dni</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center check_alert" id="check_amount_additional" style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-danger">
-                        Dodałeś do koszyka więcej elektrod niż jest dostępnych. Sprawdź dostępność i dodaj je ponownie
+                        <span>Dodałeś do koszyka więcej elektrod niż jest dostępnych. Sprawdź dostępność i dodaj je ponownie</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center check_alert" id="check_input_amount" style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-danger">
-                        Niepoprawna liczba ilości produktów
+                        <span>Nie wybrałeś żadnego produktu</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -50,7 +68,10 @@
                  style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-danger">
-                        Niepoprawna liczba ilości elektrod
+                        <span>Niepoprawna liczba ilości elektrod</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -91,62 +112,71 @@
                             <h2 class="MainSection-Items--title">Wybierz i zaznacz urządzenie, które chcesz wypożyczyć</h2>
                             <p  class="MainSection-Items--text">Aby wybrać urządzenie - najedź i kliknij na produkt. Ceny wypożyczania możesz sprawdzić klikając w przycisk "Cennik dla tego modelu".</p>
                         </div>
-                        <div class="row">
-                            @foreach($products as $product)
-                                <div class="col-12 col-md-4 col-xl-3">
-                                    <label class="MainSection-Items-box product_card" for="product_{{ $product->id }}"
-                                           data-id="{{ $product->id }}">
-                                        <div id="{{ $product->id }}" class="MainSection-Items--box-height">
-                                            <div class="MainSection-Items-wrapper">
-                                                <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}"
-                                                     class="MainSection-Items--image" alt="{{ $product->name }}">
-                                                <div class="MainSection-Items-wrapper-description">
-                                                    <h5 class="MainSection-Items-wrapper-description--title">{{ $product->name }}</h5>
-                                                    <p class="MainSection-Items-wrapper-description--text">Dostępna
-                                                        ilość: {{ $product->amount }}</p>
-                                                </div>
+                        <div class="@if (count($products) <= 8) single-column @else two-column @endif swiper-container">
+                            <div class="swiper-wrapper">
+                                @foreach($products as $product)
+                                    <div class="swiper-slide">
+                                        <label class="MainSection-Items-box product_card" for="product_{{ $product->id }}"
+                                            data-id="{{ $product->id }}">
+                                            <div id="{{ $product->id }}" class="MainSection-Items--box-height">
+                                                <div class="MainSection-Items-wrapper">
+                                                    <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}"
+                                                        class="MainSection-Items--image" alt="{{ $product->name }}">
+                                                    <div class="MainSection-Items-wrapper-description">
+                                                        <h5 class="MainSection-Items-wrapper-description--title">{{ $product->name }}</h5>
+                                                        <p class="MainSection-Items-wrapper-description--text">Dostępna
+                                                            ilość: {{ $product->amount }}</p>
+                                                    </div>
 
-                                                <div class="MainSection-Items-collapse collapse fade multi-collapse"
-                                                     id="multiCollapse-{{ $product->id }}">
-                                                    <ul class="MainSection-Items-wrapper-group-list">
-                                                        <li class="MainSection-Items-wrapper-group--list">7 dni
-                                                            - {{ $product->price_one_week }}zł /
-                                                            dzień
-                                                        </li>
-                                                        <li class="MainSection-Items-wrapper-group--list">14 dni
-                                                            - {{ $product->price_two_week }}zł /
-                                                            dzień
-                                                        </li>
-                                                        <li class="MainSection-Items-wrapper-group--list">21 dni
-                                                            - {{ $product->price_three_week }}zł
-                                                            /
-                                                            dzień
-                                                        </li>
-                                                        <li class="MainSection-Items-wrapper-group--list">28 dni
-                                                            - {{ $product->price_four_week }}zł /
-                                                            dzień
-                                                        </li>
-                                                        <li class="MainSection-Items-wrapper-group--list">>28 dni
-                                                            - {{ $product->price_more_month }}zł
-                                                            /
-                                                            dzień
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                                    <div class="MainSection-Items-collapse collapse fade multi-collapse"
+                                                        id="multiCollapse-{{ $product->id }}">
+                                                        <ul class="MainSection-Items-wrapper-group-list">
+                                                            <li class="MainSection-Items-wrapper-group--list">7 dni
+                                                                - {{ $product->price_one_week }}zł /
+                                                                dzień
+                                                            </li>
+                                                            <li class="MainSection-Items-wrapper-group--list">14 dni
+                                                                - {{ $product->price_two_week }}zł /
+                                                                dzień
+                                                            </li>
+                                                            <li class="MainSection-Items-wrapper-group--list">21 dni
+                                                                - {{ $product->price_three_week }}zł
+                                                                /
+                                                                dzień
+                                                            </li>
+                                                            <li class="MainSection-Items-wrapper-group--list">28 dni
+                                                                - {{ $product->price_four_week }}zł /
+                                                                dzień
+                                                            </li>
+                                                            <li class="MainSection-Items-wrapper-group--list">>28 dni
+                                                                - {{ $product->price_more_month }}zł
+                                                                /
+                                                                dzień
+                                                            </li>
+                                                        </ul>
+                                                    </div>
 
-                                                <button class="btn btn-product MainSection-Items-wrapper-group--button" type="button" data-toggle="collapse"
-                                                    data-target="#multiCollapse-{{ $product->id }}"
-                                                    aria-expanded="false"
-                                                    aria-controls="multiCollapse-{{ $product->id }}">Cennik dla tego modelu
-                                                </button>
+                                                    <button class="btn btn-product MainSection-Items-wrapper-group--button" type="button" data-toggle="collapse"
+                                                        data-target="#multiCollapse-{{ $product->id }}"
+                                                        aria-expanded="false"
+                                                        aria-controls="multiCollapse-{{ $product->id }}">Cennik dla tego modelu
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <input type="checkbox" name="product" class="product_checkbox"
-                                       value="{{ $product->id }}" style="display: none;"
-                                       id="product_{{ $product->id }}">
-                            @endforeach
+                                        </label>
+                                    </div>
+                                    <input type="checkbox" name="product" class="product_checkbox"
+                                        value="{{ $product->id }}" style="display: none;"
+                                        id="product_{{ $product->id }}">
+                                @endforeach
+                            </div>
+
+                            <div class="swiper-button-prev">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left" class="swiper-button-prev-icon svg-inline--fa fa-angle-left fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
+                            </div>
+                            <div class="swiper-button-next">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" class="swiper-button-prev-icon svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -209,44 +239,53 @@
                             <h2 class="MainSection-Items--title">Do korzystania z elektrostymulatora konieczne są elektrody. Można także skorzystać z dodatkówych akcesoriów. Akcesoria i elektrody możesz kupić w tym kroku. Przygotowaliśmy take zestawy elektrod pod konkretne potrzeby.</h2>
                             <p  class="MainSection-Items--text">Zaznacz produkty, które chcesz dobrać do wypożyczonego urządzenia.</p>
                         </div>
-                        <div class="row">
-                            @foreach($additionals as $additional)
-                                <div class="col-12 col-md-4 col-xl-3">
-                                    <label class="MainSection-Items-box additional_card"
-                                           for="additional_{{ $additional->id }}" data-id="{{ $additional->id }}">
-                                        <div id="{{ $additional->id }}" class="MainSection-Items--box-height">
-                                            <div class="MainSection-Items-wrapper">
-                                                <img src="{{ asset('storage/'. $additional->getMainPhoto->url) }}"
-                                                     class="MainSection-Items--image" alt="{{ $additional->name }}">
+                        <div class="@if (count($additionals) <= 8) single-column @else two-column @endif swiper-container">
+                            <div class="swiper-wrapper">
+                                @foreach($additionals as $additional)
+                                    <div class="swiper-slide">
+                                        <label class="MainSection-Items-box additional_card"
+                                            for="additional_{{ $additional->id }}" data-id="{{ $additional->id }}">
+                                            <div id="{{ $additional->id }}" class="MainSection-Items--box-height">
+                                                <div class="MainSection-Items-wrapper">
+                                                    <img src="{{ asset('storage/'. $additional->getMainPhoto->url) }}"
+                                                        class="MainSection-Items--image" alt="{{ $additional->name }}">
 
-                                                <div class="MainSection-Items-wrapper-description">
-                                                    <h5 class="MainSection-Items-wrapper-description--title">{{ $additional->name }}</h5>
-                                                    <p class="MainSection-Items-wrapper-description--text">
-                                                        Dostępna ilość: {{ $additional->amount }}
-                                                    </p>
+                                                    <div class="MainSection-Items-wrapper-description">
+                                                        <h5 class="MainSection-Items-wrapper-description--title">{{ $additional->name }}</h5>
+                                                        <p class="MainSection-Items-wrapper-description--text">
+                                                            Dostępna ilość: {{ $additional->amount }}
+                                                        </p>
+                                                    </div>
+
+                                                    <ul class="MainSection-Items-wrapper-group">
+                                                        <li class="MainSection-Items-wrapper-group--list">
+                                                            {{ $additional->price_one_week }} zł
+                                                        </li>
+                                                        <li>
+                                                            <label class="MainSection-Items-wrapper-group--label">
+                                                                <span>Ilość:</span>
+                                                                <input class="MainSection-Items-wrapper-group--countItems-number" type="number"
+                                                                    name="amount_additional[{{ $additional->id }}]" id="amount_additional"
+                                                                    class="form-control" step="1" value="1" min="1">
+                                                            </label>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-
-                                                <ul class="MainSection-Items-wrapper-group">
-                                                    <li class="MainSection-Items-wrapper-group--list">
-                                                        {{ $additional->price_one_week }} zł
-                                                    </li>
-                                                    <li>
-                                                        <label class="MainSection-Items-wrapper-group--label">
-                                                            <span>Ilość:</span>
-                                                            <input class="MainSection-Items-wrapper-group--countItems-number" type="number"
-                                                                name="amount_additional[{{ $additional->id }}]" id="amount_additional"
-                                                                class="form-control" step="1" value="1" min="1">
-                                                        </label>
-                                                    </li>
-                                                </ul>
                                             </div>
-                                        </div>
-                                    </label>
-                                    <input type="checkbox" name="additional[{{ $additional->id }}]"
-                                           class="additional_checkbox" style="display: none;"
-                                           id="additional_{{ $additional->id }}" value="{{ $additional->id }}">
-                                </div>
-                            @endforeach
+                                        </label>
+                                        <input type="checkbox" name="additional[{{ $additional->id }}]"
+                                            class="additional_checkbox" style="display: none;"
+                                            id="additional_{{ $additional->id }}" value="{{ $additional->id }}">
+                                    </div>
+                                @endforeach
+                            </div>
+
+                            <div class="swiper-button-prev">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left" class="swiper-button-prev-icon svg-inline--fa fa-angle-left fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
+                            </div>
+                            <div class="swiper-button-next">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" class="swiper-button-prev-icon svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -287,10 +326,9 @@
         });
 
         $('body').on('click', '.additional_card', function () {
-            //clearAdditionals();
             if ($(this).hasClass('checked')) {
                 $(this).removeClass('checked')
-                $("#additional_" + $(this).data('id')).is(":unchecked");
+                $("#additional_" + $(this).data('id')).is(":checked");
             } else {
                 $(this).addClass('checked')
                 $("#additional_" + $(this).data('id')).is(":checked");
@@ -357,7 +395,11 @@
 
                     $('html, body').animate({
                         scrollTop: $("body").offset().top
-                    }, '250');
+                    }, '250', () => {
+                        $('.MainSection-alerts-close').on( 'click', () => {
+                            $('.check_alert').hide();
+                        })
+                    });
                 },
                 error:
                     function (jqXHR, textStatus, errorThrown) {

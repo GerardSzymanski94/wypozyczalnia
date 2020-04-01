@@ -1,19 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <section class="MainSection-thankyou container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
-                <h2>Dziękujemy za złożenie zamówienia</h2>
-            </div>
-            <div class="col-md-12">
-                <p>Aby dokończyć zamówienie pobierz umowę</p>
-                <p><a class="btn btn-primary" href="{{ route('create_pdf', ['order'=>$order->id]) }}">Umowa do
-                        pobrania</a>
-                </p>
+            <div class="col-12">
+                <div class="MainSection-thankyou-wrapper">
+                    <h2 class="MainSection-thankyou-wrapper--title">Dziękujemy za złożenie zamówienia</h2>
+                    <p class="MainSection-thankyou-wrapper--text">Aby dokończyć zamówienie pobierz umowę</p>
+                    <a class="btn btn-ending full-color" href="{{ route('create_pdf', ['order'=>$order->id]) }}">
+                        <span>Umowa do pobrania</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-
+    </section>
 @endsection
 
