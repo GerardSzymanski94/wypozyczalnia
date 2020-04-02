@@ -11,4 +11,18 @@
 
     margin-bottom: 75px;
   }
+
+  &-wrapper {
+    padding: 25px 15px;
+
+    @include screen-md {
+      padding: 50px 15px;
+    }
+
+    background: rgba(167, 192, 205, .1);
+    border: 1px solid $gray-shadow;
+    box-shadow: 0 10px 10px -9px rgba(0, 0, 0, .1);
+    text-align: center;
+    border-radius: 20px;
+  }
 }
