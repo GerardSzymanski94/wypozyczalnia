@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 class BaselinkerApiRepository
 {
 
+    private $conf;
+
+    public function __construct()
+    {
+        $this->conf = Configuration::where('id', '>', 0)->first();
+    }
+
+
     private function getApiToken()
     {
         return '6037-11841-P9JUWFMHXXNFHUAZEHQFGWG8RVBBBP4TRZSM4IARNB318629Y0EB6PQG33L0LZ3E';
@@ -31,12 +39,10 @@ class BaselinkerApiRepository
 
     public function addOrder($order)
     {
-        $conf = Configuration::where('id', '>', 0)->first();
-
         $user = $order->user;
         $parameters = [];
         $deposit = 0;
-        $parameters['order_status_id'] = "95425";
+        $parameters['order_status_id'] = $this->conf->status_id;
         $parameters['date_add'] = strtotime($order->created_at);
         $parameters['user_comments'] = "user_comments";
         $parameters['admin_comments'] = "admin_comments";
@@ -99,14 +105,14 @@ class BaselinkerApiRepository
         $pr = [];
         $pr["storage"] = "DB";
         $pr["storage_id"] = "1";
-        $pr["product_id"] = $conf->baselinker_deposit_id;
+        $pr["product_id"] = $this->conf->baselinker_deposit_id;
         $pr["name"] = "Kaucja zwrotna";
         $pr["price_brutto"] = $deposit;
         $parameters['products'][] = $pr;
 
 
         $payload = [
-            'token' => $this->getApiToken(),
+            'token' => $this->conf->baselinker_key,
             'method' => 'addOrder',
             'parameters' => json_encode($parameters)
         ];
@@ -121,7 +127,7 @@ class BaselinkerApiRepository
 
         //bez danych wejściowych
         $payload = [
-            'token' => $this->getApiToken(),
+            'token' => $this->conf->baselinker_key,
             'method' => 'getOrderStatusList',
         ];
 
@@ -176,7 +182,7 @@ class BaselinkerApiRepository
          */
 
         $payload = [
-            'token' => $this->getApiToken(),
+            'token' => $this->conf->baselinker_key,
             'method' => 'getProductsList',
             'parameters' => json_encode($parameters)
         ];

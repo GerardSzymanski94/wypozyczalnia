@@ -58,6 +58,10 @@
                             <li>
                                 <a href="{{ route('admin.order.index') }}"><i class="fa fa-list"></i> Zamówienia</a>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.configuration.index') }}"><i class="fa fa-android"></i>
+                                    Konfiguracja API</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -70,7 +74,8 @@
                         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                     </a>
 
-                    <a data-toggle="tooltip" data-placement="top" title="Wyloguj" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a data-toggle="tooltip" data-placement="top" title="Wyloguj" href="{{ route('logout') }}"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                     </a>
 
@@ -89,17 +94,20 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
-                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                               aria-expanded="false">
                                 {{ auth()->user()->email }}
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
                                 <li><a href="javascript:;"> Ustawienia</a></li>
-                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <li><a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <i class="fa fa-sign-out pull-right"></i> Wyloguj
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
                                         @csrf
                                     </form>
                                 </li>
@@ -107,7 +115,8 @@
                         </li>
 
                         <li role="presentation" class="dropdown">
-                            <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                            <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown"
+                               aria-expanded="false">
                                 <i class="fa fa-envelope-o"></i>
                                 <span class="badge bg-green">0</span>
                             </a>
@@ -152,17 +161,22 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
 <!-- Bootstrap -->
-<script src="{{ asset('/vendors/bootstrap/dist/js/bootstrap.min.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('/vendors/bootstrap/dist/js/bootstrap.min.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- FastClick -->
-<script src="{{ asset('/vendors/fastclick/lib/fastclick.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('/vendors/fastclick/lib/fastclick.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- NProgress -->
 <script src="{{ asset('/vendors/nprogress/nprogress.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- Chart.js -->
-<script src="{{ asset('/vendors/Chart.js/dist/Chart.min.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('/vendors/Chart.js/dist/Chart.min.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- gauge.js -->
-<script src="{{ asset('/vendors/gauge.js/dist/gauge.min.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('/vendors/gauge.js/dist/gauge.min.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- bootstrap-progressbar -->
-<script src="{{ asset('/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- iCheck -->
 <script src="{{ asset('/vendors/iCheck/icheck.min.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- Skycons -->
@@ -171,26 +185,36 @@
 <script src="{{ asset('/vendors/Flot/jquery.flot.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <script src="{{ asset('/vendors/Flot/jquery.flot.pie.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <script src="{{ asset('/vendors/Flot/jquery.flot.time.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/Flot/jquery.flot.stack.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/Flot/jquery.flot.resize.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('/vendors/Flot/jquery.flot.stack.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('/vendors/Flot/jquery.flot.resize.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- Flot plugins -->
-<script src="{{ asset('/vendors/flot.orderbars/js/jquery.flot.orderBars.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/flot-spline/js/jquery.flot.spline.min.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/flot.curvedlines/curvedLines.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('/vendors/flot.orderbars/js/jquery.flot.orderBars.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('/vendors/flot-spline/js/jquery.flot.spline.min.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('/vendors/flot.curvedlines/curvedLines.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- DateJS -->
 <script src="{{ asset('/vendors/DateJS/build/date.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- JQVMap -->
-<script src="{{ asset('/vendors/jqvmap/dist/jquery.vmap.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('/vendors/jqvmap/dist/jquery.vmap.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('/vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- bootstrap-daterangepicker -->
 <script src="{{ asset('/vendors/moment/min/moment.min.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/bootstrap-daterangepicker/daterangepicker.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 
 <!-- Custom Theme Scripts -->
 <script src="{{ asset('/js/custom.min.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 
-<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/a2bd7673/cloudflare-static/rocket-loader.min.js" data-cf-settings="db25bb0af1c5ca965d7b8174-|49" defer=""></script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/a2bd7673/cloudflare-static/rocket-loader.min.js"
+        data-cf-settings="db25bb0af1c5ca965d7b8174-|49" defer=""></script>
 
 @yield('scripts')
 

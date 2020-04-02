@@ -61,6 +61,10 @@ Route::namespace('Admin')->name('admin.')->prefix('administracja')->group(functi
         Route::get('/get_products', 'ApiController@getProducts')->name('get_products');
         Route::get('/get_statuses', 'ApiController@getOrderStatusList')->name('get_statuses');
     });
+    Route::prefix('configuration')->name('configuration.')->group(function () {
+        Route::get('/', 'ConfigurationController@index')->name('index');
+        Route::post('/store', 'ConfigurationController@store')->name('store');
+    });
 
     Route::get('login', 'LoginController@index')->name('login');
 
