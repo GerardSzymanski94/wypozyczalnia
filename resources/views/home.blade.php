@@ -329,16 +329,18 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="MainSection-finish-price--title">Podsumowanie kosztu wypożyczania</h2>
-                        <p class="MainSection-finish-price--price">Do zapłaty: <span id="price">0</span> zł</p>
-                    </div>
-                    <div class="col-12">
-                        <button class="btn btn-ending full-color" id="add_product">
-                            Dodaj do koszyka
-                        </button>
-                        <a href="{{ route('cart') }}" class="btn btn-ending">
-                            Przejdź do koszyka
-                        </a>
+                        <div class="MainSection-finish-price-wrapper">
+                            <h2 class="MainSection-finish-price--title">Podsumowanie kosztu wypożyczenia</h2>
+                            <p class="MainSection-finish-price--price">Do zapłaty: <span id="price">0</span> zł</p>
+                            <div class="MainSection-finish-price-buttons">
+                                <button class="btn btn-ending full-color" id="add_product">
+                                    Dodaj do koszyka
+                                </button>
+                                <a href="{{ route('cart') }}" class="btn btn-ending">
+                                    Przejdź do koszyka
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -361,7 +363,7 @@
         $('body').on('click', '.additional_card', function () {
             if ($(this).hasClass('checked')) {
                 $(this).removeClass('checked')
-                $("#additional_" + $(this).data('id')).is(":checked");
+                $("#additional_" + $(this).data('id')).removeAttr('checked');
             } else {
                 $(this).addClass('checked')
                 $("#additional_" + $(this).data('id')).is(":checked");
@@ -447,7 +449,7 @@
         });
 
         function clearProducts() {
-            $('.product_checkbox').prop("checked", false);
+            $('.product_checkbox').removeAttr('checked');
             $('.product_card').each(function () {
                 $(this).removeClass('checked')
             });
@@ -457,7 +459,7 @@
             $('.additional_card').each(function () {
                 $(this).removeClass('checked')
             });
-            $('.additional_checkbox').prop("checked", false);
+            $('.additional_checkbox').removeAttr('checked');
         }
 
         $('body').on('change', '.product_checkbox', function () {
