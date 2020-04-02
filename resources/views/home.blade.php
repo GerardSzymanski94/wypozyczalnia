@@ -340,7 +340,7 @@
             getPrice();
         });
 
-        $('body').on('change', '#amount_additional', function () {
+        $('body').bind('keyup', '#amount_additional', function () {
             getPrice();
         });
 
