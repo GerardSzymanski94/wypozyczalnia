@@ -144,9 +144,11 @@
                     <div class="form-group col-md-12">
                         <label for="photo">Zdjęcie</label>
                         <input type="file" class="form-control-file" name="photo" id="photo">
+                        @if(isset( $product->getMainPhoto->url))
+                            <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}" height="100px" width="100px"
+                                 class="float-left">
+                        @endif
 
-                        <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}" height="100px" width="100px"
-                             class="float-left">
                     </div>
                 </div>
                 <div class="form-row">
