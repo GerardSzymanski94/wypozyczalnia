@@ -11650,6 +11650,11 @@ button,
   width: 100%;
 }
 
+.sold-out {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .MainSection-countItems {
   margin-bottom: 75px;
 }
