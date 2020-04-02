@@ -328,7 +328,7 @@
         $('body').on('click', '.additional_card', function () {
             if ($(this).hasClass('checked')) {
                 $(this).removeClass('checked')
-                $("#additional_" + $(this).data('id')).is(":checked");
+                $("#additional_" + $(this).data('id')).removeAttr('checked');
             } else {
                 $(this).addClass('checked')
                 $("#additional_" + $(this).data('id')).is(":checked");
@@ -411,7 +411,7 @@
         });
 
         function clearProducts() {
-            $('.product_checkbox').prop("checked", false);
+            $('.product_checkbox').removeAttr('checked');
             $('.product_card').each(function () {
                 $(this).removeClass('checked')
             });
@@ -421,7 +421,7 @@
             $('.additional_card').each(function () {
                 $(this).removeClass('checked')
             });
-            $('.additional_checkbox').prop("checked", false);
+            $('.additional_checkbox').removeAttr('checked');
         }
 
         $('body').on('change', '.product_checkbox', function () {
