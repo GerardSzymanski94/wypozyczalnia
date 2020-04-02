@@ -56,6 +56,47 @@
 
                     <input type="hidden" name="status" value="1">
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="baselinker_id">ID produktu w Baselinker <span
+                                    class="required">*</span></label>
+                        <input type="text" name="baselinker_id" id="baselinker_id"
+                               class="form-control"
+                               value="{{ old('baselinker_id', $product->baselinker_id ?? '') }}">
+
+                        @if($errors->has('baselinker_id'))
+                            <p class="alert alert-danger"> {{ $errors->first('baselinker_id') }}
+                            </p>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="ean">EAN<span
+                                    class="required">*</span></label>
+                        <input type="text" name="ean" id="ean"
+                               class="form-control"
+                               value="{{ old('ean', $product->ean ?? '') }}">
+
+                        @if($errors->has('ean'))
+                            <p class="alert alert-danger"> {{ $errors->first('ean') }}
+                            </p>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="sku">SKU <span
+                                    class="required">*</span></label>
+                        <input type="text" name="sku" id="sku"
+                               class="form-control"
+                               value="{{ old('sku', $product->sku ?? '') }}">
+
+                        @if($errors->has('sku'))
+                            <p class="alert alert-danger"> {{ $errors->first('sku') }}
+                            </p>
+                        @endif
+                    </div>
+
+                </div>
                 <hr>
 
                 <div class="form-row">
@@ -141,6 +182,9 @@
                     </div>
 
                 </div>
+                <hr>
+
+
                 <hr>
                 <div class="form-row">
                     <div class="form-group col-md-12">

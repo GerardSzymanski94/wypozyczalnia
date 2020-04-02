@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = ['name', 'description', 'short_description', 'status', 'amount', 'available', 'price_more_month', 'price_four_week', 'price_three_week',
-        'price_two_week', 'price_one_week', 'deposit'];
+        'price_two_week', 'price_one_week', 'deposit', 'baselinker_id', 'sku', 'ean'];
 
     public function getMainPhoto()
     {
