@@ -404,7 +404,6 @@
                         console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
                     }
             });
-
         });
 
         function clearProducts() {
