@@ -53,6 +53,13 @@
     }
   }
 
+  &-item.btn-group {
+    @include only-screen-sm{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
   &-dropdown {
     width: 100%;
     padding: 10px 15px;
