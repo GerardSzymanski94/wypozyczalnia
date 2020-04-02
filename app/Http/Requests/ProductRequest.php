@@ -34,6 +34,9 @@ class ProductRequest extends FormRequest
             'price_four_week' => 'nullable',
             'price_more_month' => 'nullable',
             'deposit' => 'nullable',
+            'ean' => 'nullable',
+            'sku' => 'nullable',
+            'baselinker_id' => 'nullable',
         ];
     }
 
