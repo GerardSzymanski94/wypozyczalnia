@@ -127,14 +127,14 @@ class AjaxController extends Controller
         $params = [];
 
         parse_str($request->form, $params);
-
-        $product = Product::find($params['product']);
-
         $days = $params['days'];
         $amount = $params['amount'];
 
         $price = 0;
-        $price = $price + $product->price($days, $amount);
+        if (isset($params['product'])) {
+            $product = Product::find($params['product']);
+            $price = $price + $product->price($days, $amount);
+        }
 
         if (isset($params['additional'])) {
             foreach ($params['additional'] as $additional) {
