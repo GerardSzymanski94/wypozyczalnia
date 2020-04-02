@@ -11320,6 +11320,13 @@ button,
   }
 }
 
+@media (max-width: 576px) {
+  .navbar-item.btn-group {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .navbar-dropdown {
   width: 100%;
   padding: 10px 15px;
@@ -11648,6 +11655,11 @@ button,
 
 .MainSection-Items-wrapper-group--button {
   width: 100%;
+}
+
+.sold-out {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .MainSection-countItems {

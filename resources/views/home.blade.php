@@ -116,7 +116,7 @@
                             <div class="swiper-wrapper">
                                 @foreach($products as $product)
                                     <div class="swiper-slide">
-                                        <label class="MainSection-Items-box product_card" for="product_{{ $product->id }}"
+                                        <label class="MainSection-Items-box product_card @if($product->amount==0) sold-out @endif" for="product_{{ $product->id }}"
                                             data-id="{{ $product->id }}">
                                             <div id="{{ $product->id }}" class="MainSection-Items--box-height">
                                                 <div class="MainSection-Items-wrapper">
@@ -164,9 +164,10 @@
                                                 </div>
                                             </div>
                                         </label>
+                                        
                                         <input type="radio" name="product" class="product_checkbox"
                                             value="{{ $product->id }}" style="display: none;"
-                                            id="product_{{ $product->id }}">
+                                            id="product_{{ $product->id }}" @if($product->amount==0) disabled @endif />
                                     </div>
                                 @endforeach
                             </div>
