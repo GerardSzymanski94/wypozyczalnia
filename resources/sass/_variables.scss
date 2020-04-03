@@ -1,8 +1,32 @@
+$font-path-noto: "../fonts/Noto_Sans";
+$font-path-oswald: "../fonts/Oswald/static";
+
+@font-face {
+  font-family: 'NotoSans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('#{$font-path-noto}/NotoSans-regular.ttf');
+}
+
+@font-face {
+  font-family: 'NotoSans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('#{$font-path-noto}/NotoSans-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 800;
+  src: url('#{$font-path-oswald}/Oswald-Bold.ttf');
+}
+
 // Body
 $body-bg: #fff;
 
 // Typography
-$font-family-sans-serif: 'Noto Sans', sans-serif;
+$font-family-sans-serif: 'NotoSans', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
