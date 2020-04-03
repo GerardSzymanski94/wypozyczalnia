@@ -164,7 +164,7 @@
                                                 </div>
                                             </div>
                                         </label>
-                                        
+
                                         <input type="radio" name="product" class="product_checkbox"
                                             value="{{ $product->id }}" style="display: none;"
                                             id="product_{{ $product->id }}" @if($product->amount==0) disabled @endif />
@@ -244,7 +244,7 @@
                             <div class="swiper-wrapper">
                                 @foreach($additionals as $additional)
                                     <div class="swiper-slide">
-                                        <label class="MainSection-Items-box additional_card"
+                                        <label class="MainSection-Items-box additional_card @if($additional->amount==0) sold-out @endif"
                                             for="additional_{{ $additional->id }}" data-id="{{ $additional->id }}">
                                             <div id="{{ $additional->id }}" class="MainSection-Items--box-height">
                                                 <div class="MainSection-Items-wrapper">
@@ -276,7 +276,8 @@
                                         </label>
                                         <input type="checkbox" name="additional[{{ $additional->id }}]"
                                             class="additional_checkbox" style="display: none;"
-                                            id="additional_{{ $additional->id }}" value="{{ $additional->id }}">
+                                            id="additional_{{ $additional->id }}" value="{{ $additional->id }}"
+                                            @if($additional->amount==0) disabled @endif />
                                     </div>
                                 @endforeach
                             </div>
