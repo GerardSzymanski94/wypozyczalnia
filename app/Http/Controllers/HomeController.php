@@ -74,6 +74,9 @@ class HomeController extends Controller
 
     public function saveOrder(Request $request)
     {
+        if (!$request->has('terms')) {
+            return redirect()->back();
+        }
         $user = auth()->user();
         $user->street = $request->street;
         $user->city = $request->city;
@@ -129,5 +132,10 @@ class HomeController extends Controller
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML($view->render());
         return $pdf->download();
+    }
+
+    public function terms()
+    {
+        dd('Tu będzie regulamin');
     }
 }

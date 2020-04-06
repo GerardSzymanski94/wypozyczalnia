@@ -24,11 +24,15 @@
                         @if($order !== null)
                             <ul class="MainSection-summary-list">
                                 <li class="MainSection-summary-list-item MainSection-summary-list-item-header">
-                                    <div class="MainSection-summary-list-cell MainSection-summary-list-product">Produkt</div>
-                                    <div class="MainSection-summary-list-cell MainSection-summary-list-count">Ilość</div>
+                                    <div class="MainSection-summary-list-cell MainSection-summary-list-product">
+                                        Produkt
+                                    </div>
+                                    <div class="MainSection-summary-list-cell MainSection-summary-list-count">Ilość
+                                    </div>
                                     <div class="MainSection-summary-list-cell MainSection-summary-list-days">Dni</div>
                                     <div class="MainSection-summary-list-cell MainSection-summary-list-price">Cena</div>
-                                    <div class="MainSection-summary-list-cell MainSection-summary-list-deposit">Kaucja</div>
+                                    <div class="MainSection-summary-list-cell MainSection-summary-list-deposit">Kaucja
+                                    </div>
                                 </li>
                                 @foreach($order->orderProducts as $product)
                                     <li class="MainSection-summary-list-item">
@@ -64,7 +68,8 @@
                                     <div class="MainSection-summary-list-cell MainSection-summary-list-count disable-mobile"></div>
                                     <div class="MainSection-summary-list-cell MainSection-summary-list-days disable-mobile"></div>
                                     <div class="MainSection-summary-list-cell MainSection-summary-list-price">
-                                        <span class="MainSection-summary-list-price-summary">{{ $order->price() }} zł</span>
+                                        <span class="MainSection-summary-list-price-summary">{{ $order->price() }}
+                                            zł</span>
                                     </div>
                                     <div class="MainSection-summary-list-cell MainSection-summary-list-deposit disable-mobile"></div>
                                 </li>
@@ -79,7 +84,8 @@
 
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('save') }}" method="post" class="MainSection-summary-form" enctype="multipart/form-data">
+                <form action="{{ route('save') }}" method="post" class="MainSection-summary-form"
+                      enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-12 col-lg-6">
@@ -92,7 +98,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="name">Imię <span class="required">*</span></label>
                                     <input type="text" name="name" id="name" class="form-control"
-                                        value="{{ old('name', $user->name ?? '') }}">
+                                           value="{{ old('name', $user->name ?? '') }}">
 
                                     @if($errors->has('name'))
                                         <p class="alert alert-danger"> {{ $errors->first('name') }}
@@ -102,7 +108,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="surname">Nazwisko <span class="required">*</span></label>
                                     <input type="text" name="surname" id="surname" class="form-control"
-                                        value="{{ old('surname', $user->surname ?? '') }}">
+                                           value="{{ old('surname', $user->surname ?? '') }}">
 
                                     @if($errors->has('surname'))
                                         <p class="alert alert-danger"> {{ $errors->first('surname') }}
@@ -115,7 +121,7 @@
                                 <div class="form-group col-md-12">
                                     <label for="city">Miasto <span class="required">*</span></label>
                                     <input type="text" name="city" id="city" class="form-control"
-                                        value="{{ old('city', $user->city ?? '') }}">
+                                           value="{{ old('city', $user->city ?? '') }}">
 
                                     @if($errors->has('city'))
                                         <p class="alert alert-danger"> {{ $errors->first('city') }}
@@ -125,7 +131,7 @@
                                 <div class="form-group col-md-12">
                                     <label for="street">Ulica <span class="required">*</span></label>
                                     <input type="text" name="street" id="street" class="form-control"
-                                        value="{{ old('street', $user->street ?? '') }}">
+                                           value="{{ old('street', $user->street ?? '') }}">
 
                                     @if($errors->has('street'))
                                         <p class="alert alert-danger"> {{ $errors->first('street') }}
@@ -138,7 +144,7 @@
                                 <div class="form-group col-md-12">
                                     <label for="zip_code">Kod pocztowy <span class="required">*</span></label>
                                     <input type="text" name="zip_code" id="zip_code" class="form-control"
-                                        value="{{ old('zip_code', $user->zip_code ?? '') }}">
+                                           value="{{ old('zip_code', $user->zip_code ?? '') }}">
 
                                     @if($errors->has('zip_code'))
                                         <p class="alert alert-danger"> {{ $errors->first('zip_code') }}
@@ -159,7 +165,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="name_invoice">Nazwa firmy/imię i nazwisko <span></span></label>
                                     <input type="text" name="name_invoice" id="name_invoice" class="form-control"
-                                        value="{{ old('name_invoice', $user->name_invoice ?? '') }}">
+                                           value="{{ old('name_invoice', $user->name_invoice ?? '') }}">
 
                                     @if($errors->has('name_invoice'))
                                         <p class="alert alert-danger"> {{ $errors->first('name_invoice') }}
@@ -169,7 +175,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="city_invoice">Miasto <span class="required">*</span></label>
                                     <input type="text" name="city_invoice" id="city_invoice" class="form-control"
-                                        value="{{ old('city_invoice', $user->city_invoice ?? '') }}">
+                                           value="{{ old('city_invoice', $user->city_invoice ?? '') }}">
 
                                     @if($errors->has('city_invoice'))
                                         <p class="alert alert-danger"> {{ $errors->first('city_invoice') }}
@@ -182,7 +188,7 @@
                                 <div class="form-group col-md-12">
                                     <label for="street_invoice">Ulica <span class="required">*</span></label>
                                     <input type="text" name="street_invoice" id="street_invoice" class="form-control"
-                                        value="{{ old('street_invoice', $user->street_invoice ?? '') }}">
+                                           value="{{ old('street_invoice', $user->street_invoice ?? '') }}">
 
                                     @if($errors->has('street_invoice'))
                                         <p class="alert alert-danger"> {{ $errors->first('street_invoice') }}
@@ -191,8 +197,9 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="zip_code_invoice">Kod pocztowy <span class="required">*</span></label>
-                                    <input type="text" name="zip_code_invoice" id="zip_code_invoice" class="form-control"
-                                        value="{{ old('zip_code_invoice', $user->zip_code_invoice ?? '') }}">
+                                    <input type="text" name="zip_code_invoice" id="zip_code_invoice"
+                                           class="form-control"
+                                           value="{{ old('zip_code_invoice', $user->zip_code_invoice ?? '') }}">
 
                                     @if($errors->has('zip_code_invoice'))
                                         <p class="alert alert-danger"> {{ $errors->first('zip_code_invoice') }}
@@ -205,7 +212,7 @@
                                 <div class="form-group col-md-12">
                                     <label for="nip_invoice">NIP <span class="required">*</span></label>
                                     <input type="text" name="nip_invoice" id="nip_invoice" class="form-control"
-                                        value="{{ old('nip_invoice', $user->nip_invoice ?? '') }}">
+                                           value="{{ old('nip_invoice', $user->nip_invoice ?? '') }}">
 
                                     @if($errors->has('nip_invoice'))
                                         <p class="alert alert-danger"> {{ $errors->first('nip_invoice') }} </p>
@@ -221,6 +228,14 @@
                             <input type="checkbox" name="invoice" id="invoice" class="checkbox">
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="terms">Akceptuje <a href="{{ route('terms') }}" target="_blank">regulamin </a>
+                                <span
+                                        class="required">*</span></label>
+                            <input type="checkbox" name="terms" id="terms" required>
+                        </div>
+                    </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-12">
@@ -234,14 +249,14 @@
                 </form>
             </div>
         </div>
-    </s>
+        </s>
 
-@endsection
+        @endsection
 
-@section('scripts')
-    <script>
-        $('body').on('click', '#invoice', function () {
-            $('.invoice').toggle();
-        });
-    </script>
+        @section('scripts')
+            <script>
+                $('body').on('click', '#invoice', function () {
+                    $('.invoice').toggle();
+                });
+            </script>
 @endsection
