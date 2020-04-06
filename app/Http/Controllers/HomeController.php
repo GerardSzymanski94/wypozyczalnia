@@ -88,9 +88,9 @@ class HomeController extends Controller
 
         $order = $user->actualOrder;
 
-        if (!$order->checkAmounts()) {
+        if (is_null($order) || !$order->checkAmounts()) {
             $checkAmounts = true;
-            return view('data', compact('order', 'user', 'checkAmounts'));
+            return redirect()->back();
         }
 
         $order->status = 2;
