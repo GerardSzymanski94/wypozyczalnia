@@ -120,6 +120,9 @@ class HomeController extends Controller
 
     public function createPDF(Order $order)
     {
+        if ($order->user_id != auth()->user()->id || $order->user_id == null)
+            return redirect()->route('index');
+
         $user = auth()->user();
         $view = view('admin.order.pdf_content', compact('order', 'user'));
 

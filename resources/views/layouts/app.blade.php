@@ -57,10 +57,16 @@
                         <li class="navbar-item btn-group dropup-sm dropdown-md">
                             <button type="button" class="btn btn-user dropdown-toggle" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                                {{ Auth::user()->name }}
+                                {{ Auth::user()->email }}
                             </button>
 
                             <div class="navbar-dropdown dropdown-menu dropdown-menu-sm-right">
+                                @if(auth()->user() && auth()->user()->admin == 1)
+                                    <a class="navbar-dropdown-item dropdown-item btn btn-login"
+                                       href="{{ route('admin.index') }}">
+                                        Administracja
+                                    </a>
+                                @endif
                                 <a class="navbar-dropdown-item dropdown-item btn btn-login"
                                    href="{{ route('user.orders') }}">
                                     Zamówienia
@@ -97,24 +103,30 @@
     <footer class="MainContainer-footer container">
         <div class="row">
             <div class="col-12">
-                <div class="MainContainer-footer-app" style="background-image: url('{{ asset('images/banner-app.jpg') }}');">
+                <div class="MainContainer-footer-app"
+                     style="background-image: url('{{ asset('images/banner-app.jpg') }}');">
                     <div class="MainContainer-footer-wrapper">
                         <h4 class="MainContainer-footer--title">Applikacja Compex</h4>
                         <p class="MainContainer-footer--text">Pobierz za darmo aplikacje</p>
 
                         <div class="MainContainer-footer-buttons">
-                            <a class="MainContainer-footer--button" href="https://play.google.com/store/apps/details?id=com.djoglobal.compexcoach">
-                                <img class="MainContainer-footer--button--image" src="{{ asset('images/google-play.png') }}" alt="Przycisk google play">
+                            <a class="MainContainer-footer--button"
+                               href="https://play.google.com/store/apps/details?id=com.djoglobal.compexcoach">
+                                <img class="MainContainer-footer--button--image"
+                                     src="{{ asset('images/google-play.png') }}" alt="Przycisk google play">
                             </a>
-                            <a class="MainContainer-footer--button" href="https://s3.amazonaws.com/assets.compex.com/en/support-documents/iPhone-App.png">
-                                <img class="MainContainer-footer--button--image" src="{{ asset('images/app-store.png') }}" alt="Przycisk app store">
+                            <a class="MainContainer-footer--button"
+                               href="https://s3.amazonaws.com/assets.compex.com/en/support-documents/iPhone-App.png">
+                                <img class="MainContainer-footer--button--image"
+                                     src="{{ asset('images/app-store.png') }}" alt="Przycisk app store">
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-12">
-                <p class="MainContainer-footer--copyright">© {{ date("Y") }} - Wypożyczalnia wykonana przez Netoholics</p>
+                <p class="MainContainer-footer--copyright">© {{ date("Y") }} - Wypożyczalnia wykonana przez
+                    Netoholics</p>
             </div>
         </div>
     </footer>

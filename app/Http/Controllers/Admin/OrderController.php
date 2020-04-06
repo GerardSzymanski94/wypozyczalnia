@@ -22,6 +22,8 @@ class OrderController extends BaseController
 
     public function details(Order $order)
     {
+        if ($order->user_id != auth()->user()->id || $order->user_id == null)
+            return redirect()->route('index');
         return view('admin.order.details', compact('order'));
     }
 

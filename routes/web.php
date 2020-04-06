@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('index');
+Route::get('/', 'HomeController@index')->name('www.index');
 Route::get('/home', 'HomeController@index')->name('index');
 Route::get('/koszyk', 'HomeController@cart')->name('cart');
 Route::get('/delete/{id}', 'HomeController@cartDelete')->name('delete');
