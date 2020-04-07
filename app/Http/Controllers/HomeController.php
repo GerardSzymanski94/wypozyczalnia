@@ -54,8 +54,10 @@ class HomeController extends Controller
     public function cartDelete($id)
     {
         $product = OrderProduct::find($id);
-        if (isset($product->id))
+        if (isset($product->id)) {
+            OrderProduct::where('parent_id', $id)->delete();
             $product->delete();
+        }
         return redirect()->route('cart');
     }
 

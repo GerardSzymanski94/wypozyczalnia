@@ -7,11 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderProduct extends Model
 {
-    protected $fillable = ['product_id', 'order_id', 'price', 'amount', 'amount_additional', 'days', 'status'];
+    protected $fillable = ['product_id', 'order_id', 'price', 'amount', 'amount_additional', 'days', 'status', 'parent_id'];
 
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function additionals()
+    {
+        return $this->hasMany(OrderProduct::class, 'parent_id', 'id');
     }
 
     public function order()

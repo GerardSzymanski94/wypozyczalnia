@@ -38,7 +38,9 @@
                                     <li class="MainSection-summary-list-item">
                                         <div class="MainSection-summary-list-cell MainSection-summary-list-product">
                                             <div class="MainSection-summary-list-name">Produkt</div>
-                                            <span>{{ $product->product->name }}</span>
+                                            <span>@if($product->product->status==2)
+                                                    +
+                                                @endif {{ $product->product->name }}</span>
                                         </div>
                                         <div class="MainSection-summary-list-cell MainSection-summary-list-count">
                                             <div class="MainSection-summary-list-name">Ilość</div>
