@@ -251,14 +251,14 @@
                 </form>
             </div>
         </div>
-        </s>
+    </section>
 
-        @endsection
+@endsection
 
-        @section('scripts')
-            <script>
-                $('body').on('click', '#invoice', function () {
-                    $('.invoice').toggle();
-                });
-            </script>
+@section('scripts')
+    <script>
+        $('body').on('click', '#invoice', function () {
+            $('.invoice').toggle();
+        });
+    </script>
 @endsection
