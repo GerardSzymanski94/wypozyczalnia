@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class OrderController extends BaseController
 {
@@ -16,8 +17,28 @@ class OrderController extends BaseController
      */
     public function index()
     {
-        $orders = Order::where('status', '>', 1)->orderBy('id', 'desc')->get();
-        return view('admin.order.list', compact('orders'));
+        $p = Input::get('p');
+
+        if ($p != "") {
+
+            $sql = Order::query();
+            $sql->leftJoin('users', 'users.id', '=', 'orders.user_id')->where('email', 'LIKE', '%' . $p . '%');
+
+            $orders = $sql->where('status', '>', 1)->orderBy('orders.id', 'desc')->paginate(50)->setPath('');
+
+            $pagination = $orders->appends(array(
+                'p' => Input::get('p'),
+            ));
+            $count = count($orders);
+            if ($count > 0)
+                return view('admin.order.list', compact('orders', 'p'))->withDetails($orders)->withQuery($p);
+            else {
+                return view('admin.order.list', compact('orders', 'p'))->with('message', 'Nie znaleziono żadnych zamówień !');
+            }
+        }
+
+        $orders = Order::where('status', '>', 1)->orderBy('id', 'desc')->paginate(50);
+        return view('admin.order.list', compact('orders', 'p'));
     }
 
     public function details(Order $order)

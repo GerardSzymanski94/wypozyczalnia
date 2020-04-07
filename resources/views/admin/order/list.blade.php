@@ -1,13 +1,34 @@
 @extends('admin.app')
 
 @section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                @if(\Illuminate\Support\Facades\Session::has('message'))
 
-    @if(\Illuminate\Support\Facades\Session::has('message'))
+                    <div class="alert alert-success">
+                        {{ \Illuminate\Support\Facades\Session::get('message') }}
+                    </div>
+                @endif
+                <form action="{{ route('admin.order.index') }}" method="get" role="search">
+                    {{ csrf_field() }}
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="p"
+                               placeholder="Szukaj emaila" value="{{ $p }}">
+                        @isset($count)
+                            <p>Znaleziono: {{ $count }} produktów</p>
+                        @endisset
 
-        <div class="alert alert-success">
-            {{ \Illuminate\Support\Facades\Session::get('message') }}
+                        <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+                    </div>
+                </form>
+            </div>
         </div>
-    @endif
+    </div>
 
     <div class="x_panel">
         <div class="x_title">
@@ -54,6 +75,8 @@
                 @endforeach
                 </tbody>
             </table>
+
+            {{ $orders->links() }}
         </div>
     </div>
 
@@ -72,6 +95,15 @@
                 } else {
                     $(this).parent().hide();
                 }
+            });
+        });
+
+        $(function () {
+            $('table').tablesorter({
+                widgets: ['zebra', 'columns'],
+                usNumberFormat: false,
+                sortReset: true,
+                sortRestart: true
             });
         });
     </script>

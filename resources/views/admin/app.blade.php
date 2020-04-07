@@ -210,6 +210,7 @@
 <script src="{{ asset('/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 
+<script src="{{ asset('js/jquery.tablesorter.min.js') }}"></script>
 <!-- Custom Theme Scripts -->
 <script src="{{ asset('/js/custom.min.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 
