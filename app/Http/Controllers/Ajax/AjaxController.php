@@ -26,6 +26,7 @@ class AjaxController extends Controller
         $inputAdditionals = true; //zaznaczono elektrody
         $addedToCart = false;
 
+        app('debugbar')->info($params);
         if (!isset($params['days']) || $params['days'] <= 0) {
             $inputDays = false;
         }
@@ -107,7 +108,7 @@ class AjaxController extends Controller
                         'order_id' => $order->id,
                         'product_id' => $additional,
                         'amount_additional' => $params['amount_additional'][$additional],
-                        'days' => $params['days'],
+                        //'days' => $params['days'],
                         'price' => $product->priceAdditional($params['amount_additional'][$additional]),
                         'status' => 1,
                         'parent_id' => $orderProduct->id

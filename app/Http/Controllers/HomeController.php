@@ -92,7 +92,7 @@ class HomeController extends Controller
 
         if (is_null($order) || !$order->checkAmounts()) {
             $checkAmounts = true;
-            return redirect()->back();
+            return redirect()->route('index')->with('checkAmounts', true);
         }
 
         $order->status = 2;

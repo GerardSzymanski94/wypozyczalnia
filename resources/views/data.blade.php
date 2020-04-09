@@ -44,11 +44,18 @@
                                         </div>
                                         <div class="MainSection-summary-list-cell MainSection-summary-list-count">
                                             <div class="MainSection-summary-list-name">Ilość</div>
-                                            {{ $product->amount }}
+                                            @if($product->product->status==2)
+                                                {{ $product->amount_additional }}
+                                            @else
+                                                {{ $product->amount }}
+                                            @endif
                                         </div>
                                         <div class="MainSection-summary-list-cell MainSection-summary-list-days">
                                             <div class="MainSection-summary-list-name">Dni</div>
-                                            <span>{{ $product->days }} dni</span>
+                                            <span>
+                                                @if($product->product->status==1)
+                                                    {{ $product->days }} dni
+                                                @endif </span>
                                         </div>
                                         <div class="MainSection-summary-list-cell MainSection-summary-list-price">
                                             <div class="MainSection-summary-list-name">Cena</div>
@@ -239,6 +246,7 @@
                         </div>
                     </div>
 
+                    <div class="form-row"></div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
