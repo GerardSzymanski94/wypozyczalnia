@@ -109,19 +109,22 @@
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="MainSection-Items-description">
-                            <h2 class="MainSection-Items--title">Wybierz i zaznacz urządzenie, które chcesz wypożyczyć</h2>
-                            <p  class="MainSection-Items--text">Aby wybrać urządzenie - najedź i kliknij na produkt. Ceny wypożyczania możesz sprawdzić klikając w przycisk "Cennik dla tego modelu".</p>
+                            <h2 class="MainSection-Items--title">Wybierz i zaznacz urządzenie, które chcesz
+                                wypożyczyć</h2>
+                            <p class="MainSection-Items--text">Aby wybrać urządzenie - najedź i kliknij na produkt. Ceny
+                                wypożyczania możesz sprawdzić klikając w przycisk "Cennik dla tego modelu".</p>
                         </div>
                         <div class="@if (count($products) <= 8) single-column @else two-column @endif swiper-container">
                             <div class="swiper-wrapper">
                                 @foreach($products as $product)
                                     <div class="swiper-slide">
-                                        <label class="MainSection-Items-box product_card @if($product->amount==0) sold-out @endif" for="product_{{ $product->id }}"
-                                            data-id="{{ $product->id }}">
+                                        <label class="MainSection-Items-box product_card @if($product->amount==0) sold-out @endif"
+                                               for="product_{{ $product->id }}"
+                                               data-id="{{ $product->id }}">
                                             <div id="{{ $product->id }}" class="MainSection-Items--box-height">
                                                 <div class="MainSection-Items-wrapper">
                                                     <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}"
-                                                        class="MainSection-Items--image" alt="{{ $product->name }}">
+                                                         class="MainSection-Items--image" alt="{{ $product->name }}">
                                                     <div class="MainSection-Items-wrapper-description">
                                                         <h5 class="MainSection-Items-wrapper-description--title">{{ $product->name }}</h5>
                                                         <p class="MainSection-Items-wrapper-description--text">Dostępna
@@ -129,7 +132,7 @@
                                                     </div>
 
                                                     <div class="MainSection-Items-collapse collapse fade multi-collapse"
-                                                        id="multiCollapse-{{ $product->id }}">
+                                                         id="multiCollapse-{{ $product->id }}">
                                                         <ul class="MainSection-Items-wrapper-group-list">
                                                             <li class="MainSection-Items-wrapper-group--list">7 dni
                                                                 - {{ $product->price_one_week }}zł /
@@ -167,17 +170,28 @@
                                         </label>
 
                                         <input type="radio" name="product" class="product_checkbox"
-                                            value="{{ $product->id }}" style="display: none;"
-                                            id="product_{{ $product->id }}" @if($product->amount==0) disabled @endif />
+                                               value="{{ $product->id }}" style="display: none;"
+                                               id="product_{{ $product->id }}"
+                                               @if($product->amount==0) disabled @endif />
                                     </div>
                                 @endforeach
                             </div>
 
                             <div class="swiper-button-prev">
-                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left" class="swiper-button-prev-icon svg-inline--fa fa-angle-left fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left"
+                                     class="swiper-button-prev-icon svg-inline--fa fa-angle-left fa-w-8" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                                    <path fill="currentColor"
+                                          d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path>
+                                </svg>
                             </div>
                             <div class="swiper-button-next">
-                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" class="swiper-button-prev-icon svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right"
+                                     class="swiper-button-prev-icon svg-inline--fa fa-angle-right fa-w-8" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                                    <path fill="currentColor"
+                                          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+                                </svg>
                             </div>
                         </div>
                     </div>
@@ -193,15 +207,16 @@
                         <div class="row">
                             <div class="col-12 col-md-6 mb-4 mb-md-0">
                                 <div class="MainSection-countItems-group-wrapper">
-                                   <div class="MainSection-countItems-group-wrapper-space">
+                                    <div class="MainSection-countItems-group-wrapper-space">
                                         <h3 class="MainSection-countItems--title">Ilość urządzeń</h3>
                                         <label class="MainSection-countItems--amount" for="amount">Ilość urządzeń
                                             <span class="required">*</span>
                                         </label>
-                                   </div>
+                                    </div>
 
-                                    <input class="MainSection-countItems--number" type="number" name="amount" id="amount"
-                                    step="1" value="1" min="1">
+                                    <input class="MainSection-countItems--number" type="number" name="amount"
+                                           id="amount"
+                                           step="1" value="1" min="1">
                                 </div>
 
                                 @if($errors->has('amount'))
@@ -214,13 +229,14 @@
                             <div class="col-12 col-md-6">
                                 <div class="MainSection-countItems-group-wrapper">
                                     <div class="MainSection-countItems-group-wrapper-space">
-                                        <h3 class="MainSection-countItems--title">Wybierz liczbę dni na jaką chcesz wypożyczyć urządzenie</h3>
+                                        <h3 class="MainSection-countItems--title">Wybierz liczbę dni na jaką chcesz
+                                            wypożyczyć urządzenie</h3>
                                         <label class="MainSection-countItems--amount" for="days">Liczba dni wypożyczenia
                                             <span class="required">*</span>
                                         </label>
                                     </div>
                                     <input class="MainSection-countItems--number form-control" type="number"
-                                    name="days" id="days" step="1" value="1" min="1">
+                                           name="days" id="days" step="1" value="1" min="1">
                                 </div>
 
                                 @if($errors->has('days'))
@@ -246,11 +262,11 @@
                                 @foreach($additionals as $additional)
                                     <div class="swiper-slide">
                                         <label class="MainSection-Items-box additional_card @if($additional->amount==0) sold-out @endif"
-                                            for="additional_{{ $additional->id }}" data-id="{{ $additional->id }}">
+                                               for="additional_{{ $additional->id }}" data-id="{{ $additional->id }}">
                                             <div id="{{ $additional->id }}" class="MainSection-Items--box-height">
                                                 <div class="MainSection-Items-wrapper">
                                                     <img src="{{ asset('storage/'. $additional->getMainPhoto->url) }}"
-                                                        class="MainSection-Items--image" alt="{{ $additional->name }}">
+                                                         class="MainSection-Items--image" alt="{{ $additional->name }}">
 
                                                     <div class="MainSection-Items-wrapper-description">
                                                         <h5 class="MainSection-Items-wrapper-description--title">{{ $additional->name }}</h5>
@@ -266,9 +282,10 @@
                                                         <li>
                                                             <label class="MainSection-Items-wrapper-group--label">
                                                                 <span>Ilość:</span>
-                                                                <input class="MainSection-Items-wrapper-group--countItems-number" type="number"
-                                                                    name="amount_additional[{{ $additional->id }}]" id="amount_additional"
-                                                                    class="form-control" step="1" value="1" min="1">
+                                                                <input class="MainSection-Items-wrapper-group--countItems-number amount_additional"
+                                                                       type="number"
+                                                                       name="amount_additional[{{ $additional->id }}]"
+                                                                       step="1" value="1" min="1">
                                                             </label>
                                                         </li>
                                                     </ul>
@@ -276,18 +293,28 @@
                                             </div>
                                         </label>
                                         <input type="checkbox" name="additional[{{ $additional->id }}]"
-                                            class="additional_checkbox" style="display: none;"
-                                            id="additional_{{ $additional->id }}" value="{{ $additional->id }}"
-                                            @if($additional->amount==0) disabled @endif />
+                                               class="additional_checkbox" style="display: none;"
+                                               id="additional_{{ $additional->id }}" value="{{ $additional->id }}"
+                                               @if($additional->amount==0) disabled @endif />
                                     </div>
                                 @endforeach
                             </div>
 
                             <div class="swiper-button-prev">
-                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left" class="swiper-button-prev-icon svg-inline--fa fa-angle-left fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left"
+                                     class="swiper-button-prev-icon svg-inline--fa fa-angle-left fa-w-8" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                                    <path fill="currentColor"
+                                          d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path>
+                                </svg>
                             </div>
                             <div class="swiper-button-next">
-                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" class="swiper-button-prev-icon svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right"
+                                     class="swiper-button-prev-icon svg-inline--fa fa-angle-right fa-w-8" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                                    <path fill="currentColor"
+                                          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+                                </svg>
                             </div>
                         </div>
                     </div>
@@ -343,7 +370,7 @@
             getPrice();
         });
 
-        $('body').bind('keyup', '#amount_additional', function () {
+        $('body').on('change', '.amount_additional', function () {
             getPrice();
         });
 
@@ -353,8 +380,7 @@
             /* var product = $(".product_checkbox:checked").val();
              var additional = $(".additional_checkbox:checked").val();
              var days = $("#days").val();
-             var amount = $("#amount").val();
-             var amount_additional = $("#amount_additional").val();*/
+             var amount = $("#amount").val();*/
 
             var form = $("#form").serialize();
             $.ajax({
@@ -396,7 +422,7 @@
                     $('html, body').animate({
                         scrollTop: $("body").offset().top
                     }, '250', () => {
-                        $('.MainSection-alerts-close').on( 'click', () => {
+                        $('.MainSection-alerts-close').on('click', () => {
                             $('.check_alert').hide();
                         })
                     });

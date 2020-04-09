@@ -103,13 +103,14 @@ class AjaxController extends Controller
             if ($inputAdditionals && $inputAmountAdditional && $checkAmountAdditional) {
                 foreach ($params['additional'] as $additional) {
                     $product = Product::find($additional);
-                    $orderProduct = OrderProduct::create([
+                    OrderProduct::create([
                         'order_id' => $order->id,
                         'product_id' => $additional,
                         'amount_additional' => $params['amount_additional'][$additional],
                         'days' => $params['days'],
                         'price' => $product->priceAdditional($params['amount_additional'][$additional]),
-                        'status' => 1
+                        'status' => 1,
+                        'parent_id' => $orderProduct->id
                     ]);
                 }
 

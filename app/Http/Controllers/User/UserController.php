@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Admin\BaseController;
+use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
-class UserController extends BaseController
+class UserController extends Controller
 {
     public function orders()
     {

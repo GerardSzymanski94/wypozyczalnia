@@ -69,6 +69,7 @@ class RegisterController extends Controller
         $user = User::create([
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'admin' => 0,
         ]);
 
         Order::where('session_key', Session::token())->update(['user_id' => $user->id]);

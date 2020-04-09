@@ -54,8 +54,10 @@ class HomeController extends Controller
     public function cartDelete($id)
     {
         $product = OrderProduct::find($id);
-        if (isset($product->id))
+        if (isset($product->id)) {
+            OrderProduct::where('parent_id', $id)->delete();
             $product->delete();
+        }
         return redirect()->route('cart');
     }
 
@@ -74,6 +76,9 @@ class HomeController extends Controller
 
     public function saveOrder(Request $request)
     {
+        if (!$request->has('terms')) {
+            return redirect()->back();
+        }
         $user = auth()->user();
         $user->street = $request->street;
         $user->city = $request->city;
@@ -85,9 +90,9 @@ class HomeController extends Controller
 
         $order = $user->actualOrder;
 
-        if (!$order->checkAmounts()) {
+        if (is_null($order) || !$order->checkAmounts()) {
             $checkAmounts = true;
-            return view('data', compact('order', 'user', 'checkAmounts'));
+            return redirect()->back();
         }
 
         $order->status = 2;
@@ -120,11 +125,19 @@ class HomeController extends Controller
 
     public function createPDF(Order $order)
     {
+        if ($order->user_id != auth()->user()->id || $order->user_id == null)
+            return redirect()->route('index');
+
         $user = auth()->user();
         $view = view('admin.order.pdf_content', compact('order', 'user'));
 
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML($view->render());
         return $pdf->download();
+    }
+
+    public function terms()
+    {
+        dd('Tu będzie regulamin');
     }
 }

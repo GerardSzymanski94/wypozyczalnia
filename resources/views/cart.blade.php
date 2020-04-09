@@ -69,7 +69,7 @@
                                         <li class="MainSection-cart-item">
                                             <div class="MainSection-cart-item-cell MainSection-cart-item--product">
                                                 <div class="MainSection-cart-item-name"><span>Produkt</span></div>
-                                                <span>{{ $product->product->name }}</span>
+                                                <span>+ {{ $product->product->name }}</span>
                                             </div>
                                             <div class="MainSection-cart-item-cell MainSection-cart-item--count">
                                                 <div class="MainSection-cart-item-name"><span>Ilość</span></div>
