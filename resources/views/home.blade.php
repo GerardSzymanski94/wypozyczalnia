@@ -159,7 +159,8 @@
                                                     <button class="btn btn-product MainSection-Items-wrapper-group--button" type="button" data-toggle="collapse"
                                                         data-target="#multiCollapse-{{ $product->id }}"
                                                         aria-expanded="false"
-                                                        aria-controls="multiCollapse-{{ $product->id }}">Cennik dla tego modelu
+                                                        aria-controls="multiCollapse-{{ $product->id }}">
+                                                        Koszty wypożyczenia
                                                     </button>
                                                 </div>
                                             </div>
@@ -237,7 +238,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="MainSection-Items-description">
-                            <h2 class="MainSection-Items--title">Do korzystania z elektrostymulatora konieczne są elektrody. Można także skorzystać z dodatkówych akcesoriów. Akcesoria i elektrody możesz kupić w tym kroku. Przygotowaliśmy take zestawy elektrod pod konkretne potrzeby.</h2>
+                            <h2 class="MainSection-Items--title">By w pełni wykorzystać potencjał elektrostymulatorów konieczne są elektrody. Możesz je wybrać / kupić w kolejnym kroku. Dla ułatwienia przygotowaliśmy gotowe pakiety elektrod oraz dodatkowe akcesoria.</h2>
                             <p  class="MainSection-Items--text">Zaznacz produkty, które chcesz dobrać do wypożyczonego urządzenia.</p>
                         </div>
                         <div class="@if (count($additionals) <= 8) single-column @else two-column @endif swiper-container">
@@ -299,7 +300,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="MainSection-finish-price-wrapper">
-                            <h2 class="MainSection-finish-price--title">Podsumowanie kosztu wypożyczenia</h2>
+                            <h2 class="MainSection-finish-price--title">Całkowity koszt wypożyczenia</h2>
                             <p class="MainSection-finish-price--price">Do zapłaty: <span id="price">0</span> zł</p>
                             <div class="MainSection-finish-price-buttons">
                                 <button class="btn btn-ending full-color" id="add_product">
