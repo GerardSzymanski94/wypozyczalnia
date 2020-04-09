@@ -43,11 +43,13 @@ class HomeController extends Controller
         if (isset(auth()->user()->id)) {
             $order = auth()->user()->actualOrder;
         } else {
-            $order = Order::firstOrCreate([
-                'session_key' => Session::token(),
-            ]);
+            $order = Order::where('session_key', Session::token())->latest('id')->first();
+            if (!(isset($order->id))) {
+                $order = Order::create([
+                    'session_key' => Session::token()
+                ]);
+            }
         }
-
         return view('cart', compact('order'));
     }
 

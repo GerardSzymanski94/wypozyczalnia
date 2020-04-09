@@ -94,7 +94,8 @@
                                 @endforeach
                             </ul>
                             <div class="MainSection-cart-summary">
-                                <p class="MainSection-cart-summary--text">Podsumowanie: {{ $order->price() }} zł</p>
+                                <p class="MainSection-cart-summary--text">Podsumowanie: <span id="total_price">{{ $order->price() }}
+                                        zł</span></p>
                                 <a href="{{ route('data') }}"
                                    class="btn btn-ending full-color MainSection-cart-summary--button">Przejdź dalej</a>
                             </div>
