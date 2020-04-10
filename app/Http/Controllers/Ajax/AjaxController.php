@@ -99,6 +99,7 @@ class AjaxController extends Controller
                 'product_id' => $params['product'],
                 'amount' => $params['amount'],
                 'price' => $product->price($params['days'], $params['amount']),
+                'deposit' => $product->deposit * $params['amount'],
                 'status' => 1
             ]);
             if ($inputAdditionals && $inputAmountAdditional && $checkAmountAdditional) {

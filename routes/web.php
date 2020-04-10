@@ -66,6 +66,8 @@ Route::namespace('Admin')->name('admin.')->prefix('administracja')->group(functi
         Route::get('/create', 'OrderProductController@create')->name('create');
         Route::post('/store', 'OrderProductController@store')->name('store');
         Route::get('/destroy/{orderproduct}', 'OrderProductController@destroy')->name('destroy');
+        Route::get('/extension/{orderProduct}', 'OrderProductController@extension')->name('extension');
+        Route::post('/extension_save/{orderProduct}', 'OrderProductController@extension_save')->name('extension_save');
     });
 
     Route::prefix('api')->name('api.')->group(function () {

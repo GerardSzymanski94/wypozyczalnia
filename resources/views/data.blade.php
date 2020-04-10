@@ -63,8 +63,8 @@
                                         </div>
                                         <div class="MainSection-summary-list-cell MainSection-summary-list-deposit">
                                             <div class="MainSection-summary-list-name">Kaucja</div>
-                                            @if(isset($product->product->deposit) && $product->product->deposit>0)
-                                                <span style="color: red;">{{ $product->product->deposit }}</span>
+                                            @if(isset($product->deposit) && $product->deposit>0)
+                                                <span style="color: red;">{{ $product->deposit }}</span>
                                             @endif
                                         </div>
                                     </li>

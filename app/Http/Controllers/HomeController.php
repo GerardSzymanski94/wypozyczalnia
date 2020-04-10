@@ -114,7 +114,11 @@ class HomeController extends Controller
         $order->save();
 
         foreach ($order->orderProducts as $orderProduct) {
-            $orderProduct->changeStatus(2);
+            if ($orderProduct->product->status == 2) {
+                $orderProduct->changeStatus(3);
+            } else {
+                $orderProduct->changeStatus(2);
+            }
             $orderProduct->product->reduceAmount($orderProduct->amount);
         }
         $conf = Configuration::where('id', '>', 0)->first();

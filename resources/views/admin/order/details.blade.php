@@ -53,30 +53,42 @@
                         <td>
                             {{ $orderProduct->product->name }}
                         </td>
-                        <td>
-                            {{ $orderProduct->amount }}
+                        <td>@if($orderProduct->product->status==1)
+                                {{ $orderProduct->amount }}
+                            @else
+                                {{ $orderProduct->amount_additional }}
+                            @endif
                         </td>
                         <td class="news-title">
                             {{ $orderProduct->price }}
                         </td>
                         <td>
-                            {{ $orderProduct->product->deposit }}
+                            {{ $orderProduct->deposit }}
                         </td>
                         <td>
                             {{ $orderProduct->showDay() }}
                         </td>
                         <td>
-                            {{ $orderProduct->showStatus() }}
+                            @if($orderProduct->product->status==1)
+                                {{ $orderProduct->showStatus() }}
+                            @endif
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                @if($orderProduct->status==2)
-                                    <a class="btn btn-success"
-                                       href="{{ route('admin.order.return', ['orderProduct'=>$orderProduct->id]) }}">Zwrócono</a>
-                                @elseif($orderProduct->status==3)
-                                    <a class="btn btn-danger"
-                                       href="{{ route('admin.order.unavailable', ['orderProduct'=>$orderProduct->id]) }}">Nie
-                                        zwrócono</a>
+                                @if($orderProduct->product->status==1)
+                                    @if($orderProduct->status==2)
+                                        <a class="btn btn-success"
+                                           href="{{ route('admin.order.return', ['orderProduct'=>$orderProduct->id]) }}">Zwrócono</a>
+                                    @elseif($orderProduct->status==3)
+                                        <a class="btn btn-danger"
+                                           href="{{ route('admin.order.unavailable', ['orderProduct'=>$orderProduct->id]) }}">Nie
+                                            zwrócono</a>
+                                    @endif
+                                @endif
+                                @if($orderProduct->product->status==1 && $orderProduct->status!=5 )
+                                    <a class="btn btn-primary"
+                                       href="{{ route('admin.orderproduct.extension', ['orderProduct'=>$orderProduct->id]) }}">Przedłuż
+                                        okres wypożyczenia</a>
                                 @endif
                             </div>
                         </td>

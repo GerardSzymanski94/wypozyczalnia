@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderProduct extends Model
 {
-    protected $fillable = ['product_id', 'order_id', 'price', 'amount', 'amount_additional', 'days', 'status', 'parent_id'];
+    protected $fillable = ['product_id', 'order_id', 'price', 'amount', 'amount_additional', 'days', 'status',
+        'parent_id', 'deposit', 'days_to_return'];
 
     public function product()
     {
@@ -55,6 +56,9 @@ class OrderProduct extends Model
             case 4:
                 return 'Niezwrócone';
                 break;
+            case 5:
+                return 'Przedłużono';
+                break;
             default:
                 return 'Nieznany status';
         }
@@ -65,8 +69,15 @@ class OrderProduct extends Model
         if ($this->product->status == 2) {
             return "";
         }
+
+
         $date = Carbon::parse($this->order->date_from);
-        $date->addDays($this->days);
+
+        if (!is_null($this->days_to_return)) {
+            $date->addDays($this->days_to_return);
+        } else {
+            $date->addDays($this->days);
+        }
         return $date->format('d-m-Y');
     }
 }

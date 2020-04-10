@@ -58,7 +58,7 @@
                                             </div>
                                             <div class="MainSection-cart-item-cell MainSection-cart-item--deposit">
                                                 <div class="MainSection-cart-item-name"><span class=>Kaucja</span></div>
-                                                <span class="color-red">{{ $product->product->deposit }} zł</span>
+                                                <span class="color-red">{{ $product->deposit }} zł</span>
                                             </div>
                                             <div class="MainSection-cart-item-cell MainSection-cart-item--button">
                                                 <a href="{{ route('delete', ['product'=>$product->id]) }}"

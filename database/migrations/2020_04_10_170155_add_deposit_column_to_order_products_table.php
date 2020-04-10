@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDateFromColumnToOrderTable extends Migration
+class AddDepositColumnToOrderProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddDateFromColumnToOrderTable extends Migration
      */
     public function up()
     {
-        Schema::table('column_to_order', function (Blueprint $table) {
-            //
+        Schema::table('order_products', function (Blueprint $table) {
+            $table->integer('deposit')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddDateFromColumnToOrderTable extends Migration
      */
     public function down()
     {
-        Schema::table('column_to_order', function (Blueprint $table) {
-            //
+        Schema::table('order_products', function (Blueprint $table) {
+            $table->dropColumn('deposit');
         });
     }
 }
