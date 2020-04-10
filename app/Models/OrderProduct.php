@@ -62,7 +62,10 @@ class OrderProduct extends Model
 
     public function showDay()
     {
-        $date = Carbon::parse($this->created_at);
+        if ($this->product->status == 2) {
+            return "";
+        }
+        $date = Carbon::parse($this->order->date_from);
         $date->addDays($this->days);
         return $date->format('d-m-Y');
     }

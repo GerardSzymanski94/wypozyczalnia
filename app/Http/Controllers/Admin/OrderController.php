@@ -92,4 +92,18 @@ class OrderController extends BaseController
         }
     }
 
+    public function edit(Order $order)
+    {
+        return view('admin.order.edit', compact('order'));
+    }
+
+    public function update(Request $request, Order $order)
+    {
+        if ($request->has('date_from') && !is_null($request->date_from)) {
+            $order->date_from = $request->date_from;
+            $order->save();
+        }
+        return redirect()->route('admin.order.details', ['order' => $order->id]);
+    }
+
 }

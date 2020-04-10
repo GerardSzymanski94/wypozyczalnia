@@ -28,6 +28,11 @@
             @endif
 
             <h2>Szczegóły zamówienia</h2>
+            <ul>
+                <li> Od : {{ $order->date_from }} <a href="{{ route('admin.order.edit', ['order'=>$order->id]) }}">Edytuj</a>
+                </li>
+            </ul>
+
             <table class="table">
                 <thead>
                 <tr>

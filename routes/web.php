@@ -51,12 +51,21 @@ Route::namespace('Admin')->name('admin.')->prefix('administracja')->group(functi
     Route::prefix('order')->name('order.')->group(function () {
         Route::get('/', 'OrderController@index')->name('index');
         Route::get('/details/{order}', 'OrderController@details')->name('details');
+        Route::get('/edit/{order}', 'OrderController@edit')->name('edit');
         Route::post('/update/{order}', 'OrderController@update')->name('update');
         Route::get('/create', 'OrderController@create')->name('create');
         Route::post('/store', 'OrderController@store')->name('store');
         Route::get('/destroy/{order}', 'OrderController@destroy')->name('destroy');
         Route::get('/return/{orderProduct}', 'OrderController@changeStatusToReturn')->name('return');
         Route::get('/unavailable/{orderProduct}', 'OrderController@changeStatusToUnavailable')->name('unavailable');
+    });
+    Route::prefix('orderproduct')->name('orderproduct.')->group(function () {
+        Route::get('/', 'OrderProductController@index')->name('index');
+        Route::get('/details/{orderproduct}', 'OrderProductController@details')->name('details');
+        Route::post('/update/{orderproduct}', 'OrderProductController@update')->name('update');
+        Route::get('/create', 'OrderProductController@create')->name('create');
+        Route::post('/store', 'OrderProductController@store')->name('store');
+        Route::get('/destroy/{orderproduct}', 'OrderProductController@destroy')->name('destroy');
     });
 
     Route::prefix('api')->name('api.')->group(function () {
