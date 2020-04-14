@@ -32,8 +32,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::whereStatus(1)->get();
-        $additionals = Product::whereStatus(2)->get();
+        $products = Product::whereStatus(1)->with('images')->get();
+        $additionals = Product::whereStatus(2)->with('images')->get();
 
         return view('home', compact('products', 'additionals'));
     }
@@ -43,7 +43,7 @@ class HomeController extends Controller
         if (isset(auth()->user()->id)) {
             $order = auth()->user()->actualOrder;
         } else {
-            $order = Order::where('session_key', Session::token())->latest('id')->first();
+            $order = Order::where('session_key', Session::token())->latest('id')->with('orderProducts')->first();
             if (!(isset($order->id))) {
                 $order = Order::create([
                     'session_key' => Session::token()

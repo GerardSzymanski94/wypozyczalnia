@@ -14,6 +14,11 @@ class Product extends Model
         return $this->hasOne(Image::class, 'product_id', 'id');
     }
 
+    public function images()
+    {
+        return $this->hasOne(Image::class);
+    }
+
     public function setDepositAttribute($value)
     {
         $this->attributes['deposit'] = $value * 100;

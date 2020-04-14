@@ -123,7 +123,7 @@
                                                data-id="{{ $product->id }}">
                                             <div id="{{ $product->id }}" class="MainSection-Items--box-height">
                                                 <div class="MainSection-Items-wrapper">
-                                                    <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}"
+                                                    <img src="{{ asset('storage/'. $product->images->url) }}"
                                                          class="MainSection-Items--image" alt="{{ $product->name }}">
                                                     <div class="MainSection-Items-wrapper-description">
                                                         <h5 class="MainSection-Items-wrapper-description--title">{{ $product->name }}</h5>
@@ -265,7 +265,7 @@
                                                for="additional_{{ $additional->id }}" data-id="{{ $additional->id }}">
                                             <div id="{{ $additional->id }}" class="MainSection-Items--box-height">
                                                 <div class="MainSection-Items-wrapper">
-                                                    <img src="{{ asset('storage/'. $additional->getMainPhoto->url) }}"
+                                                    <img src="{{ asset('storage/'. $additional->images->url) }}"
                                                          class="MainSection-Items--image" alt="{{ $additional->name }}">
 
                                                     <div class="MainSection-Items-wrapper-description">

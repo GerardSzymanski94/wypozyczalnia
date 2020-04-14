@@ -39,7 +39,7 @@ class User extends Authenticatable
 
     public function actualOrder()
     {
-        return $this->hasOne(Order::class)->where('status', 1);
+        return $this->hasOne(Order::class)->where('status', 1)->with('orderProducts');
     }
 
     public function orders()
