@@ -20,7 +20,6 @@
                         <ul class="MainSection-orders-table">
                             <li class="MainSection-orders-table-row MainSection-orders-table-cell-header">
                                 <div class="MainSection-orders-table-cell MainSection-orders-table--data">Data</div>
-                                <div class="MainSection-orders-table-cell MainSection-orders-table--email">Email</div>
                                 <div class="MainSection-orders-table-cell MainSection-orders-table--price">Cena</div>
                                 <div class="MainSection-orders-table-cell MainSection-orders-table--status">Status</div>
                                 <div class="MainSection-orders-table-cell MainSection-orders-table--more">Więcej</div>
@@ -31,10 +30,6 @@
                                 <div class="MainSection-orders-table-cell MainSection-orders-table--data">
                                     <div class="MainSection-orders-table-cell-name">Data</div>
                                     <span>{{ $order->created_at }}</span>
-                                </div>
-                                <div class="MainSection-orders-table-cell MainSection-orders-table--email">
-                                    <div class="MainSection-orders-table-cell-name">Email</div>
-                                    <span>{{ $order->user->email }}</span>
                                 </div>
                                 <div class="MainSection-orders-table-cell MainSection-orders-table--price">
                                     <div class="MainSection-orders-table-cell-name">Cena</div>
