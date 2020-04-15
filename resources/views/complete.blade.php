@@ -6,11 +6,8 @@
             <div class="col-12">
                 <div class="MainSection-thankyou-wrapper">
                     <h2 class="MainSection-thankyou-wrapper--title">Dziękujemy za złożenie zamówienia</h2>
-                    {{--<p class="MainSection-thankyou-wrapper--text">Aby dokończyć musisz akceptować regulamin</p>--}}
-                    {{-- <a class="btn btn-ending full-color" href="{{ route('create_pdf', ['order'=>$order->id]) }}">
-                         <span>Umowa do pobrania</span>
-                     </a>--}}
-
+                    <a href="{{ route('user.orders') }}" class="btn btn-ending full-color">Zobacz zamówienie</a>
+                    <a href="{{ url('/') }}" class="btn btn-ending">Powrót na stronę główną</a>
                 </div>
             </div>
         </div>

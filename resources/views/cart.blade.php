@@ -35,7 +35,7 @@
                                         <li class="MainSection-cart-item">
                                             <div class="MainSection-cart-item-cell MainSection-cart-item--product">
                                                 <div class="MainSection-cart-item-name"><span>Produkt</span></div>
-                                                <span>{{ $product->product->name }}</span>
+                                                <span class="MainSection-cart-item-name-product">{{ $product->product->name }}</span>
                                             </div>
                                             <div class="MainSection-cart-item-cell MainSection-cart-item--count">
                                                 <div class="MainSection-cart-item-name"><span>Ilość</span></div>
@@ -94,10 +94,14 @@
                                 @endforeach
                             </ul>
                             <div class="MainSection-cart-summary">
-                                <p class="MainSection-cart-summary--text">Podsumowanie: <span id="total_price">{{ $order->price() }}
-                                        zł</span></p>
-                                <a href="{{ route('data') }}"
-                                   class="btn btn-ending full-color MainSection-cart-summary--button">Przejdź dalej</a>
+                                <p class="MainSection-cart-summary--text">
+                                    <span>Podsumowanie:</span>
+                                    <span id="total_price">{{ $order->price() }}zł</span>
+                                </p>
+                                <div class="MainSection-cart-summary-buttons">
+                                    <a href="{{ url('/') }}" class="btn btn-ending MainSection-cart-summary--button">Dodaj koleny zestaw</a>
+                                    <a href="{{ route('data') }}" class="btn btn-ending full-color MainSection-cart-summary--button">Dokończ zamówienie</a>
+                                </div>
                             </div>
                         @else
                             <p>Koszyk jest pusty</p>
@@ -165,6 +169,11 @@
                     }
             });
         });
+
+
+        $('body').on('click', '.MainSection-alerts-close', () => {
+            $('.check_alert').hide();
+        })
 
     </script>
 

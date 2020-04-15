@@ -38,6 +38,10 @@ button, [type=button], [type=reset], [type=submit] {
   flex: 1 0 auto;
 }
 
+.alert-warning {
+  color: #7b700e;
+}
+
 .btn {
   &-user,
   &-basket,
@@ -162,7 +166,7 @@ button, [type=button], [type=reset], [type=submit] {
 
   &-ending {
     width: 100%;
-    padding: 20px 40px;
+    padding: 15px 30px;
     margin: 0 0 25px;
     border: 1px solid $blue;
     border-radius: 30px;

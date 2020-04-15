@@ -64,6 +64,10 @@
     }
   }
 
+  &-item-name-product {
+    text-transform: uppercase;
+  }
+
   &-item-cell {
     padding: 10px 0;
 
@@ -150,6 +154,8 @@
   }
 
   &-summary--button {
-    width: 250px;
+    @include screen-md {
+      width: 250px;
+    }
   }
 }

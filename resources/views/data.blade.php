@@ -38,7 +38,7 @@
                                     <li class="MainSection-summary-list-item">
                                         <div class="MainSection-summary-list-cell MainSection-summary-list-product">
                                             <div class="MainSection-summary-list-name">Produkt</div>
-                                            <span>@if($product->product->status==2)
+                                            <span class="MainSection-summary-list--product">@if($product->product->status==2)
                                                     +
                                                 @endif {{ $product->product->name }}</span>
                                         </div>
@@ -99,14 +99,14 @@
                     <div class="row">
                         <div class="col-12 col-lg-6">
                             <div class="form-row">
-                                <div class="form-group col-md-12">
+                                <div class="col-md-12">
                                     <h2 class="MainSection-summary-form--header">Dane użytkownika</h2>
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="col-md-6">
                                     <label for="name">Imię <span class="required">*</span></label>
-                                    <input type="text" name="name" id="name" class="form-control"
+                                    <input type="text" name="name" id="name" class="form-control MainSection-summary-form-control"
                                            value="{{ old('name', $user->name ?? '') }}">
 
                                     @if($errors->has('name'))
@@ -114,9 +114,9 @@
                                         </p>
                                     @endif
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="col-md-6">
                                     <label for="surname">Nazwisko <span class="required">*</span></label>
-                                    <input type="text" name="surname" id="surname" class="form-control"
+                                    <input type="text" name="surname" id="surname" class="form-control MainSection-summary-form-control"
                                            value="{{ old('surname', $user->surname ?? '') }}">
 
                                     @if($errors->has('surname'))
@@ -127,9 +127,9 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="form-group col-md-12">
+                                <div class="col-md-12">
                                     <label for="city">Miasto <span class="required">*</span></label>
-                                    <input type="text" name="city" id="city" class="form-control"
+                                    <input type="text" name="city" id="city" class="form-control MainSection-summary-form-control"
                                            value="{{ old('city', $user->city ?? '') }}">
 
                                     @if($errors->has('city'))
@@ -137,9 +137,9 @@
                                         </p>
                                     @endif
                                 </div>
-                                <div class="form-group col-md-12">
+                                <div class="col-md-12">
                                     <label for="street">Ulica <span class="required">*</span></label>
-                                    <input type="text" name="street" id="street" class="form-control"
+                                    <input type="text" name="street" id="street" class="form-control MainSection-summary-form-control"
                                            value="{{ old('street', $user->street ?? '') }}">
 
                                     @if($errors->has('street'))
@@ -150,9 +150,9 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="form-group col-md-12">
+                                <div class="col-md-12">
                                     <label for="zip_code">Kod pocztowy <span class="required">*</span></label>
-                                    <input type="text" name="zip_code" id="zip_code" class="form-control"
+                                    <input type="text" name="zip_code" id="zip_code" class="form-control MainSection-summary-form-control"
                                            value="{{ old('zip_code', $user->zip_code ?? '') }}">
 
                                     @if($errors->has('zip_code'))
@@ -165,15 +165,15 @@
 
                         <div class="col-12 col-lg-6">
                             <div class="form-row invoice" style="display: none">
-                                <div class="form-group col-md-12">
+                                <div class="col-md-12">
                                     <h2 class="MainSection-summary-form--header">Dane do faktury</h2>
                                 </div>
                             </div>
 
                             <div class="form-row invoice" style="display: none">
-                                <div class="form-group col-md-6">
+                                <div class="col-md-6">
                                     <label for="name_invoice">Nazwa firmy/imię i nazwisko <span></span></label>
-                                    <input type="text" name="name_invoice" id="name_invoice" class="form-control"
+                                    <input type="text" name="name_invoice" id="name_invoice" class="form-control MainSection-summary-form-control"
                                            value="{{ old('name_invoice', $user->name_invoice ?? '') }}">
 
                                     @if($errors->has('name_invoice'))
@@ -181,9 +181,9 @@
                                         </p>
                                     @endif
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="col-md-6">
                                     <label for="city_invoice">Miasto <span class="required">*</span></label>
-                                    <input type="text" name="city_invoice" id="city_invoice" class="form-control"
+                                    <input type="text" name="city_invoice" id="city_invoice" class="form-control MainSection-summary-form-control"
                                            value="{{ old('city_invoice', $user->city_invoice ?? '') }}">
 
                                     @if($errors->has('city_invoice'))
@@ -194,9 +194,9 @@
                             </div>
 
                             <div class="form-row invoice" style="display: none">
-                                <div class="form-group col-md-12">
+                                <div class="col-md-12">
                                     <label for="street_invoice">Ulica <span class="required">*</span></label>
-                                    <input type="text" name="street_invoice" id="street_invoice" class="form-control"
+                                    <input type="text" name="street_invoice" id="street_invoice" class="form-control MainSection-summary-form-control"
                                            value="{{ old('street_invoice', $user->street_invoice ?? '') }}">
 
                                     @if($errors->has('street_invoice'))
@@ -204,10 +204,10 @@
                                         </p>
                                     @endif
                                 </div>
-                                <div class="form-group col-md-12">
+                                <div class="col-md-12">
                                     <label for="zip_code_invoice">Kod pocztowy <span class="required">*</span></label>
                                     <input type="text" name="zip_code_invoice" id="zip_code_invoice"
-                                           class="form-control"
+                                           class="form-control MainSection-summary-form-control"
                                            value="{{ old('zip_code_invoice', $user->zip_code_invoice ?? '') }}">
 
                                     @if($errors->has('zip_code_invoice'))
@@ -218,9 +218,9 @@
                             </div>
 
                             <div class="form-row invoice" style="display: none">
-                                <div class="form-group col-md-12">
+                                <div class="col-md-12">
                                     <label for="nip_invoice">NIP <span class="required">*</span></label>
-                                    <input type="text" name="nip_invoice" id="nip_invoice" class="form-control"
+                                    <input type="text" name="nip_invoice" id="nip_invoice" class="form-control MainSection-summary-form-control"
                                            value="{{ old('nip_invoice', $user->nip_invoice ?? '') }}">
 
                                     @if($errors->has('nip_invoice'))
@@ -232,28 +232,20 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="invoice">Chcę fakturę <span class="required"></span></label>
-                            <input type="checkbox" name="invoice" id="invoice" class="checkbox">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="terms">Akceptuje <a href="{{ route('terms') }}" target="_blank">regulamin </a>
-                                <span
-                                        class="required">*</span></label>
-                            <input type="checkbox" name="terms" id="terms" required>
-                        </div>
-                    </div>
+                        <div class="col-12">
+                            <div class="MainSection-summary-form-rules">
+                                <label for="invoice" class="required MainSection-summary-form-rule">Chcę fakturę
+                                    <input type="checkbox" name="invoice" id="invoice" class="checkbox">
+                                </label>
 
-                    <div class="form-row"></div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                                <div class="btn-group mr-2" role="group" aria-label="First group">
-                                    <button type="submit" class="btn btn-ending full-color">Zapisz i zakończ</button>
-                                </div>
+                                <label for="terms" class="MainSection-summary-form-rule">
+                                    Akceptuje
+                                    <a href="{{ route('terms') }}" target="_blank">regulamin<span class="required">*</span></a>
+                                    <input type="checkbox" name="terms" id="terms" required>
+                                </label>
                             </div>
+                            <a href="{{ route('cart') }}" class="btn btn-ending">Powrót do koszyka</a>
+                            <button type="submit" class="btn btn-ending full-color">Zamów i zakończ</button>
                         </div>
                     </div>
                 </form>
