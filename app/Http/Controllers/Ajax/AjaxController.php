@@ -154,11 +154,17 @@ class AjaxController extends Controller
     public function updateAmount(Request $request)
     {
         $orderProduct = OrderProduct::find($request->product);
-        $orderProduct->amount = $request->amount;
-        $orderProduct->save();
+
 
         $product = $orderProduct->product;
 
+        if ($product->status == 1) {
+            $orderProduct->amount = $request->amount;
+            $orderProduct->save();
+        } else {
+            $orderProduct->amount_additional = $request->amount;
+            $orderProduct->save();
+        }
 
         if ($product->status == 1) {
             $orderProduct->price = $product->price($orderProduct->days, $orderProduct->amount);
