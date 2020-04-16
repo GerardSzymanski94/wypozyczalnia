@@ -158,7 +158,7 @@ class AjaxController extends Controller
 
         $product = $orderProduct->product;
 
-        if ($orderProduct->status == 1) {
+        if ($product->status == 1) {
             $orderProduct->amount = $request->amount;
             $orderProduct->save();
         } else {
