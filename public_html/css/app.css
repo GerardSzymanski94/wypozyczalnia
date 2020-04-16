@@ -16,21 +16,21 @@
   font-family: "NotoSans";
   font-style: normal;
   font-weight: 400;
-  src: url(/fonts/NotoSans-regular.ttf?5a87cce84010f7cea085ae218d44a64b);
+  src: url("/wypozyczalnia/public_html/fonts/Noto_Sans/NotoSans-regular.ttf");
 }
 
 @font-face {
   font-family: "NotoSans";
   font-style: normal;
   font-weight: 700;
-  src: url(/fonts/NotoSans-Bold.ttf?98f0cacc6bb63b64b98aac7cac082d27);
+  src: url("/wypozyczalnia/public_html/fonts/Noto_Sans/NotoSans-Bold.ttf");
 }
 
 @font-face {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 800;
-  src: url(/fonts/Oswald-Bold.ttf?1e582f614a86a53e085c633066c682e3);
+  src: url("/wypozyczalnia/public_html/fonts/Oswald/static/Oswald-Bold.ttf");
 }
 
 /*!
