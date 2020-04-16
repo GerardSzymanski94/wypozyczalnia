@@ -162,7 +162,7 @@ class AjaxController extends Controller
             $orderProduct->amount = $request->amount;
             $orderProduct->save();
         } else {
-            $orderProduct->amount_additional = $request->amount_additional;
+            $orderProduct->amount_additional = $request->amount;
             $orderProduct->save();
         }
 
