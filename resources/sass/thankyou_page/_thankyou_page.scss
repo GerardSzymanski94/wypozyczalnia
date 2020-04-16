@@ -7,14 +7,15 @@
 
   &-wrapper {
     padding: 25px;
-    background: #e5e5e5;
+    background: rgba(167, 192, 205, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.12);
     border-radius: 20px;
-    box-shadow: 0 25px 25px -24px rgba( 0, 0, 0, .1);
+    box-shadow: 0 15px 15px -14px rgba(0, 0, 0, .12);
   }
 
   &-wrapper--title {
     @include section-title;
-    margin-bottom: 15px;
+    margin-bottom: 50px;
   }
 
   &-wrapper--text {

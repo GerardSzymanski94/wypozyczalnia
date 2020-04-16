@@ -14,6 +14,17 @@
                 </div>
             </div>
 
+            <div class="row justify-content-center check_alert" id="add_more_product" style="display: none;">
+                <div class="col-md-12">
+                    <div class="MainSection-alerts-alert alert-warning">
+                        <span>Przejdź ponownie przez konfigurator, aby dodać kolejny zestaw lub przejdź do koszyka.</span>
+                        <button class="MainSection-alerts-close">
+                            <i class="fa fa-times MainSection-alerts-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <div class="row justify-content-center check_alert" id="check_input_product" style="display: none;">
                 <div class="col-md-12">
                     <div class="MainSection-alerts-alert alert-danger">
@@ -413,6 +424,7 @@
                     }
                     if (data.addedToCart) {
                         $('#added_to_cart').show();
+                        $('#add_more_product').show();
 
                         clearProducts();
                         clearAdditionals();
@@ -422,6 +434,11 @@
                     $('html, body').animate({
                         scrollTop: $("body").offset().top
                     }, '250', () => {
+
+                        setTimeout(() => {
+                            $('#added_to_cart').fadeOut();
+                        }, 1000);
+
                         $('.MainSection-alerts-close').on('click', () => {
                             $('.check_alert').hide();
                         })
