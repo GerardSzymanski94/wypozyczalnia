@@ -53,7 +53,7 @@ class CheckOrders extends Command
                 $term = Carbon::now()->addDays(7);
 
 
-                if ($date < $term && $date > $now) {
+                if ($date < $term && $date > $now && $orderProduct->product->status == 1) {
                     $data['products'][] = ['name' => $orderProduct->product->name, 'date' => $date];
                 }
             }
