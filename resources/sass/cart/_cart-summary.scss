@@ -25,14 +25,14 @@
 
   &-list-item {
     width: 100%;
-    padding: 0 0 15px;
-    margin-bottom: 25px;
+    padding: 17px 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     @include screen-md {
       padding: 15px;
-      margin-bottom: 5px;
+      min-height: 83px;
       flex-direction: row;
       justify-content: space-between;
     }
@@ -53,13 +53,17 @@
 
     @include screen-md {
       display: flex;
+      min-height: auto;
     }
   }
-
   &-list-cell {
     padding: 0 0 5px;
     display: flex;
     flex-flow: row;
+
+    &:last-child {
+      padding: 0;
+    }
 
     @include screen-md {
       padding: 0;

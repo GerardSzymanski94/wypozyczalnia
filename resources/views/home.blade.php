@@ -92,7 +92,7 @@
 
         <section class="MainSection-hero">
             <div class="container px-0 px-md-3">
-                <div class="MainSection-hero-image" style="background-image: url('{{ asset('images/slider1.jpg') }}')">
+                <div class="MainSection-hero-image" style="background-image: url('{{ asset('images/header-1.jpg') }}')">
                     <div class="MainSection-hero-overlay">
                         <div class="MainSection-hero-text">
                             <h1 class="MainSection-hero-text--title">Dla firm i osób prywatnych</h1>
@@ -212,7 +212,7 @@
 
         <section class="MainSection-countItems container">
             <div class="MainSection-countItems-background"
-                 style="background-image: url('{{ asset('images/wypozyczalnia-rehastore-compex.jpg') }}');">
+                 style="background-image: url('{{ asset('images/background-count-sections.jpg') }}');">
                 <div class="row justify-content-center">
                     <div class="MainSection-countItems-group">
                         <div class="row">

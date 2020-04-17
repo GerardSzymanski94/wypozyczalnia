@@ -11417,10 +11417,10 @@ button,
 }
 
 .MainSection-hero-overlay {
+  background: rgba(0, 0, 0, 0.29);
   width: 100%;
   height: 100%;
   padding: 25px;
-  background: rgba(0, 0, 0, 0.4);
   position: relative;
   top: 0;
   left: 0;
@@ -11738,10 +11738,10 @@ button,
 }
 
 .MainSection-countItems-background::after {
+  background: rgba(0, 0, 0, 0.29);
   content: "";
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.2);
   position: absolute;
   z-index: 1000;
   top: 0;
@@ -11848,8 +11848,8 @@ button,
 }
 
 .MainSection-finish-price-wrapper {
-  padding: 25px 15px;
   background: rgba(167, 192, 205, 0.1);
+  padding: 25px 15px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 10px 10px -9px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -12311,7 +12311,7 @@ button,
 }
 
 .MainSection-cart-item {
-  margin-bottom: 25px;
+  padding: 17px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 4px 6px -5px rgba(0, 0, 0, 0.12);
   display: flex;
@@ -12339,6 +12339,10 @@ button,
   }
 }
 
+.MainSection-cart-item-header .MainSection-cart-item--product {
+  min-height: unset;
+}
+
 .MainSection-cart-item-name {
   width: 100%;
   max-width: 100px;
@@ -12354,24 +12358,26 @@ button,
   }
 }
 
-.MainSection-cart-item-name::after {
-  content: "-";
-  display: inline-block;
-  margin-left: 10px;
-}
-
 .MainSection-cart-item-name-product {
   text-transform: uppercase;
 }
 
 .MainSection-cart-item-cell {
-  padding: 10px 0;
+  padding: 0 0 5px;
+}
+
+.MainSection-cart-item-cell:last-child {
+  padding: 10px 0 0;
 }
 
 @media (min-width: 768px) {
   .MainSection-cart-item-cell {
     padding: 10px;
   }
+}
+
+.MainSection-cart-item-cell:first-child {
+  align-items: flex-start;
 }
 
 .MainSection-cart-item--product,
@@ -12388,6 +12394,7 @@ button,
 
 @media (min-width: 768px) {
   .MainSection-cart-item--product {
+    min-height: 83px;
     max-width: 160px;
   }
 }
@@ -12437,7 +12444,13 @@ button,
 }
 
 .MainSection-cart-item--button {
-  max-width: 150px;
+  max-width: unset;
+}
+
+@media (min-width: 768px) {
+  .MainSection-cart-item--button {
+    max-width: 150px;
+  }
 }
 
 .MainSection-cart-item--button .btn {
@@ -12529,10 +12542,10 @@ button,
 
 .MainSection-summary-list-item {
   width: 100%;
-  padding: 0 0 15px;
-  margin-bottom: 25px;
+  padding: 17px 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 4px 6px -5px rgba(0, 0, 0, 0.12);
   overflow: hidden;
@@ -12541,7 +12554,7 @@ button,
 @media (min-width: 768px) {
   .MainSection-summary-list-item {
     padding: 15px;
-    margin-bottom: 5px;
+    min-height: 83px;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -12560,6 +12573,7 @@ button,
 @media (min-width: 768px) {
   .MainSection-summary-list-item-header {
     display: flex;
+    min-height: auto;
   }
 }
 
@@ -12567,6 +12581,10 @@ button,
   padding: 0 0 5px;
   display: flex;
   flex-flow: row;
+}
+
+.MainSection-summary-list-cell:last-child {
+  padding: 0;
 }
 
 @media (min-width: 768px) {
@@ -12937,10 +12955,10 @@ button,
 }
 
 .MainContainer-footer-wrapper {
+  background: rgba(0, 0, 0, 0.29);
   width: 100%;
   height: 100%;
   padding: 50px;
-  background: rgba(0, 0, 0, 0.2);
 }
 
 @media (min-width: 576px) {
