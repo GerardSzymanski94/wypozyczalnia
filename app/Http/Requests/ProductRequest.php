@@ -37,6 +37,7 @@ class ProductRequest extends FormRequest
             'ean' => 'nullable',
             'sku' => 'nullable',
             'baselinker_id' => 'nullable',
+            'order' => 'integer|nullable',
         ];
     }
 

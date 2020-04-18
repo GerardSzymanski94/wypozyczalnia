@@ -180,6 +180,18 @@
                         @endif
                     </div>
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="order">Kolejność wyświetlania <span class="required"></span></label>
+                        <input type="number" name="order" id="order" class="form-control"
+                               value="{{ old('order', $product->order ?? '') }}">
+
+                        @if($errors->has('order'))
+                            <p class="alert alert-danger"> {{ $errors->first('order') }}
+                            </p>
+                        @endif
+                    </div>
+                </div>
                 <hr>
                 <div class="form-row">
                     <div class="form-group col-md-12">

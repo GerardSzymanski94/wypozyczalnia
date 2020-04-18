@@ -32,8 +32,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::whereStatus(1)->with('images')->get();
-        $additionals = Product::whereStatus(2)->with('images')->get();
+        $products = Product::whereStatus(1)->orderBy('order')->with('images')->get();
+        $additionals = Product::whereStatus(2)->orderBy('order')->with('images')->get();
 
         return view('home', compact('products', 'additionals'));
     }
