@@ -95,6 +95,14 @@ $xl: 1200px;
   line-height: 1.333;
 }
 
+@mixin black-overlay-color {
+  background: rgba(0, 0, 0, .29);
+}
+
+@mixin form-color {
+  background: rgba(167, 192, 205, .1);
+}
+
 @mixin short-text {
   font-weight: 400;
   letter-spacing: 0.16px;

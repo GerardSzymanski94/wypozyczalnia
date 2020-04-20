@@ -92,7 +92,7 @@
 
         <section class="MainSection-hero">
             <div class="container px-0 px-md-3">
-                <div class="MainSection-hero-image" style="background-image: url('{{ asset('images/slider1.jpg') }}')">
+                <div class="MainSection-hero-image" style="background-image: url('{{ asset('images/header-1.jpg') }}')">
                     <div class="MainSection-hero-overlay">
                         <div class="MainSection-hero-text">
                             <h1 class="MainSection-hero-text--title">Dla firm i osób prywatnych</h1>
@@ -132,6 +132,11 @@
                                         <label class="MainSection-Items-box product_card @if($product->amount==0) sold-out @endif"
                                                for="product_{{ $product->id }}"
                                                data-id="{{ $product->id }}">
+                                            @if($product->amount==0)
+                                                <div class="MainSection-Items-flag">
+                                                    Czekamy za dostawą
+                                                </div>
+                                            @endif
                                             <div id="{{ $product->id }}" class="MainSection-Items--box-height">
                                                 <div class="MainSection-Items-wrapper">
                                                     <img src="{{ asset('storage/'. $product->images->url) }}"
@@ -212,7 +217,7 @@
 
         <section class="MainSection-countItems container">
             <div class="MainSection-countItems-background"
-                 style="background-image: url('{{ asset('images/wypozyczalnia-rehastore-compex.jpg') }}');">
+                 style="background-image: url('{{ asset('images/background-count-sections.jpg') }}');">
                 <div class="row justify-content-center">
                     <div class="MainSection-countItems-group">
                         <div class="row">
@@ -274,6 +279,11 @@
                                     <div class="swiper-slide">
                                         <label class="MainSection-Items-box additional_card @if($additional->amount==0) sold-out @endif"
                                                for="additional_{{ $additional->id }}" data-id="{{ $additional->id }}">
+                                            @if($additional->amount==0)
+                                                <div class="MainSection-Items-flag">
+                                                    Czekamy za dostawą
+                                                </div>
+                                            @endif
                                             <div id="{{ $additional->id }}" class="MainSection-Items--box-height">
                                                 <div class="MainSection-Items-wrapper">
                                                     <img src="{{ asset('storage/'. $additional->images->url) }}"
