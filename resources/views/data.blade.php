@@ -106,7 +106,8 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label for="name">Imię <span class="required">*</span></label>
-                                    <input type="text" name="name" id="name" class="form-control MainSection-summary-form-control"
+                                    <input type="text" name="name" id="name"
+                                           class="form-control MainSection-summary-form-control"
                                            value="{{ old('name', $user->name ?? '') }}">
 
                                     @if($errors->has('name'))
@@ -116,7 +117,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="surname">Nazwisko <span class="required">*</span></label>
-                                    <input type="text" name="surname" id="surname" class="form-control MainSection-summary-form-control"
+                                    <input type="text" name="surname" id="surname"
+                                           class="form-control MainSection-summary-form-control"
                                            value="{{ old('surname', $user->surname ?? '') }}">
 
                                     @if($errors->has('surname'))
@@ -129,7 +131,8 @@
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <label for="city">Miasto <span class="required">*</span></label>
-                                    <input type="text" name="city" id="city" class="form-control MainSection-summary-form-control"
+                                    <input type="text" name="city" id="city"
+                                           class="form-control MainSection-summary-form-control"
                                            value="{{ old('city', $user->city ?? '') }}">
 
                                     @if($errors->has('city'))
@@ -139,7 +142,8 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label for="street">Ulica <span class="required">*</span></label>
-                                    <input type="text" name="street" id="street" class="form-control MainSection-summary-form-control"
+                                    <input type="text" name="street" id="street"
+                                           class="form-control MainSection-summary-form-control"
                                            value="{{ old('street', $user->street ?? '') }}">
 
                                     @if($errors->has('street'))
@@ -152,7 +156,8 @@
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <label for="zip_code">Kod pocztowy <span class="required">*</span></label>
-                                    <input type="text" name="zip_code" id="zip_code" class="form-control MainSection-summary-form-control"
+                                    <input type="text" name="zip_code" id="zip_code"
+                                           class="form-control MainSection-summary-form-control"
                                            value="{{ old('zip_code', $user->zip_code ?? '') }}">
 
                                     @if($errors->has('zip_code'))
@@ -173,7 +178,8 @@
                             <div class="form-row invoice" style="display: none">
                                 <div class="col-md-6">
                                     <label for="name_invoice">Nazwa firmy/imię i nazwisko <span></span></label>
-                                    <input type="text" name="name_invoice" id="name_invoice" class="form-control MainSection-summary-form-control"
+                                    <input type="text" name="name_invoice" id="name_invoice"
+                                           class="form-control MainSection-summary-form-control"
                                            value="{{ old('name_invoice', $user->name_invoice ?? '') }}">
 
                                     @if($errors->has('name_invoice'))
@@ -183,7 +189,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="city_invoice">Miasto <span class="required">*</span></label>
-                                    <input type="text" name="city_invoice" id="city_invoice" class="form-control MainSection-summary-form-control"
+                                    <input type="text" name="city_invoice" id="city_invoice"
+                                           class="form-control MainSection-summary-form-control"
                                            value="{{ old('city_invoice', $user->city_invoice ?? '') }}">
 
                                     @if($errors->has('city_invoice'))
@@ -196,7 +203,8 @@
                             <div class="form-row invoice" style="display: none">
                                 <div class="col-md-12">
                                     <label for="street_invoice">Ulica <span class="required">*</span></label>
-                                    <input type="text" name="street_invoice" id="street_invoice" class="form-control MainSection-summary-form-control"
+                                    <input type="text" name="street_invoice" id="street_invoice"
+                                           class="form-control MainSection-summary-form-control"
                                            value="{{ old('street_invoice', $user->street_invoice ?? '') }}">
 
                                     @if($errors->has('street_invoice'))
@@ -220,7 +228,8 @@
                             <div class="form-row invoice" style="display: none">
                                 <div class="col-md-12">
                                     <label for="nip_invoice">NIP <span class="required">*</span></label>
-                                    <input type="text" name="nip_invoice" id="nip_invoice" class="form-control MainSection-summary-form-control"
+                                    <input type="text" name="nip_invoice" id="nip_invoice"
+                                           class="form-control MainSection-summary-form-control"
                                            value="{{ old('nip_invoice', $user->nip_invoice ?? '') }}">
 
                                     @if($errors->has('nip_invoice'))
@@ -231,6 +240,26 @@
                         </div>
                     </div>
 
+
+                    <div class="form-row">
+                        <div class="col-12">
+                            <ul>
+                                @foreach($deliveries as $delivery)
+                                    <li>
+                                        <label for="delivery_{{ $delivery->id }}" class="">
+                                            <input type="radio" id="delivery_{{ $delivery->id }}" name="delivery"
+                                                   value="{{ $delivery->id }}">
+                                            {{ $delivery->name }} {{ $delivery->price }}zł
+                                        </label>
+                                        @if(isset($delivery->additional) && !is_null($delivery->additional))
+                                            <input type="text" placeholder="{{ $delivery->additional }}"
+                                                   name="delivery_additional">
+                                        @endif
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
                     <div class="form-row">
                         <div class="col-12">
                             <div class="MainSection-summary-form-rules">
@@ -240,7 +269,8 @@
 
                                 <label for="terms" class="MainSection-summary-form-rule">
                                     Akceptuje
-                                    <a href="{{ route('terms') }}" target="_blank">regulamin<span class="required">*</span></a>
+                                    <a href="{{ route('terms') }}" target="_blank">regulamin<span
+                                                class="required">*</span></a>
                                     <input type="checkbox" name="terms" id="terms" required>
                                 </label>
                             </div>

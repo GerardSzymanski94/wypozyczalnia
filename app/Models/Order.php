@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable = ['user_id', 'total_price', 'date_from', 'date_to', 'status', 'session_key', 'invoice', 'order'];
+    protected $fillable = ['user_id', 'total_price', 'date_from', 'date_to', 'status', 'session_key', 'invoice', 'order', 'delivery_id', 'delivery_additional', 'delivery_price'];
 
     public function orderProducts()
     {
@@ -74,4 +74,8 @@ class Order extends Model
         return true;
     }
 
+    public function delivery()
+    {
+        return $this->belongsTo(Delivery::class, 'delivery_id', 'id');
+    }
 }

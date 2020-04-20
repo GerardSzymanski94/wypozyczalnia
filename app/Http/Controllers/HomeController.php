@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\CompleteOrderEvent;
 use App\Models\Configuration;
+use App\Models\Delivery;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
@@ -73,7 +74,9 @@ class HomeController extends Controller
         $user = auth()->user();
         $order = $user->actualOrder;
 
-        return view('data', compact('order', 'user'));
+        $deliveries = Delivery::all();
+
+        return view('data', compact('order', 'user', 'deliveries'));
     }
 
     public function saveOrder(Request $request)
@@ -95,6 +98,13 @@ class HomeController extends Controller
         if (is_null($order) || !$order->checkAmounts()) {
             $checkAmounts = true;
             return redirect()->route('index')->with('checkAmounts', true);
+        }
+
+        if ($request->has('delivery')) {
+            $order->delivery_id = $request->delivery;
+            if ($request->has('delivery_additional')) {
+                $order->delivery_additional = $request->delivery_additional;
+            }
         }
 
         $order->status = 2;
