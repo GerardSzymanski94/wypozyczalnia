@@ -11388,7 +11388,7 @@ button,
   background: bottom no-repeat;
   background-size: cover;
   position: relative;
-  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 25px 25px -24px rgba(0, 0, 0, 0.12);
   overflow: hidden;
 }
 
@@ -11406,11 +11406,11 @@ button,
 
 @media screen and (min-width: 768px) and (min-width: 576px) {
   .MainSection-hero-image {
-    height: calc(400px + 100 * (100vw - 576px) / 624);
+    height: calc(400px + 100 * (100vw - 576px) / 1344);
   }
 }
 
-@media screen and (min-width: 768px) and (min-width: 1200px) {
+@media screen and (min-width: 768px) and (min-width: 1920px) {
   .MainSection-hero-image {
     height: 500px;
   }
@@ -11688,9 +11688,30 @@ button,
   width: 100%;
 }
 
-.sold-out {
+.sold-out .MainSection-Items--box-height {
   opacity: 0.4;
   cursor: not-allowed;
+}
+
+.sold-out .MainSection-Items-flag {
+  width: calc( 100% - 30px );
+  margin: 15px;
+  padding: 15px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #e3342f;
+  z-index: 1000;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  border-radius: 25px;
+  cursor: not-allowed;
+}
+
+.MainSection-Items-flag {
+  display: none;
 }
 
 .MainSection-countItems {

@@ -161,7 +161,29 @@
   }
 }
 
-.sold-out {
+.sold-out .MainSection-Items--box-height {
   opacity: .4;
   cursor: not-allowed;
 }
+
+.sold-out .MainSection-Items-flag {
+  width: calc( 100% - 30px );
+  margin: 15px;
+  padding: 15px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $red;
+  z-index: $zindex1;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  border-radius: 25px;
+  cursor: not-allowed;
+}
+
+.MainSection-Items-flag {
+  display: none;
+}
+

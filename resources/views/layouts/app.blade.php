@@ -88,7 +88,7 @@
                     <li class="navbar-item">
                         <a href="{{ route('cart') }}" type="button" class="btn btn-basket">
                             <i class="fa fa-shopping-cart btn-basket--icon"></i>
-                            <span>Koszyk</span>
+                            <span>Zamówienie</span>
                         </a>
                     </li>
                 </ul>

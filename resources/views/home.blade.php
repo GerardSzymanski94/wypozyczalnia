@@ -132,6 +132,11 @@
                                         <label class="MainSection-Items-box product_card @if($product->amount==0) sold-out @endif"
                                                for="product_{{ $product->id }}"
                                                data-id="{{ $product->id }}">
+                                            @if($product->amount==0)
+                                                <div class="MainSection-Items-flag">
+                                                    Czekamy za dostawą
+                                                </div>
+                                            @endif
                                             <div id="{{ $product->id }}" class="MainSection-Items--box-height">
                                                 <div class="MainSection-Items-wrapper">
                                                     <img src="{{ asset('storage/'. $product->images->url) }}"
@@ -274,6 +279,11 @@
                                     <div class="swiper-slide">
                                         <label class="MainSection-Items-box additional_card @if($additional->amount==0) sold-out @endif"
                                                for="additional_{{ $additional->id }}" data-id="{{ $additional->id }}">
+                                            @if($additional->amount==0)
+                                                <div class="MainSection-Items-flag">
+                                                    Czekamy za dostawą
+                                                </div>
+                                            @endif
                                             <div id="{{ $additional->id }}" class="MainSection-Items--box-height">
                                                 <div class="MainSection-Items-wrapper">
                                                     <img src="{{ asset('storage/'. $additional->images->url) }}"

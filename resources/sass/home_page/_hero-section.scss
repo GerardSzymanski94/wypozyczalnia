@@ -9,11 +9,11 @@
     background: bottom no-repeat;
     background-size: cover;
     position: relative;
-    box-shadow: 0 25px 25px rgba(0, 0, 0, .12);
+    box-shadow: 0 25px 25px -24px rgba(0, 0, 0, .12);
     overflow: hidden;
 
     @include screen-md {
-      @include fluid-type( height, $sm, $xl, 400px, 500px );
+      @include fluid-type( height, $sm, 1920px, 400px, 500px );
     }
   }
 
