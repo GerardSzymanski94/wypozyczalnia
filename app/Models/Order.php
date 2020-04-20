@@ -28,6 +28,15 @@ class Order extends Model
         return $price;
     }
 
+    public function setDeliveryPriceAttribute($value)
+    {
+        $this->attributes['delivery_price'] = $value * 100;
+    }
+
+    public function getDeliveryPriceAttribute($value)
+    {
+        return floatval($value / 100);
+    }
 
     public function showStatus()
     {

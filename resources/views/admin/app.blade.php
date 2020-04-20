@@ -59,6 +59,9 @@
                                 <a href="{{ route('admin.order.index') }}"><i class="fa fa-list"></i> Zamówienia</a>
                             </li>
                             <li>
+                                <a href="{{ route('admin.delivery.index') }}"><i class="fa fa-list"></i> Metody dostawy</a>
+                            </li>
+                            <li>
                                 <a href="{{ route('admin.configuration.index') }}"><i class="fa fa-android"></i>
                                     Konfiguracja API</a>
                             </li>

@@ -48,6 +48,14 @@ Route::namespace('Admin')->name('admin.')->prefix('administracja')->group(functi
         Route::post('/update/{product}', 'ProductController@update')->name('update');
         Route::get('/destroy/{product}', 'ProductController@destroy')->name('destroy');
     });
+    Route::prefix('delivery')->name('delivery.')->group(function () {
+        Route::get('/', 'DeliveryController@index')->name('index');
+        Route::get('/edit/{delivery}', 'DeliveryController@edit')->name('edit');
+        Route::get('/create', 'DeliveryController@create')->name('create');
+        Route::post('/store', 'DeliveryController@store')->name('store');
+        Route::post('/update/{delivery}', 'DeliveryController@update')->name('update');
+        Route::get('/destroy/{delivery}', 'DeliveryController@destroy')->name('destroy');
+    });
     Route::prefix('order')->name('order.')->group(function () {
         Route::get('/', 'OrderController@index')->name('index');
         Route::get('/details/{order}', 'OrderController@details')->name('details');
