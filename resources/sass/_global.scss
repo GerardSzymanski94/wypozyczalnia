@@ -181,13 +181,31 @@ button, [type=button], [type=reset], [type=submit] {
     }
   }
 
+  &-ending:disabled {
+    cursor: not-allowed;
+  }
+
+  &-ending.full-width {
+    margin: 0 auto 15px;
+
+    @include screen-md {
+      width: 100%;
+    }
+
+    &:last-child {
+      margin: auto;
+    }
+  }
+
   &-ending.full-color {
     background-color: $blue;
     color: $white;
+
+    transition: opacity .1s ease-in-out;
   }
 
-  &-ending.full-color:hover,
-  &-ending:hover {
+  &-ending.full-color:not(:disabled):hover,
+  &-ending:not(:disabled):hover {
     background-color: darken($blue, 10%);
     color: $white;
   }
@@ -264,4 +282,10 @@ button, [type=button], [type=reset], [type=submit] {
   &.checked {
     border-color: $blue;
   }
+}
+
+.sticky-element {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 }

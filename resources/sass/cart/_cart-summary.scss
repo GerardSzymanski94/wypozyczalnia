@@ -1,4 +1,5 @@
 .MainSection-summary {
+  $MainClass: '.MainSection-summary';
   @include margin-bottom-100;
 
   &--title {
@@ -56,6 +57,7 @@
       min-height: auto;
     }
   }
+
   &-list-cell {
     padding: 0 0 5px;
     display: flex;
@@ -115,38 +117,122 @@
     font-weight: 600;
   }
 
-  &-form {
-    margin: 0 -15px;
-    padding: 0 15px 15px 15px;
+  &-form--box,
+  &-form--box-summary {
+    padding: 25px;
+    margin: 0 0 25px 0;
     background-color: rgba(167, 192, 205, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.12);
     box-shadow: 0 15px 15px -14px rgba(0, 0, 0, .12);
+    border-radius: 20px;
 
-    @include screen-md {
-      margin: unset;
-      padding: 0 15px 15px 15px;
-      border-radius: 20px;
+    @include screen-lg {
+      margin: 0 0 25px 0;
+
+      &:last-child {
+        margin: 0;
+      }
     }
+  }
+
+  &-form--box-summary {
+    margin: 0;
+  }
+
+  &-form--box-summary--title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  &-form--box-summary--price {
+    margin: 0 0 15px;
+   }
+
+  &-form--box-summary--small-name {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  &-form--box-summary--big-price {
+    font-size: 1.8rem;
+    font-weight: 600;
   }
 
   &-form--header {
-    margin: 15px 0;
+    margin: 0 0 15px;
   }
 
   &-form-rules {
-    margin: 30px 0;
+    margin: 15px 0 30px;
   }
 
   &-form-rule {
-    display: block;
-    margin-bottom: 5px;
+    width: auto;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+  &-form--label {
+    margin: 0 10px 0 0;
   }
 
   &-form-control {
     margin-bottom: 15px;
+  }
+
+  &-form--copy-button {
+    margin: 15px 0;
+    padding: 0;
+    background: none;
+    border: 0;
+    color: green;
+  }
+
+  &-form-delivery {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-form-delivery--type {
+    margin: 0 0 15px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    &:last-child  {
+      margin: 0;
+
+      .MainSection-summary-form-delivery--label {
+        margin: 0;
+      }
+    }
+  }
+
+  &-form-delivery--label {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-form-delivery--center {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &-form-delivery--radio {
+    height: 16px;
+    margin: 0 10px 0 0;
+  }
+
+  &-form-delivery--number {
+    width: calc(100% - 19px);
+    margin-left: auto;
   }
 }
