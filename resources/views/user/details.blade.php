@@ -20,6 +20,14 @@
                                 <li class="MainSection-details-order-user--text">Adres: {{ $order->user->street }}
                                     , {{ $order->user->city }}, {{ $order->user->zip_code }}</li>
                             </ul>
+                            @if(isset($order->delivery))
+                                <h2>Metoda wysyłki</h2>
+                                <ul class="MainSection-details-order-user--list">
+                                    <li class="MainSection-details-order-user--text"> {{ $order->delivery->name }} {{ $order->delivery_additional }}
+                                        - {{ $order->delivery->price }} zł</a>
+                                    </li>
+                                </ul>
+                            @endif
                         </div>
 
                         <div class="MainSection-details-order-panel">
@@ -34,6 +42,9 @@
                                         </div>
                                         <div class="MainSection-details-order-table-cell MainSection-details-order-table--price">
                                             Cena
+                                        </div>
+                                        <div class="MainSection-details-order-table-cell MainSection-details-order-table--price">
+                                            Kaucja
                                         </div>
                                         <div class="MainSection-details-order-table-cell MainSection-details-order-table--date">
                                             Data oddania
@@ -58,6 +69,11 @@
                                                 <div class="MainSection-details-order-table-cell-name">Cena</div>
                                                 <span>   {{ $orderProduct->price }} zł</span>
                                             </div>
+                                            <div class="MainSection-details-order-table-cell MainSection-details-order-table--price">
+                                                <div class="MainSection-details-order-table-cell-name">Kaucja</div>
+                                                <span>{{ $orderProduct->deposit }}
+                                                    zł</span>
+                                            </div>
                                             <div class="MainSection-details-order-table-cell MainSection-details-order-table--date">
                                                 <div class="MainSection-details-order-table-cell-name">Data oddania
                                                 </div>
@@ -70,6 +86,10 @@
                                         </li>
                                     @endforeach
                                 </ul>
+                                <div class=" ">
+                                        <span class="MainSection-summary-list-price-summary">Do zapłaty: {{ $order->price() }}
+                                            zł</span>
+                                </div>
                             </div>
                         </div>
                     </div>

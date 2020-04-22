@@ -32,6 +32,11 @@
                 <li> Od : {{ $order->date_from }} <a href="{{ route('admin.order.edit', ['order'=>$order->id]) }}">Edytuj</a>
                 </li>
             </ul>
+            <h2>Metoda wysyłki</h2>
+            <ul>
+                <li> {{ $order->delivery->name }} {{ $order->delivery_additional }}</a>
+                </li>
+            </ul>
 
             <table class="table">
                 <thead>
@@ -43,6 +48,8 @@
                     <th>Data oddania</th>
                     <th>Status</th>
                     <th></th>
+
+
                 </tr>
                 </thead>
                 <tbody>

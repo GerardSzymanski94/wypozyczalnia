@@ -25,6 +25,9 @@ class Order extends Model
             if (isset($orderProduct->price) && $orderProduct->price != null)
                 $price = $price + $orderProduct->price + $orderProduct->deposit;
         }
+        if (isset($this->delivery)) {
+            $price += $this->delivery->price;
+        }
         return $price;
     }
 
