@@ -84,6 +84,12 @@ class HomeController extends Controller
         if (!$request->has('terms')) {
             return redirect()->back();
         }
+        if ($request->has('invoice')) {
+            if (!$request->has('nip_invoice') || is_null($request->nip_invoice)) {
+                return back()->with('nipError', 'The Message');
+            }
+        }
+
         $user = auth()->user();
         $user->street = $request->street;
         $user->city = $request->city;
@@ -154,6 +160,7 @@ class HomeController extends Controller
 
     public function terms()
     {
-        dd('Tu będzie regulamin');
+        return response()->file('regulamin.pdf');
+        return PDF::loadFile(public_path() . '/regulamin.pdf')->stream('regulamin.pdf');
     }
 }

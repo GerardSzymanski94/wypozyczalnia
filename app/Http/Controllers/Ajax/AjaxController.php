@@ -26,7 +26,6 @@ class AjaxController extends Controller
         $inputAdditionals = true; //zaznaczono elektrody
         $addedToCart = false;
 
-        app('debugbar')->info($params);
         if (!isset($params['days']) || $params['days'] <= 0) {
             $inputDays = false;
         }
@@ -198,4 +197,14 @@ class AjaxController extends Controller
         return response()->json(['price' => $orderProduct->price, 'id' => $orderProduct->id, 'total_price' => $order->total_price]);
     }
 
+    public function updateDelivery(Request $request)
+    {
+        $order = auth()->user()->actualOrder;
+        $order->delivery_id = $request->delivery;
+        $order->save();
+
+        $totalPrice = $order->price();
+
+        return response()->json(['total_price' => $totalPrice]);
+    }
 }
