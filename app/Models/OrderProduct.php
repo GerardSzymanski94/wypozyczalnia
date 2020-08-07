@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class OrderProduct extends Model
 {
     protected $fillable = ['product_id', 'order_id', 'price', 'amount', 'amount_additional', 'days', 'status',
-        'parent_id', 'deposit', 'days_to_return', 'start_date'];
+        'parent_id', 'deposit', 'days_to_return', 'start_date', 'series'];
 
     public function product()
     {

@@ -51,4 +51,13 @@ class OrderProductController extends BaseController
         return redirect()->route('admin.order.details', ['order' => $orderProduct->order->id]);
     }
 
+    public function series_save(Request $request)
+    {
+        foreach ($request->series as $key => $series) {
+            OrderProduct::whereId($key)->update(['series' => $series]);
+        }
+
+        return back()->with(['series_save' => true]);
+    }
+
 }

@@ -68,6 +68,7 @@ Route::namespace('Admin')->name('admin.')->prefix('administracja')->group(functi
         Route::get('/destroy/{order}', 'OrderController@destroy')->name('destroy');
         Route::get('/return/{orderProduct}', 'OrderController@changeStatusToReturn')->name('return');
         Route::get('/unavailable/{orderProduct}', 'OrderController@changeStatusToUnavailable')->name('unavailable');
+        Route::get('/send/{order}', 'OrderController@send')->name('send');
     });
     Route::prefix('orderproduct')->name('orderproduct.')->group(function () {
         Route::get('/', 'OrderProductController@index')->name('index');
@@ -78,6 +79,7 @@ Route::namespace('Admin')->name('admin.')->prefix('administracja')->group(functi
         Route::get('/destroy/{orderproduct}', 'OrderProductController@destroy')->name('destroy');
         Route::get('/extension/{orderProduct}', 'OrderProductController@extension')->name('extension');
         Route::post('/extension_save/{orderProduct}', 'OrderProductController@extension_save')->name('extension_save');
+        Route::post('/series_save', 'OrderProductController@series_save')->name('series_save');
     });
 
     Route::prefix('api')->name('api.')->group(function () {

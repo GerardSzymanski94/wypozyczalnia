@@ -5,8 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class OrderController extends BaseController
 {
@@ -104,6 +108,27 @@ class OrderController extends BaseController
             $order->save();
         }
         return redirect()->route('admin.order.details', ['order' => $order->id]);
+    }
+
+    public function send(Order $order)
+    {
+        $user = \App\Models\User::find($order->user_id);
+        $view = view('admin.order.pdf_content', compact('order', 'user'));
+
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML($view->render());
+
+        Mail::send('mails.body', [], function ($message) use ($order, $pdf) {
+            $message->to('gerardxlfc@gmail.com', $name = null);
+            $message->from('productbase@dev.netoholics.net');
+            $message->attachData($pdf->output(), "umowa.pdf");
+            $message->subject('Nowa wiadomość');
+        });
+
+        $order->send = 1;
+        $order->save();
+
+        return back()->with(['send' => true]);
     }
 
 }

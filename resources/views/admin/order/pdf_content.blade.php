@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -66,13 +66,13 @@
             <br>
             {{ $orderProduct->product->name }}<br>
             <br>
-            nr fabr.: __ __ __ __ __  należący do Usługodawcy, zwany dalej przedmiotem wypożyczenia.<br>
+            nr fabr.: {{ $orderProduct->series }}  należący do Usługodawcy, zwany dalej przedmiotem wypożyczenia.<br>
             <br>
             <span style="text-align: center">§ 2 </span><br>
             <br>
-            Okres wypożyczenia trwa {{ $orderProduct->days }}. dni, tj.
-            od {{ \Carbon\Carbon::parse($orderProduct->created_at)->format('Y-m-d') }} do
-            {{ \Carbon\Carbon::parse($orderProduct->created_at)->addDays($orderProduct->days)->format('Y-m-d') }}<br>
+            Okres wypożyczenia trwa {{ $orderProduct->start_date }}. dni, tj.
+            od {{ \Carbon\Carbon::parse($orderProduct->start_date)->format('Y-m-d') }} do
+            {{ \Carbon\Carbon::parse($orderProduct->start_date)->addDays($orderProduct->days)->format('Y-m-d') }}<br>
         @endisset
     @endforeach
     <br>
