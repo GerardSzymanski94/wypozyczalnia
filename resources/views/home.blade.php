@@ -92,19 +92,21 @@
 
         <section class="MainSection-hero">
             <div class="container px-0 px-md-3">
-                <div class="MainSection-hero-image" style="background-image: url('{{ asset('images/header-1.jpg') }}')">
+                <div class="MainSection-hero-image"
+                     style="background-image: url('{{ asset('public_html/images/compex-wellness1.jpg') }}')">
                     <div class="MainSection-hero-overlay">
                         <div class="MainSection-hero-text">
                             <h1 class="MainSection-hero-text--title">Dla firm i osób prywatnych</h1>
                             <p class="MainSection-hero-text--description">Zawsze nowe modele elektrostymulatorów od
                                 Compex. Dzięki nim przyspieszamy regenerację, wzmacniamy mięśnie i przygotowujemy cały
-                                organizm na duży wysiłek fizyczny.</p>
+                                organizm do wysiłku fizycznego.</p>
                             <a href="#" class="MainSection-hero-text--button">
                                 <i class="MainSection-hero-text--icon">
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                          viewBox="0 0 24 24" class="MainSection-hero-text--svg"><title>
                                             arrow-right</title>
-                                        <path d="M11.293 5.707l5.293 5.293h-11.586c-0.552 0-1 0.448-1 1s0.448 1 1 1h11.586l-5.293 5.293c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l7-7c0.092-0.092 0.166-0.202 0.217-0.324 0.101-0.245 0.101-0.521 0-0.766-0.049-0.118-0.121-0.228-0.217-0.324l-7-7c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
+                                        <path
+                                            d="M11.293 5.707l5.293 5.293h-11.586c-0.552 0-1 0.448-1 1s0.448 1 1 1h11.586l-5.293 5.293c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l7-7c0.092-0.092 0.166-0.202 0.217-0.324 0.101-0.245 0.101-0.521 0-0.766-0.049-0.118-0.121-0.228-0.217-0.324l-7-7c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
                                     </svg>
                                 </i>
                                 <span>Dowiedź się więcej</span>
@@ -122,16 +124,17 @@
                         <div class="MainSection-Items-description">
                             <h2 class="MainSection-Items--title">Wybierz i zaznacz urządzenie, które chcesz
                                 wypożyczyć</h2>
-                            <p class="MainSection-Items--text">Aby wybrać urządzenie - najedź i kliknij na produkt. Ceny
-                                wypożyczania możesz sprawdzić klikając w przycisk "Cennik dla tego modelu".</p>
+                            <p class="MainSection-Items--text">Aby wybrać urządzenie - najedź i kliknij na produkt. Cenę
+                                wypożyczenia możesz sprawdzić klikając w przycisk "Koszty wypożyczenia".</p>
                         </div>
                         <div class="@if (count($products) <= 8) single-column @else two-column @endif swiper-container">
                             <div class="swiper-wrapper">
                                 @foreach($products as $product)
                                     <div class="swiper-slide">
-                                        <label class="MainSection-Items-box product_card @if($product->amount==0) sold-out @endif"
-                                               for="product_{{ $product->id }}"
-                                               data-id="{{ $product->id }}">
+                                        <label
+                                            class="MainSection-Items-box product_card @if($product->amount==0) sold-out @endif"
+                                            for="product_{{ $product->id }}"
+                                            data-id="{{ $product->id }}">
                                             @if($product->amount==0)
                                                 <div class="MainSection-Items-flag">
                                                     Czekamy za dostawą
@@ -139,7 +142,7 @@
                                             @endif
                                             <div id="{{ $product->id }}" class="MainSection-Items--box-height">
                                                 <div class="MainSection-Items-wrapper">
-                                                    <img src="{{ asset('storage/'. $product->images->url) }}"
+                                                    <img src="{{ asset('storage/app/public/'. $product->images->url) }}"
                                                          class="MainSection-Items--image" alt="{{ $product->name }}">
                                                     <div class="MainSection-Items-wrapper-description">
                                                         <h5 class="MainSection-Items-wrapper-description--title">{{ $product->name }}</h5>
@@ -175,7 +178,9 @@
                                                         </ul>
                                                     </div>
 
-                                                    <button class="btn btn-product MainSection-Items-wrapper-group--button" type="button" data-toggle="collapse"
+                                                    <button
+                                                        class="btn btn-product MainSection-Items-wrapper-group--button"
+                                                        type="button" data-toggle="collapse"
                                                         data-target="#multiCollapse-{{ $product->id }}"
                                                         aria-expanded="false"
                                                         aria-controls="multiCollapse-{{ $product->id }}">
@@ -217,7 +222,7 @@
 
         <section class="MainSection-countItems container">
             <div class="MainSection-countItems-background"
-                 style="background-image: url('{{ asset('images/background-count-sections.jpg') }}');">
+                 style="background-image: url('{{ asset('public_html/images/compex_wellnes2.jpg') }}');">
                 <div class="row justify-content-center">
                     <div class="MainSection-countItems-group">
                         <div class="row">
@@ -270,15 +275,19 @@
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="MainSection-Items-description">
-                            <h2 class="MainSection-Items--title">By w pełni wykorzystać potencjał elektrostymulatorów konieczne są elektrody. Możesz je wybrać / kupić w kolejnym kroku. Dla ułatwienia przygotowaliśmy gotowe pakiety elektrod oraz dodatkowe akcesoria.</h2>
-                            <p  class="MainSection-Items--text">Zaznacz produkty, które chcesz dobrać do wypożyczonego urządzenia.</p>
+                            <h2 class="MainSection-Items--title">WYKORZYSTAJ W PEŁNI POTENCJAŁ ELEKTROSTYMULATORÓW I
+                                DOBIERZ ELEKTRODY.</h2>
+                            <p class="MainSection-Items--text">Zaznacz produkty, które chcesz dodać do wypożyczonego
+                                urządzenia.</p>
                         </div>
-                        <div class="@if (count($additionals) <= 8) single-column @else two-column @endif swiper-container">
+                        <div
+                            class="@if (count($additionals) <= 8) single-column @else two-column @endif swiper-container">
                             <div class="swiper-wrapper">
                                 @foreach($additionals as $additional)
                                     <div class="swiper-slide">
-                                        <label class="MainSection-Items-box additional_card @if($additional->amount==0) sold-out @endif"
-                                               for="additional_{{ $additional->id }}" data-id="{{ $additional->id }}">
+                                        <label
+                                            class="MainSection-Items-box additional_card @if($additional->amount==0) sold-out @endif"
+                                            for="additional_{{ $additional->id }}" data-id="{{ $additional->id }}">
                                             @if($additional->amount==0)
                                                 <div class="MainSection-Items-flag">
                                                     Czekamy za dostawą
@@ -286,8 +295,9 @@
                                             @endif
                                             <div id="{{ $additional->id }}" class="MainSection-Items--box-height">
                                                 <div class="MainSection-Items-wrapper">
-                                                    <img src="{{ asset('storage/'. $additional->images->url) }}"
-                                                         class="MainSection-Items--image" alt="{{ $additional->name }}">
+                                                    <img
+                                                        src="{{ asset('storage/app/public/'. $additional->images->url) }}"
+                                                        class="MainSection-Items--image" alt="{{ $additional->name }}">
 
                                                     <div class="MainSection-Items-wrapper-description">
                                                         <h5 class="MainSection-Items-wrapper-description--title">{{ $additional->name }}</h5>
@@ -303,10 +313,11 @@
                                                         <li>
                                                             <label class="MainSection-Items-wrapper-group--label">
                                                                 <span>Ilość:</span>
-                                                                <input class="MainSection-Items-wrapper-group--countItems-number amount_additional"
-                                                                       type="number"
-                                                                       name="amount_additional[{{ $additional->id }}]"
-                                                                       step="1" value="1" min="1">
+                                                                <input
+                                                                    class="MainSection-Items-wrapper-group--countItems-number amount_additional"
+                                                                    type="number"
+                                                                    name="amount_additional[{{ $additional->id }}]"
+                                                                    step="1" value="1" min="1">
                                                             </label>
                                                         </li>
                                                     </ul>
@@ -354,9 +365,10 @@
                                 <button class="btn btn-ending full-color" id="add_product">
                                     Dodaj do koszyka
                                 </button>
-                                <a href="{{ route('cart') }}" class="btn btn-ending">
-                                    Przejdź do koszyka
-                                </a>
+                                <button class="btn btn-ending" id="add_product_and_go">
+                                    Dodaj i przejdź do koszyka 
+                                </button>
+
                             </div>
                         </div>
                     </div>
@@ -410,7 +422,7 @@
                 },
                 dataType: 'json',
                 type: 'POST',
-                url: '{{ route('ajax.add_product') }}',
+                url: "{{ route('ajax.add_product') }}",
                 data: {
                     form: form
                 },
@@ -453,6 +465,36 @@
                             $('.check_alert').hide();
                         })
                     });
+                },
+                error:
+                    function (jqXHR, textStatus, errorThrown) {
+                        console.log(JSON.stringify(jqXHR));
+                        console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+                    }
+            });
+        });
+
+        $('body').on('click', '#add_product_and_go', function (e) {
+            e.preventDefault();
+
+            /* var product = $(".product_checkbox:checked").val();
+             var additional = $(".additional_checkbox:checked").val();
+             var days = $("#days").val();
+             var amount = $("#amount").val();*/
+
+            var form = $("#form").serialize();
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                dataType: 'json',
+                type: 'POST',
+                url: '{{ route('ajax.add_product') }}',
+                data: {
+                    form: form
+                },
+                success: function (data) {
+                    window.location.replace("{{ route('cart') }}");
                 },
                 error:
                     function (jqXHR, textStatus, errorThrown) {

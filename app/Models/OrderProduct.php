@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class OrderProduct extends Model
 {
     protected $fillable = ['product_id', 'order_id', 'price', 'amount', 'amount_additional', 'days', 'status',
-        'parent_id', 'deposit', 'days_to_return'];
+        'parent_id', 'deposit', 'days_to_return', 'start_date'];
 
     public function product()
     {
@@ -71,10 +71,10 @@ class OrderProduct extends Model
         }
 
 
-        $date = Carbon::parse($this->order->date_from);
+        $date = Carbon::parse($this->start_date);
 
-        if (!is_null($this->days_to_return)) {
-            $date->addDays($this->days_to_return);
+        if (!is_null($this->days)) {
+            $date->addDays($this->days);
         } else {
             $date->addDays($this->days);
         }

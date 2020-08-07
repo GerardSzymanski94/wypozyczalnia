@@ -10,23 +10,24 @@
     <title>{{ env('APP_NAME') }} | Panel Administratora</title>
 
     <!-- Bootstrap -->
-    <link href="{{ asset('vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public_html/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="{{ asset('vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public_html/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- NProgress -->
-    <link href="{{ asset('vendors/nprogress/nprogress.css') }}" rel="stylesheet">
+    <link href="{{ asset('public_html/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
     <!-- iCheck -->
-    <link href="{{ asset('vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
+    <link href="{{ asset('public_html/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
 
     <!-- bootstrap-progressbar -->
-    <link href="{{ asset('vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public_html/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}"
+          rel="stylesheet">
     <!-- JQVMap -->
-    <link href="{{ asset('vendors/jqvmap/dist/jqvmap.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('public_html/vendors/jqvmap/dist/jqvmap.min.css') }}" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
-    <link href="{{ asset('vendors/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+    <link href="{{ asset('public_html/vendors/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="{{ asset('css/custom.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public_html/css/custom.min.css') }}" rel="stylesheet">
 
     @yield('styles')
 </head>
@@ -164,58 +165,66 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
 <!-- Bootstrap -->
-<script src="{{ asset('/vendors/bootstrap/dist/js/bootstrap.min.js') }}"
+<script src="{{ asset('public_html/vendors/bootstrap/dist/js/bootstrap.min.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- FastClick -->
-<script src="{{ asset('/vendors/fastclick/lib/fastclick.js') }}"
+<script src="{{ asset('public_html/vendors/fastclick/lib/fastclick.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- NProgress -->
-<script src="{{ asset('/vendors/nprogress/nprogress.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('public_html/vendors/nprogress/nprogress.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- Chart.js -->
-<script src="{{ asset('/vendors/Chart.js/dist/Chart.min.js') }}"
+<script src="{{ asset('public_html/vendors/Chart.js/dist/Chart.min.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- gauge.js -->
-<script src="{{ asset('/vendors/gauge.js/dist/gauge.min.js') }}"
+<script src="{{ asset('public_html/vendors/gauge.js/dist/gauge.min.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- bootstrap-progressbar -->
-<script src="{{ asset('/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"
+<script src="{{ asset('public_html/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- iCheck -->
-<script src="{{ asset('/vendors/iCheck/icheck.min.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<!-- Skycons -->
-<script src="{{ asset('/vendors/skycons/skycons.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<!-- Flot -->
-<script src="{{ asset('/vendors/Flot/jquery.flot.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/Flot/jquery.flot.pie.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/Flot/jquery.flot.time.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/Flot/jquery.flot.stack.js') }}"
+<script src="{{ asset('public_html/vendors/iCheck/icheck.min.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/Flot/jquery.flot.resize.js') }}"
+<!-- Skycons -->
+<script src="{{ asset('public_html/vendors/skycons/skycons.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<!-- Flot -->
+<script src="{{ asset('public_html/vendors/Flot/jquery.flot.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('public_html/vendors/Flot/jquery.flot.pie.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('public_html/vendors/Flot/jquery.flot.time.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('public_html/vendors/Flot/jquery.flot.stack.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('public_html/vendors/Flot/jquery.flot.resize.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- Flot plugins -->
-<script src="{{ asset('/vendors/flot.orderbars/js/jquery.flot.orderBars.js') }}"
+<script src="{{ asset('public_html/vendors/flot.orderbars/js/jquery.flot.orderBars.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/flot-spline/js/jquery.flot.spline.min.js') }}"
+<script src="{{ asset('public_html/vendors/flot-spline/js/jquery.flot.spline.min.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/flot.curvedlines/curvedLines.js') }}"
+<script src="{{ asset('public_html/vendors/flot.curvedlines/curvedLines.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- DateJS -->
-<script src="{{ asset('/vendors/DateJS/build/date.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('public_html/vendors/DateJS/build/date.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- JQVMap -->
-<script src="{{ asset('/vendors/jqvmap/dist/jquery.vmap.js') }}"
+<script src="{{ asset('public_html/vendors/jqvmap/dist/jquery.vmap.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"
+<script src="{{ asset('public_html/vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"
+<script src="{{ asset('public_html/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 <!-- bootstrap-daterangepicker -->
-<script src="{{ asset('/vendors/moment/min/moment.min.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
-<script src="{{ asset('/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"
+<script src="{{ asset('public_html/vendors/moment/min/moment.min.js') }}"
+        type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('public_html/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"
         type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 
-<script src="{{ asset('js/jquery.tablesorter.min.js') }}"></script>
+<script src="{{ asset('public_html/js/jquery.tablesorter.min.js') }}"></script>
 <!-- Custom Theme Scripts -->
-<script src="{{ asset('/js/custom.min.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
+<script src="{{ asset('public_html/js/custom.min.js') }}" type="db25bb0af1c5ca965d7b8174-text/javascript"></script>
 
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/a2bd7673/cloudflare-static/rocket-loader.min.js"
         data-cf-settings="db25bb0af1c5ca965d7b8174-|49" defer=""></script>

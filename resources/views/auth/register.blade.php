@@ -1,47 +1,55 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="MainSection-register container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <form method="POST" action="{{ route('register') }}" class="MainSection-register-form">
-                <h1 class="MainSection-register--title">{{ __('Rejestracja') }}</h1>
+    <div class="MainSection-register container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <form method="POST" action="{{ route('register') }}" class="MainSection-register-form">
+                    <h1 class="MainSection-register--title">{{ __('Rejestracja') }}</h1>
 
-                @csrf
+                    @csrf
 
-                <div class="MainSection-register-controls">
-                    <input id="name" type="text" class="MainSection-register-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="{{ __('Name') }}" autofocus>
+                    <div class="MainSection-register-controls">
+                        <input id="name" type="text"
+                               class="MainSection-register-control @error('name') is-invalid @enderror" name="name"
+                               value="{{ old('name') }}" required autocomplete="name" placeholder="Imię" autofocus>
 
-                    @error('name')
+                        @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
+                        @enderror
 
-                    <input id="email" type="email" class="MainSection-register-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="{{ __('E-Mail Address') }}">
+                        <input id="email" type="email"
+                               class="MainSection-register-control @error('email') is-invalid @enderror" name="email"
+                               value="{{ old('email') }}" required autocomplete="email" placeholder="E-mail">
 
-                    @error('email')
+                        @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
+                        @enderror
 
-                    <input id="password" type="password" class="MainSection-register-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="{{ __('Password') }}">
+                        <input id="password" type="password"
+                               class="MainSection-register-control @error('password') is-invalid @enderror"
+                               name="password" required autocomplete="new-password" placeholder="Hasło">
 
-                    @error('password')
+                        @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
+                        @enderror
 
-                    <input id="password-confirm" type="password" class="MainSection-register-control" name="password_confirmation" required autocomplete="new-password" placeholder="{{ __('Confirm Password') }}">
-                </div>
+                        <input id="password-confirm" type="password" class="MainSection-register-control"
+                               name="password_confirmation" required autocomplete="new-password"
+                               placeholder="Powtórz hasło">
+                    </div>
 
-                <button type="submit" class="btn btn-login-page full-color">
-                    {{ __('Register') }}
-                </button>
-            </form>
+                    <button type="submit" class="btn btn-login-page full-color">
+                        Zarejestruj
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 @endsection

@@ -110,6 +110,8 @@ class HomeController extends Controller
             $order->delivery_id = $request->delivery;
             if ($request->has('delivery_additional')) {
                 $order->delivery_additional = $request->delivery_additional;
+                $order->delivery_address = $request->delivery_address;
+                $order->delivery_city = $request->delivery_city;
             }
         }
 

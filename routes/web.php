@@ -27,6 +27,7 @@ Route::namespace('Ajax')->name('ajax.')->prefix('ajax')->group(function () {
     Route::post('/get_price', 'AjaxController@getPrice')->name('get_price');
     Route::post('/update_amount', 'AjaxController@updateAmount')->name('update_amount');
     Route::post('/update_days', 'AjaxController@updateDays')->name('update_days');
+    Route::post('/update_date', 'AjaxController@updateDate')->name('update_date');
     Route::post('/update_delivery', 'AjaxController@updateDelivery')->name('update_delivery');
 });
 

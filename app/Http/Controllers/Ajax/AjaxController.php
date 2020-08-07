@@ -99,7 +99,8 @@ class AjaxController extends Controller
                 'amount' => $params['amount'],
                 'price' => $product->price($params['days'], $params['amount']),
                 'deposit' => $product->deposit * $params['amount'],
-                'status' => 1
+                'status' => 1,
+                'start_date' => Carbon::today()->format('Y-m-d')
             ]);
             if ($inputAdditionals && $inputAmountAdditional && $checkAmountAdditional) {
                 foreach ($params['additional'] as $additional) {
@@ -111,7 +112,8 @@ class AjaxController extends Controller
                         //'days' => $params['days'],
                         'price' => $product->priceAdditional($params['amount_additional'][$additional]),
                         'status' => 1,
-                        'parent_id' => $orderProduct->id
+                        'parent_id' => $orderProduct->id,
+                        'start_date' => Carbon::today()->format('Y-m-d')
                     ]);
                 }
 
@@ -195,6 +197,23 @@ class AjaxController extends Controller
         $order->save();
 
         return response()->json(['price' => $orderProduct->price, 'id' => $orderProduct->id, 'total_price' => $order->total_price]);
+    }
+
+    public function updateDate(Request $request)
+    {
+        $orderProduct = OrderProduct::find($request->product);
+        $orderProduct->start_date = $request->date;
+        $orderProduct->save();
+
+        // $product = $orderProduct->product;
+        // $orderProduct->price = $product->price($orderProduct->days, $orderProduct->amount);
+        // $orderProduct->save();
+
+        // $order = $orderProduct->order;
+        // $order->total_price = $order->price();
+        // $order->save();
+
+        return response()->json(['price' => $orderProduct->price, 'id' => $orderProduct->id]);
     }
 
     public function updateDelivery(Request $request)

@@ -62,9 +62,9 @@ class BaselinkerApiRepository
         $parameters['delivery_postcode'] = $user->zip_code;
         $parameters['delivery_country_code'] = "PL";
         $parameters['delivery_point_id'] = $order->delivery_additional;
-        $parameters['delivery_point_name'] = "";
-        $parameters['delivery_point_address'] = "";
-        $parameters['delivery_point_postcode'] = "";
+        $parameters['delivery_point_name'] = $order->delivery_additional;
+        $parameters['delivery_point_address'] = $order->delivery_address;
+        $parameters['delivery_point_postcode'] = $order->delivery_city;
         $parameters['delivery_point_city'] = "";
         $parameters['invoice_fullname'] = $user->name_invoice;
         $parameters['invoice_company'] = "Firma";

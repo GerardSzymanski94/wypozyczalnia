@@ -47,7 +47,8 @@
                         </td>
                         <td>
                             @if(isset($product->getMainPhoto))
-                                <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}" height="100px"
+                                <img src="{{ asset('storage/app/public/'. $product->getMainPhoto->url) }}"
+                                     height="100px"
                                      width="100px"
                                      class="float-left">
                             @else
@@ -81,7 +82,8 @@
                         </td>
                         <td>
                             @if(isset($additional->getMainPhoto))
-                                <img src="{{ asset('storage/'. $additional->getMainPhoto->url) }}" height="100px"
+                                <img src="{{ asset('storage/app/public/'. $additional->getMainPhoto->url) }}"
+                                     height="100px"
                                      width="100px"
                                      class="float-left">
                             @else

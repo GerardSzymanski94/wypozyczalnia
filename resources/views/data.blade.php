@@ -29,6 +29,9 @@
                                     </div>
                                     <div class="MainSection-summary-list-cell MainSection-summary-list-count">Ilość
                                     </div>
+                                    <div class="MainSection-summary-list-cell MainSection-summary-list-days">Data
+                                        początkowa
+                                    </div>
                                     <div class="MainSection-summary-list-cell MainSection-summary-list-days">Dni</div>
                                     <div class="MainSection-summary-list-cell MainSection-summary-list-price">Cena</div>
                                     <div class="MainSection-summary-list-cell MainSection-summary-list-deposit">Kaucja
@@ -49,6 +52,13 @@
                                             @else
                                                 {{ $product->amount }}
                                             @endif
+                                        </div>
+                                        <div class="MainSection-summary-list-cell MainSection-summary-list-days">
+                                            <div class="MainSection-summary-list-name">Data początkowa</div>
+                                            <span>
+                                                @if($product->product->status==1)
+                                                    {{ \Carbon\Carbon::parse($product->start_date)->format('Y-m-d') }}
+                                                @endif </span>
                                         </div>
                                         <div class="MainSection-summary-list-cell MainSection-summary-list-days">
                                             <div class="MainSection-summary-list-name">Dni</div>
@@ -201,7 +211,7 @@
                                     </div>
                                     <div class="col-12 col-lg-10 invoice" style="display: none">
                                         <label for="zip_code_invoice">Kod pocztowy <span
-                                                    class="required">*</span></label>
+                                                class="required">*</span></label>
                                         <input type="text" name="zip_code_invoice" id="zip_code_invoice"
                                                class="form-control MainSection-summary-form-control"
                                                value="{{ old('zip_code_invoice', $user->zip_code_invoice ?? '') }}">
@@ -248,6 +258,14 @@
                                                         <input type="text" placeholder="{{ $delivery->additional }}"
                                                                name="delivery_additional"
                                                                class="MainSection-summary-form-delivery--number form-control">
+                                                        <input type="text" placeholder="Adres paczkomatu"
+                                                               name="delivery_address"
+                                                               class="MainSection-summary-form-delivery--number form-control">
+                                                        <input type="text" placeholder="Kod i miasto"
+                                                               name="delivery_city"
+                                                               class="MainSection-summary-form-delivery--number form-control">
+                                                        <a href="https://inpost.pl/znajdz-paczkomat" target="_blank">Znajdź
+                                                            paczkomat</a>
                                                     @endif
                                                 </li>
                                             @endforeach
@@ -262,7 +280,8 @@
                                 <div class="MainSection-summary-form--box-summary--text">
                                     <p class="MainSection-summary-form--box-summary--title">Podsumowanie:</p>
                                     <p class="MainSection-summary-form--box-summary--price">
-                                        <span class="MainSection-summary-form--box-summary--small-name">Do zapłaty: </span>
+                                        <span
+                                            class="MainSection-summary-form--box-summary--small-name">Do zapłaty: </span>
                                         <span class="MainSection-summary-form--box-summary--big-price" id="total_price">{{ $order->price() }}
                                             zł</span>
                                     </p>
@@ -272,7 +291,7 @@
                                     <div class="MainSection-summary-form-rule">
                                         <label for="terms" class="MainSection-summary-form--label">
                                             <span>Akceptuje</span>
-                                            <a href="{{ route('terms') }}" target="_blank">
+                                            <a href="/public_html/regulamin.pdf" target="_blank">
                                                 <span>regulamin</span>
                                                 <span class="required">*</span>
                                             </a>

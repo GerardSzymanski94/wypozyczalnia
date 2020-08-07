@@ -74,7 +74,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="baselinker_id">ID produktu w Baselinker <span
-                                    class="required">*</span></label>
+                                class="required">*</span></label>
                         <input type="text" name="baselinker_id" id="baselinker_id"
                                class="form-control"
                                value="{{ old('baselinker_id', $product->baselinker_id ?? '') }}">
@@ -86,7 +86,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="ean">EAN<span
-                                    class="required">*</span></label>
+                                class="required">*</span></label>
                         <input type="text" name="ean" id="ean"
                                class="form-control"
                                value="{{ old('ean', $product->ean ?? '') }}">
@@ -100,7 +100,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="sku">SKU <span
-                                    class="required">*</span></label>
+                                class="required">*</span></label>
                         <input type="text" name="sku" id="sku"
                                class="form-control"
                                value="{{ old('sku', $product->sku ?? '') }}">
@@ -156,7 +156,8 @@
                         <label for="photo">Zdjęcie</label>
                         <input type="file" class="form-control-file" name="photo" id="photo">
                         @if(isset( $product->getMainPhoto->url))
-                            <img src="{{ asset('storage/'. $product->getMainPhoto->url) }}" height="100px" width="100px"
+                            <img src="{{ asset('storage/app/public/'. $product->getMainPhoto->url) }}" height="100px"
+                                 width="100px"
                                  class="float-left">
                         @endif
 
