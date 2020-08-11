@@ -45,11 +45,11 @@
                                         <i class="MainSection-orders-button-icon fa fa-list"></i>
                                         <span>Szczegóły</span>
                                     </a>
-                                    <a href="{{ route('create_pdf', ['order'=>$order->id]) }}"
+                                   {{-- <a href="{{ route('create_pdf', ['order'=>$order->id]) }}"
                                     class="btn btn-secondary btn-danger MainSection-orders-button">
                                         <i class="MainSection-orders-button-icon fa fa-file-pdf-o"></i>
                                         <span>Pobierz umowę</span>
-                                    </a>
+                                    </a>--}}
                                 </div>
                             </li>
                             @endforeach

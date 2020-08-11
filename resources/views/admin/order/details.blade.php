@@ -3,6 +3,11 @@
 @section('content')
 
     <div class="x_panel">
+        @if(\Illuminate\Support\Facades\Session::has('send'))
+            <div class="alert alert-success">
+                Umowa wysłana
+            </div>
+        @endif
         @if(\Illuminate\Support\Facades\Session::has('series_save'))
 
             <div class="alert alert-success">
@@ -46,8 +51,14 @@
             <h2>Wyślij umowę do użytkownika</h2>
             <span class="text-danger"> Przed wysłaniem upewnij się, że są wpisane numery seryjne urządzeń</span>
             <ul>
-                <li><a class="btn btn-primary" href="{{ route('admin.order.send', ['order'=>$order->id]) }}"> Wyślij
-                        umowę</a>
+                <li>
+                    @if($order->send==1)
+                        <a disabled="" class="btn btn-primary" href="{{ route('admin.order.send', ['order'=>$order->id]) }}"> Umowa wysłana</a>
+                    @else
+                        <a  class="btn btn-primary" href="{{ route('admin.order.send', ['order'=>$order->id]) }}"> Wyślij
+                            umowę</a>
+                    @endif
+
                 </li>
             </ul>
 

@@ -119,10 +119,11 @@ class OrderController extends BaseController
         $pdf->loadHTML($view->render());
 
         Mail::send('mails.body', [], function ($message) use ($order, $pdf) {
+            //$message->to($order->email, $name = null);
             $message->to('gerardxlfc@gmail.com', $name = null);
-            $message->from('productbase@dev.netoholics.net');
+            $message->from(env('MAIL_USERNAME'));
             $message->attachData($pdf->output(), "umowa.pdf");
-            $message->subject('Nowa wiadomość');
+            $message->subject('Rehastore - umowa do podpisania');
         });
 
         $order->send = 1;
