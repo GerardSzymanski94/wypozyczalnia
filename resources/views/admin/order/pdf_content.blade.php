@@ -14,20 +14,31 @@
             text-align: center;
         }
 
-        #left {
-            float: left;
-            width: 100px;
+        .container2 {
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
         }
 
-        #center {
+        .left {
+            float: left;
+            width: 100px;
+            height: 40px;
+            margin-top: auto;
+        }
+
+        .center {
             display: inline-block;
             margin: 0 auto;
             width: 100px;
         }
 
-        #right {
+        .right {
             float: right;
             width: 100px;
+            height: 40px;
+            margin-top: auto;
         }
     </style>
 </head>
@@ -127,12 +138,18 @@
 
     <br>
 </div>
-<div id="container">
-    <div id="left">...................................................<br>
+<div class="container2" style="height: 100px; margin-top:30px">
+    <div class="left">
+    </div>
+    <div class="center"></div>
+    <div class="right" style="margin-right: 80px"><img src="{{ $base64 }}" style="width: 350px; height: auto; position: absolute;"></div>
+</div>
+<div class="container2" style="height: 50px; margin-top:20px">
+    <div class="left">
         podpis USŁUGOBIORCY
     </div>
-    <div id="center"></div>
-    <div id="right"><img src="{{ $base64 }}" style="width: 50px"><br>podpis USŁUGODAWCY</div>
+    <div class="center"></div>
+    <div class="right">podpis USŁUGODAWCY</div>
 </div>
 
 

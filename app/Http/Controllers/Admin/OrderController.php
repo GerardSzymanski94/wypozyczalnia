@@ -131,6 +131,7 @@ class OrderController extends BaseController
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML($view->render());
 
+        //return $pdf->stream();
         Mail::send('mails.body', array('test'=>1), function ($message) use ($order, $pdf) {
             $message->to($order->user->email, $name = $order->name);
          //   $message->to('gerardxlfc@gmail.com', $name = null);
