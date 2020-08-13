@@ -8,6 +8,11 @@
                 Umowa wysłana
             </div>
         @endif
+        @if(\Illuminate\Support\Facades\Session::has('series'))
+            <div class="alert alert-danger">
+               Conajmniej jeden sprzęt nie ma wpisanych numerów
+            </div>
+        @endif
         @if(\Illuminate\Support\Facades\Session::has('series_save'))
 
             <div class="alert alert-success">
@@ -52,7 +57,7 @@
             <span class="text-danger"> Przed wysłaniem upewnij się, że są wpisane numery seryjne urządzeń</span>
             <ul>
                 <li>
-                    @if($order->send==1)
+                    @if($order->send==1 && false)
                         <a disabled="" class="btn btn-primary" href="{{ route('admin.order.send', ['order'=>$order->id]) }}"> Umowa wysłana</a>
                     @else
                         <a  class="btn btn-primary" href="{{ route('admin.order.send', ['order'=>$order->id]) }}"> Wyślij

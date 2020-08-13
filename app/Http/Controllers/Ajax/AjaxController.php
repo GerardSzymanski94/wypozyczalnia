@@ -30,7 +30,7 @@ class AjaxController extends Controller
             $inputDays = false;
         }
         if (!isset($params['amount']) || $params['amount'] <= 0) {
-            $inputAmount = false;
+            $inputAmount = false; 
         }
 
         if (isset($params['product'])) {

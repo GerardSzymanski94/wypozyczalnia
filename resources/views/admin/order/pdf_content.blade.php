@@ -37,7 +37,7 @@
     <h2 style="text-align: center">UMOWA WYPOŻYCZENIA</h2>
     <br>
     <br>
-    zawarta dnia .................................... w Poznaniu pomiędzy:<br>
+    zawarta dnia {{ \Carbon\Carbon::parse($order->date_from)->addDays(2)->format('Y-m-d') }} w Poznaniu pomiędzy:<br>
     <br>
     GymProFit Łukasz Gołębniak z siedzibą w Poznaniu przy ulicy Andrzejewskiego 5/5, wpisaną do ewidencji działalności
     gospodarczej prowadzonej przez Prezydenta Miasta Poznania pod numerem 38153/2006/S, REGON 639764777<br>
@@ -88,7 +88,7 @@
     <br>
     Za ww. usługę w ww. okresie Usługobiorca zobowiązuje się do zapłaty kwoty [stawka brutto za dzień wypożyczenia] x
     ilość
-    dni wypożyczenia, łącznie: .................... zł.
+    dni wypożyczenia, łącznie: {{ $order->price() }} zł.
     <br>
     Za każdą kolejną dobę wypożyczenia Usługobiorca zapłaci ww. stawkę dzienną dla danego urządzenia.
     <br>
@@ -132,7 +132,7 @@
         podpis USŁUGOBIORCY
     </div>
     <div id="center"></div>
-    <div id="right">.................................................<br>podpis USŁUGODAWCY</div>
+    <div id="right"><img src="{{ $base64 }}" style="width: 50px"><br>podpis USŁUGODAWCY</div>
 </div>
 
 

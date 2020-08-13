@@ -112,15 +112,28 @@ class OrderController extends BaseController
 
     public function send(Order $order)
     {
+        $path = public_path('images/Podpis_0.png');
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+       // dd($base64);
+        foreach($order->orderProducts as $orderProduct){
+            if(is_null($orderProduct->series) && $orderProduct->product->status==1){
+                return back()->with(['series' => true]);
+            }
+        }
+
+
         $user = \App\Models\User::find($order->user_id);
-        $view = view('admin.order.pdf_content', compact('order', 'user'));
+        $view = view('admin.order.pdf_content', compact('order', 'user', 'base64'));
+
 
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML($view->render());
 
-        Mail::send('mails.body', [], function ($message) use ($order, $pdf) {
-            //$message->to($order->email, $name = null);
-            $message->to('gerardxlfc@gmail.com', $name = null);
+        Mail::send('mails.body', array('test'=>1), function ($message) use ($order, $pdf) {
+            $message->to($order->user->email, $name = $order->name);
+         //   $message->to('gerardxlfc@gmail.com', $name = null);
             $message->from(env('MAIL_USERNAME'));
             $message->attachData($pdf->output(), "umowa.pdf");
             $message->subject('Rehastore - umowa do podpisania');
